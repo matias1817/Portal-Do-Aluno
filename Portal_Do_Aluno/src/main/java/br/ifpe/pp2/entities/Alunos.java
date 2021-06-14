@@ -12,11 +12,10 @@ public class Alunos {
 	private Curso curso;
 	private List<Frequencia> frequencia;
 	private List<Avaliacao> avaliacao;
-	private List<HorarioA> horarioA;
 	
 	
 	public Alunos(Integer id, String nome, String senha, String matricula, String sexo, String email, Curso curso,
-			List<Frequencia> frequencia, List<Avaliacao> avaliacao, List<HorarioA> horarioA) {
+			List<Frequencia> frequencia, List<Avaliacao> avaliacao) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -27,7 +26,6 @@ public class Alunos {
 		this.curso = curso;
 		this.frequencia = frequencia;
 		this.avaliacao = avaliacao;
-		this.horarioA = horarioA;
 	}
 
 	public Alunos() {
@@ -92,13 +90,4 @@ public class Alunos {
 		this.avaliacao = avaliacao;
 	}
 
-	public List<HorarioA> getHorarioA() {
-		return horarioA;
-	}
-
-	public void setHorarioA(List<HorarioA> horarioA) {
-		this.horarioA = horarioA;
-	}
-	
-	
 }

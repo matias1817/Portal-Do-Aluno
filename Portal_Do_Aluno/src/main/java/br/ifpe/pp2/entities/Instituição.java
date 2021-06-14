@@ -1,17 +1,17 @@
 package br.ifpe.pp2.entities;
 
-public class ContatosI {
+public class Instituição {
 	private Integer id;
 	private String numero;
 	private String site;
 	
-	public ContatosI(Integer id, String numero, String site) {
+	public Instituição(Integer id, String numero, String site) {
 		super();
 		this.id = id;
 		this.numero = numero;
 		this.site = site;
 	}
-	public ContatosI() {
+	public Instituição() {
 		super();
 	}
 	public Integer getId() {

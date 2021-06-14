@@ -9,18 +9,17 @@ public class Professores {
 	private String nome;
 	private List<Aulas> aulas;
 	private List<Materias> materias;
-	private List<HorarioP> horarioP;
 	
 	
-	public Professores(Integer id, String email, String senha, String nome, List<Aulas> aulas, List<Materias> materias,
-			List<HorarioP> horarioP) {
+	
+	public Professores(Integer id, String email, String senha, String nome, List<Aulas> aulas, List<Materias> materias
+			) {
 		this.id = id;
 		this.email = email;
 		this.senha = senha;
 		this.nome = nome;
 		this.aulas = aulas;
 		this.materias = materias;
-		this.horarioP = horarioP;
 	}
 
 	public Professores() {
@@ -67,12 +66,5 @@ public class Professores {
 		this.materias = materias;
 	}
 
-	public List<HorarioP> getHorarioP() {
-		return horarioP;
-	}
-
-	public void setHorarioP(List<HorarioP> horarioP) {
-		this.horarioP = horarioP;
-	}
 	
 }

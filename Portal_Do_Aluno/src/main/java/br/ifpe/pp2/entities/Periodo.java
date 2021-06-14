@@ -8,19 +8,15 @@ public class Periodo {
 	private List<Avaliacao> avaliacao;
 	private List<Frequencia> frequencia;
 	private List<Materias> materias;
-	private List<HorarioA> horarioA;
-	private List<HorarioP> horarioP;
 	
 	public Periodo(Integer id, String periodo, List<Avaliacao> avaliacao, List<Frequencia> frequencia,
-			List<Materias> materias, List<HorarioA> horarioA, List<HorarioP> horarioP) {
+			List<Materias> materias) {
 		super();
 		this.id = id;
 		this.periodo = periodo;
 		this.avaliacao = avaliacao;
 		this.frequencia = frequencia;
 		this.materias = materias;
-		this.horarioA = horarioA;
-		this.horarioP = horarioP;
 	}
 	public Integer getId() {
 		return id;
@@ -51,18 +47,6 @@ public class Periodo {
 	}
 	public void setMaterias(List<Materias> materias) {
 		this.materias = materias;
-	}
-	public List<HorarioA> getHorarioA() {
-		return horarioA;
-	}
-	public void setHorarioA(List<HorarioA> horarioA) {
-		this.horarioA = horarioA;
-	}
-	public List<HorarioP> getHorarioP() {
-		return horarioP;
-	}
-	public void setHorarioP(List<HorarioP> horarioP) {
-		this.horarioP = horarioP;
 	}
 	
 	

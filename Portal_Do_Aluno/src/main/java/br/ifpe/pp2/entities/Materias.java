@@ -7,54 +7,76 @@ public class Materias {
 	private String nome;
 	private Professores professores;
 	private Curso curso;
+	private Periodo periodo;
+	private String horario;
 	private List<Aulas> aulas;
-	private List<HorarioA> horarioA;
-	private List<HorarioP> horarioP;
 	private List<Frequencia> frequencia;
 	private List<Avaliacao> avaliacao;
 	
-	
-	
-	public Materias(Integer id, String nome, Professores professores, Curso curso, List<Aulas> aulas,
-			List<HorarioA> horarioA, List<HorarioP> horarioP, List<Frequencia> frequencia, List<Avaliacao> avaliacao) {
+	public Materias(Integer id, String nome, Professores professores, Curso curso, Periodo periodo, String horario,
+			List<Aulas> aulas, List<Frequencia> frequencia, List<Avaliacao> avaliacao) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.professores = professores;
 		this.curso = curso;
+		this.periodo = periodo;
+		this.horario = horario;
 		this.aulas = aulas;
-		this.horarioA = horarioA;
-		this.horarioP = horarioP;
 		this.frequencia = frequencia;
 		this.avaliacao = avaliacao;
 	}
 
 	public Materias() {
+		super();
 	}
 
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
 	public Professores getProfessores() {
 		return professores;
 	}
+
 	public void setProfessores(Professores professores) {
 		this.professores = professores;
 	}
+
 	public Curso getCurso() {
 		return curso;
 	}
+
 	public void setCurso(Curso curso) {
 		this.curso = curso;
+	}
+
+	public Periodo getPeriodo() {
+		return periodo;
+	}
+
+	public void setPeriodo(Periodo periodo) {
+		this.periodo = periodo;
+	}
+
+	public String getHorario() {
+		return horario;
+	}
+
+	public void setHorario(String horario) {
+		this.horario = horario;
 	}
 
 	public List<Aulas> getAulas() {
@@ -63,22 +85,6 @@ public class Materias {
 
 	public void setAulas(List<Aulas> aulas) {
 		this.aulas = aulas;
-	}
-
-	public List<HorarioA> getHorarioA() {
-		return horarioA;
-	}
-
-	public void setHorarioA(List<HorarioA> horarioA) {
-		this.horarioA = horarioA;
-	}
-
-	public List<HorarioP> getHorarioP() {
-		return horarioP;
-	}
-
-	public void setHorarioP(List<HorarioP> horarioP) {
-		this.horarioP = horarioP;
 	}
 
 	public List<Frequencia> getFrequencia() {
@@ -96,6 +102,5 @@ public class Materias {
 	public void setAvaliacao(List<Avaliacao> avaliacao) {
 		this.avaliacao = avaliacao;
 	}
-	
 	
 }
