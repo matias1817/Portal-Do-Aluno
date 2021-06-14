@@ -65,6 +65,5 @@ public class Professores {
 	public void setMaterias(List<Materias> materias) {
 		this.materias = materias;
 	}
-
 	
 }

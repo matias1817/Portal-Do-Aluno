@@ -7,15 +7,17 @@ public class Avaliacao {
 	private double nota;
 	private Alunos alunos;
 	private Materias materias;
-	private LocalDate data;
+	private LocalDate data; 
+	private Periodo periodo;
 	
 	
-	public Avaliacao(Integer id, double nota, Alunos alunos, Materias materias, LocalDate data) {
+	public Avaliacao(Integer id, double nota, Alunos alunos, Materias materias, LocalDate data, Periodo periodo) {
 		this.id = id;
 		this.nota = nota;
 		this.alunos = alunos;
 		this.materias = materias;
 		this.data = data;
+		this.periodo = periodo;
 	}
 	
 	public Avaliacao() {
@@ -50,6 +52,14 @@ public class Avaliacao {
 	}
 	public void setData(LocalDate data) {
 		this.data = data;
+	}
+
+	public Periodo getPeriodo() {
+		return periodo;
+	}
+
+	public void setPeriodo(Periodo periodo) {
+		this.periodo = periodo;
 	}
 	
 	
