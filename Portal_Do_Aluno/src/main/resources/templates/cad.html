@@ -1,0 +1,22 @@
+<!DOCTYPE html   >
+<html xnlns:th="www.thymelaef.org">
+<head>
+<meta charset="UTF-8">
+<title>Cadastro de alunos</title>
+</head>
+<body>
+<form action="/cad" method="post">
+Nome: <input type="text"><br>
+Senha: <input type="password"><br>
+Sexo: <input type="text"><br>
+Email: <input type="email"><br>
+Curso: <select name="curso">
+		<option th:each = "cat : ${cursos}" 
+		th:value = "${cat.id}"
+		th:text = "${cat.nome}"
+		>
+		</select>
+		<button type ="submit"> Cadastrar </button>
+</form>
+</body>
+</html>
