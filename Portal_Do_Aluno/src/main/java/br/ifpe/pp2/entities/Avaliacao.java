@@ -17,6 +17,7 @@ public class Avaliacao {
 	private double nota;
 	@ManyToOne
 	private Alunos alunos;
+	@ManyToOne
 	private Materias materias;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate data; 
