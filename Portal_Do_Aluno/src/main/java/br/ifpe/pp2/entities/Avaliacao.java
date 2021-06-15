@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -14,10 +15,12 @@ public class Avaliacao {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private double nota;
+	@ManyToOne
 	private Alunos alunos;
 	private Materias materias;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate data; 
+	@ManyToOne
 	private Periodo periodo;
 	
 	

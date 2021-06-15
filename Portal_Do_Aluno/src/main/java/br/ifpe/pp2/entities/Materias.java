@@ -6,18 +6,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Materias {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
+	@ManyToOne
 	private Professores professores;
+	@ManyToOne
 	private Curso curso;
+	@ManyToOne
 	private Periodo periodo;
 	private String horario;
+	@OneToMany
 	private List<Aulas> aulas;
+	@OneToMany
 	private List<Frequencia> frequencia;
+	@OneToMany
 	private List<Avaliacao> avaliacao;
 	
 	public Materias(Integer id, String nome, Professores professores, Curso curso, Periodo periodo, String horario,

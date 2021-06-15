@@ -6,14 +6,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Periodo {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String periodo;
+	@OneToMany
 	private List<Avaliacao> avaliacao;
+	@OneToMany
 	private List<Frequencia> frequencia;
+	@OneToMany
 	private List<Materias> materias;
 	
 	public Periodo(Integer id, String periodo, List<Avaliacao> avaliacao, List<Frequencia> frequencia,
