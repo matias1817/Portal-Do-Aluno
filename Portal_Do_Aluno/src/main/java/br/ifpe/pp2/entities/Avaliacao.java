@@ -2,11 +2,21 @@ package br.ifpe.pp2.entities;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+@Entity
 public class Avaliacao {
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private double nota;
 	private Alunos alunos;
 	private Materias materias;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate data; 
 	private Periodo periodo;
 	
