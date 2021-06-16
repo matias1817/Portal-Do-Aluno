@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cadastro de Professores</title>
+</head>
+<body>
+<form action="/salvarProfessores" method="post" th:object=${Professor}>
+<input type="hidden" th:field="*{id}"/>
+Nome: <input type="text" th:field = *{nome}><br>
+Senha: <input type="password" th:field = *{senha}><br>
+Email: <input type="email" th:field = *{email}><br>
+		<button type ="submit"> Cadastrar </button>
+	<h3><a href= "/homeP">Voltar para a home</a></h3>
+</body>
+</html>
