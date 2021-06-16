@@ -20,30 +20,6 @@ Curso: <select name="curso">
 		</select>
 		<button type ="submit"> Cadastrar </button>
 </form>
-	<table>
-	<tr> 
-	<th>Nome</th>
-	<th>Senha</th>
-	<th>Matricula</th>
-	<th>Sexo</th>	
-	<th>Email</th>
-	<th>Curso</th>
-	</tr>
-		<tr th:each="aluno : ${lista}">
-				<td th:text="${aluno.nome}"></td>
-				<td th:text="${aluno.senha}"></td>
-				<td th:text="${aluno.matricula}"></td>
-				<td th:text="${aluno.sexo}"></td>
-				<td th:text="${aluno.email}"></td>
-				<td th:text="${aluno.curso.nome}"></td>
-				<td>
-				<a th:href="|/cad?id=${aluno.id}|">Editar</a
-				>
-				<a th:href="|/excluirAluno?id=${aluno.id}|">Excluir</a
-				>
-		</td>
-	</tr>
-	</table>
-<h3><a href= "/home">Voltar para a home</a></h3>
+	
 </body>
 </html>

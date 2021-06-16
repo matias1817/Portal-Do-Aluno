@@ -19,9 +19,23 @@ public class AlunoController {
 	@Autowired
 	private CursoDAO cursoDAO;
 	
+	@GetMapping("/")
+	public String exibirLogin(Model model) {
+		return "login";
+	}
+	
 	@GetMapping("/home")
 	public String exibirHome(Model model){
 		return "Home";
+	}
+	@GetMapping("/loginAluno")
+	public String logarAluno(String email, String senha, Model model) {
+		if(alunoDAO.findByemailAndSenha(email, senha) != null){
+			return "redirect:/home";
+	} else {
+			return "redirect:/";
+	}
+		
 	}
 	
 	@GetMapping("/cad")
@@ -32,15 +46,17 @@ public class AlunoController {
 	} else {
 	model.addAttribute("Aluno", new Alunos());
 	}
+
 	model.addAttribute("lista", this.alunoDAO.findAll());
+	
 	model.addAttribute("curso", this.cursoDAO.findAll());
 	return "cad";
 	}
-	
+	  
 	@PostMapping("/salvarAluno")
 	public String salvarAluno(Alunos alunos) {
 		this.alunoDAO.save(alunos);
-		return "redirect:/cad";
+		return "redirect:/";
 	}
 	 
 	@GetMapping("/excluirAluno")
@@ -48,4 +64,8 @@ public class AlunoController {
 	this.alunoDAO.deleteById(id);
 	return "redirect:/home";
 	}
+	
+	
+	
+	
 }
