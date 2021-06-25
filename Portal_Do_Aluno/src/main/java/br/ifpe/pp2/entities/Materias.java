@@ -2,30 +2,49 @@ package br.ifpe.pp2.entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 public class Materias {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
+	
 	@ManyToOne
+	@JoinColumn
 	private Professores professores;
+	
 	@ManyToOne
+	@JoinColumn
 	private Curso curso;
+	
 	@ManyToOne
+	@JoinColumn
 	private Periodo periodo;
+	
 	private String horario;
-	@OneToMany
+	
+	@OneToMany( orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @Fetch(FetchMode.SUBSELECT)
 	private List<Aulas> aulas;
-	@OneToMany
+	
+	@OneToMany ( orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @Fetch(FetchMode.SUBSELECT)
 	private List<Frequencia> frequencia;
-	@OneToMany
+	
+	@OneToMany( orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @Fetch(FetchMode.SUBSELECT)
 	private List<Avaliacao> avaliacao;
 	
 	public Materias(Integer id, String nome, Professores professores, Curso curso, Periodo periodo, String horario,

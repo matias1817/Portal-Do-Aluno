@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -20,8 +21,10 @@ public class Aulas {
 	
 	
 	@ManyToOne
+	@JoinColumn
 	private Materias materias;
 	@ManyToOne
+	@JoinColumn
 	private Professores professores;
 	
 	

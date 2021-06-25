@@ -2,11 +2,16 @@ package br.ifpe.pp2.entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 public class Curso {
@@ -14,10 +19,12 @@ public class Curso {
 	private Integer id;
 	private String nome;
 	
-	@OneToMany
+	@OneToMany( orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @Fetch(FetchMode.SUBSELECT)
 	private List<Materias> materias;
 	
-	@OneToMany
+	@OneToMany( orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @Fetch(FetchMode.SUBSELECT)
 	private List<Alunos> alunos;
 	
 	public List<Materias> getMaterias() {

@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -12,10 +13,13 @@ public class Frequencia {
 	private Integer id;
 	private Integer faltas;
 	@ManyToOne
+	@JoinColumn
 	private Alunos alunos;
 	@ManyToOne
+	@JoinColumn
 	private Materias materias;
 	@ManyToOne
+	@JoinColumn
 	private Periodo periodo;
 	
 	

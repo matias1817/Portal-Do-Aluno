@@ -9,4 +9,7 @@
     <fullyQualifiedTypeName name="br.ifpe.pp2.entities.Alunos"/>
     <fullyQualifiedTypeName name="br.ifpe.pp2.entities.Curso"/>
     <fullyQualifiedTypeName name="br.ifpe.pp2.DAO.CursoDAO"/>
+    <fullyQualifiedTypeName name="br.ifpe.pp2.entities.Professores"/>
+    <fullyQualifiedTypeName name="org.hibernate.annotations.FetchMode"/>
+    <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
 </qualifiedTypeNameHistroy>

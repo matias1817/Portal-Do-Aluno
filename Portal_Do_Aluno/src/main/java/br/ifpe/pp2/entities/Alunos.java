@@ -2,31 +2,38 @@ package br.ifpe.pp2.entities;
 
 import java.util.List;
 
+//import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+//import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+//import org.hibernate.annotations.Fetch;
+//import org.hibernate.annotations.FetchMode;
+
 @Entity
 public class Alunos {
 	
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer id;
 	private String nome; 
 	private String senha;
 	private String matricula;
 	private String sexo;
 	private String email;
-	@ManyToOne
+	@ManyToOne 
 	private Curso curso;
 	
-	@OneToMany
-	private List<Frequencia> frequencia;
+	@OneToMany//( orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Frequencia> frequencia;//@Fetch(FetchMode.SUBSELECT)
 	
-	@OneToMany
-	private List<Avaliacao> avaliacao;
+	
+	@OneToMany//( orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Avaliacao> avaliacao;//@Fetch(FetchMode.SUBSELECT)
+	
 	
 	
 	public Alunos(Integer id, String nome, String senha, String matricula, String sexo, String email, Curso curso,

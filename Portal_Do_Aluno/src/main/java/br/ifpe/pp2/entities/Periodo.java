@@ -2,22 +2,33 @@ package br.ifpe.pp2.entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 public class Periodo {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String periodo;
-	@OneToMany
+	
+	@OneToMany( orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @Fetch(FetchMode.SUBSELECT)
 	private List<Avaliacao> avaliacao;
-	@OneToMany
+	
+	@OneToMany( orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @Fetch(FetchMode.SUBSELECT)
 	private List<Frequencia> frequencia;
-	@OneToMany
+	
+	@OneToMany( orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @Fetch(FetchMode.SUBSELECT)
 	private List<Materias> materias;
 	
 	public Periodo(Integer id, String periodo, List<Avaliacao> avaliacao, List<Frequencia> frequencia,

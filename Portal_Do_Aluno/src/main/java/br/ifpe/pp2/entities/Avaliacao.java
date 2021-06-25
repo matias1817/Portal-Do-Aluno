@@ -6,22 +6,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Avaliacao {
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer id;
 	private double nota;
 	@ManyToOne
+	@JoinColumn
 	private Alunos alunos;
 	@ManyToOne
+	@JoinColumn
 	private Materias materias;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate data; 
 	@ManyToOne
+	@JoinColumn
 	private Periodo periodo;
 	
 	

@@ -10,6 +10,7 @@ import br.ifpe.pp2.DAO.AlunoDAO;
 import br.ifpe.pp2.DAO.CursoDAO;
 import br.ifpe.pp2.entities.Alunos;
 
+
 @Controller
 public class AlunoController {
 	
@@ -18,6 +19,8 @@ public class AlunoController {
 	
 	@Autowired
 	private CursoDAO cursoDAO;
+	
+
 	
 	@GetMapping("/")
 	public String exibirLogin(Model model) {
@@ -55,7 +58,9 @@ public class AlunoController {
 	  
 	@PostMapping("/salvarAluno")
 	public String salvarAluno(Alunos alunos) {
+		
 		this.alunoDAO.save(alunos);
+	
 		return "redirect:/";
 	}
 	 
