@@ -21,7 +21,10 @@ public class AlunoController {
 	private CursoDAO cursoDAO;
 	
 
-	
+	@GetMapping("/PortalDoAluno")
+	public String exibir(Model model) {
+		return "Portal";
+	}
 	@GetMapping("/")
 	public String exibirLogin(Model model) {
 		return "login";
@@ -67,7 +70,7 @@ public class AlunoController {
 	@GetMapping("/excluirAluno")
 	public String excluirCliente(Integer id) {
 	this.alunoDAO.deleteById(id);
-	return "redirect:/home";
+	return "redirect:/listaAluno";
 	}
 	
 	
