@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xnlns:th="www.thymelaef.org">
+<head>
+<meta charset="UTF-8">
+<title>Lista de Materias</title>
+</head>
+<body>
+</form>
+	<table>
+	<tr>
+	<th>Nome</th>
+	<th>Horario</th>
+	<th>Curso</th>
+	<th>Periodo</th>
+	<th>Professores</th>
+	</tr>
+		<tr th:each="materia : ${lista}">
+				<td th:text="${materia.nome}"></td>
+				<td th:text="${materia.horario}"></td>
+				<td th:text="${materia.Curso.nome}"></td>
+				<td th:text="${materia.Periodo.periodo}"></td>
+				<td th:text="${materia.Professores.nome}"></td>
+				<td>
+				<a th:href="|/cadMateria?id=${materia.id}|">Editar</a
+				>
+				<a th:href="|/excluirMaterias?id=${materia.id}|">Excluir</a>
+		</td>
+	</tr>
+	</table>
+	<a href="/homeP">Voltar para a Home</a>
+</body>
+</html>
+</html>

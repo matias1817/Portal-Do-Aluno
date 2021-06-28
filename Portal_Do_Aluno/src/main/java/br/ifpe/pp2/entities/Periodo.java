@@ -15,6 +15,7 @@ import org.hibernate.annotations.FetchMode;
 
 @Entity
 public class Periodo {
+	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String periodo;
@@ -40,6 +41,11 @@ public class Periodo {
 		this.frequencia = frequencia;
 		this.materias = materias;
 	}
+	
+	public Periodo() {
+		super();
+	}
+
 	public Integer getId() {
 		return id;
 	}

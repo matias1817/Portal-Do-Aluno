@@ -13,6 +13,10 @@
 	<th>Sexo</th>	
 	<th>Email</th>
 	<th>Curso</th>
+	<th>CPF</th>
+	<th>Telefone</th>
+	<th>Nome de um dos pais</th>
+	<th>RG</th>
 	</tr>
 		<tr th:each="aluno : ${lista}">
 				<td th:text="${aluno.nome}"></td>
@@ -21,6 +25,11 @@
 				<td th:text="${aluno.sexo}"></td>
 				<td th:text="${aluno.email}"></td>
 				<td th:text="${aluno.curso.nome}"></td>
+				<td th:text="${aluno.cpf}"></td>
+				<td th:text="${aluno.telefone}"></td>
+			
+				<td th:text="${aluno.nomePais}"></td>
+				<td th:text="${aluno.rg}"></td>
 				<td>
 				<a th:href="|/cad?id=${aluno.id}|">Editar</a
 				>

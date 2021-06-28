@@ -2,9 +2,9 @@ package br.ifpe.pp2.entities;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
+//import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+//import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,8 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
+//import org.hibernate.annotations.Fetch;
+//import org.hibernate.annotations.FetchMode;
 
 @Entity
 public class Materias {
@@ -35,16 +35,16 @@ public class Materias {
 	
 	private String horario;
 	
-	@OneToMany( orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @Fetch(FetchMode.SUBSELECT)
+	//( orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany//@Fetch(FetchMode.SUBSELECT)
 	private List<Aulas> aulas;
 	
-	@OneToMany ( orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @Fetch(FetchMode.SUBSELECT)
+	 //( orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany//@Fetch(FetchMode.SUBSELECT)
 	private List<Frequencia> frequencia;
 	
-	@OneToMany( orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @Fetch(FetchMode.SUBSELECT)
+	//( orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany//@Fetch(FetchMode.SUBSELECT)
 	private List<Avaliacao> avaliacao;
 	
 	public Materias(Integer id, String nome, Professores professores, Curso curso, Periodo periodo, String horario,

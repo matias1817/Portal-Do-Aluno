@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xnlns:th="www.thymelaef.org">
+<head>
+<meta charset="UTF-8">
+<title>Lista dos Cursos</title>
+</head>
+<body>
+</form>
+	<table>
+	<tr>
+	<th>Id</th>
+	<th>Nome</th>
+	</tr>
+		<tr th:each="curso : ${lista}">
+				<td th:text="${curso.id}"></td>
+				<td th:text="${curso.nome}"></td>
+				<td>
+				<a th:href="|/cadCurso?id=${curso.id}|">Editar</a
+				>
+				<a th:href="|/excluirCurso?id=${curso.id}|">Excluir</a>
+		</td>
+	</tr>
+	</table>
+	<a href="/homeP">Voltar para a Home</a>
+</body>
+</html>
+</html>

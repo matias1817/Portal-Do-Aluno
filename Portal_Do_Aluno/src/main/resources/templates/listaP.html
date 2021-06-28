@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Lista dos Professores</title>
 </head>
 <body>
@@ -11,11 +11,21 @@
 	<th>Nome</th>
 	<th>Senha</th>	
 	<th>Email</th>
+	<th>CPF</th>
+	<th>RG</th>
+	<th>Telefone</th>	
+	
+	
+	<th>Endereço</th>	
 	</tr>
 		<tr th:each="prof : ${lista}">
 				<td th:text="${prof.nome}"></td>
 				<td th:text="${prof.senha}"></td>
 				<td th:text="${prof.email}"></td>
+				<td th:text="${prof.cpf}"></td>
+				<td th:text="${prof.rg}"></td>
+				<td th:text="${prof.telefone}"></td>
+				<td th:text="${prof.endereco}"></td>
 				<td>
 				<a th:href="|/cadP?id=${prof.id}|">Editar</a
 				>
