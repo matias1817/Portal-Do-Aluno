@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import br.ifpe.pp2.DAO.AlunoDAO;
 import br.ifpe.pp2.DAO.CursoDAO;
+import br.ifpe.pp2.DAO.FrequenciaDAO;
 import br.ifpe.pp2.DAO.MateriasDAO;
 
 @Controller
@@ -20,6 +21,9 @@ public class ListaController {
 	
 	@Autowired
 	private MateriasDAO materiasDAO;
+	
+	@Autowired
+	private FrequenciaDAO frequenciaDAO;
 	
 	@GetMapping("/listaAluno")
 	public String exibirLista(Model model) {
@@ -36,5 +40,10 @@ public class ListaController {
 	public String exibirListaM(Model model) {
 		model.addAttribute("lista", this.materiasDAO.findAll());
 		return "listaM";
+	}
+	@GetMapping("/listaFrequencia")
+	public String exibirListaF(Model model) {
+		model.addAttribute("lista", this.frequenciaDAO.findAll());
+		return "listaF";
 	}
 }

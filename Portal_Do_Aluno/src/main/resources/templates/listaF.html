@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xnlns:th="www.thymelaef.org">
+<head>
+<meta charset="UTF-8">
+<title>Lista de Frequencias</title>
+</head>
+<body>
+</form>
+	<table>
+	<tr>
+	<th>Aluno</th>
+	<th>Faltas</th>
+	<th>Matéria</th>
+	<th>Periodo</th>
+	<th></th>
+	</tr>
+		<tr th:each="freq : ${lista}">
+				<td th:text="${freq.Alunos.nome}"></td>
+				<td th:text="${freq.faltas}"></td>
+				<td th:text="${freq.materias.nome}"></td>
+				<td th:text="${freq.Periodo.periodo}"></td>
+				<td>
+				<a th:href="|/cadFrequencia?id=${freq.id}|">Editar</a
+				>
+				<a th:href="|/excluirFrequencia?id=${freq.id}|">Excluir</a>
+		</td>
+	</tr>
+	</table>
+	<a href="/homeP">Voltar para a Home</a>
+</body>
+</html>
+</html>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html   >
+<html xnlns:th="www.thymelaef.org">
+<head>
+<meta charset="UTF-8">
+<title>Cadastro de Frequencia</title>
+</head>
+<body>
+<form action="/salvarFrequencia" method="post" th:object=${Frequencia}>
+<input type="hidden" th:field="*{id}"/>
+	Quantidade de faltas do aluno no periodo: <input type="number" th:field = *{faltas}><br>
+	
+	Aluno: <select name="alunos">
+			<option th:each = "cat : ${alunos}" 
+			th:value = "${cat.id}"
+			th:text = "${cat.nome}" 
+			> </select><br>
+			
+	Materia: <select name="materias">
+			<option th:each = "cat : ${materias}" 
+			th:value = "${cat.id}"
+			th:text = "${cat.nome}" 
+			> </select><br>
+
+	Periodo: <select name="periodo">
+			<option th:each = "cat : ${periodo}" 
+			th:value = "${cat.id}"
+			th:text = "${cat.periodo}" 
+			></option>
+		</select>
+		<button type ="submit">Cadastrar</button>
+</form>
+</body>
+</html>
