@@ -2,6 +2,26 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<style>
+   #hideMe {
+    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+   
+}
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+</style>
 <title>login de Professor</title>
 </head>
 <body>
@@ -10,6 +30,7 @@ Email: <input type="text" name="email"><br>
 Senha:<input type="password"  name="senha"><br>
 <button type="submit">Fazer login</button>
 <a href="/cadP"> clique aqui caso não tenha cadastro</a>
+<div id= "hideMe" th:text = '${menssagem}'  ></div> 
 </form>
 </body>
 </html>

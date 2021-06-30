@@ -2,6 +2,27 @@
 <html xnlns:th="www.thymelaef.org" >
 <head>
 <meta charset="UTF-8">
+<style>
+   #hideMe {
+    
+    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+   
+}
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+</style>
 <title>Lista</title>
 </head>
 <body>
@@ -38,6 +59,7 @@
 		</td>
 	</tr>
 	</table>
+	<div id= "hideMe" th:text = '${menssagem}' ></div> 
 <h3><a href= "/home">Voltar para a home</a></h3>
 </body>
 </html>

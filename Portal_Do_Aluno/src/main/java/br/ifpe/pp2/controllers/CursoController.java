@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.ifpe.pp2.DAO.CursoDAO;
 import br.ifpe.pp2.entities.Curso; 
@@ -27,14 +28,16 @@ public class CursoController {
 	}
 	  
 	@PostMapping("/salvarCurso")
-	public String salvarCurso(Curso curso) {
+	public String salvarCurso(Curso curso, RedirectAttributes ra) {
 		this.cursoDAO.save(curso);
+		ra.addFlashAttribute("menssagem", "curso salvo com sucesso");
 		return "redirect:/listaCurso";
 	}
 	 
 	@GetMapping("/excluirCurso")
-	public String excluirCurso(Integer id) {
+	public String excluirCurso(Integer id,RedirectAttributes ra ) {
 	this.cursoDAO.deleteById(id); 
+	ra.addFlashAttribute("menssagem", "curso deletado com sucesso");
 	return "redirect:/listaCurso";
 	}
 }

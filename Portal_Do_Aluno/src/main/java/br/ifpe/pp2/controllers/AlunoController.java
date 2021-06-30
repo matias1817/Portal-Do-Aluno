@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.ifpe.pp2.DAO.AlunoDAO;
 import br.ifpe.pp2.DAO.CursoDAO;
@@ -35,10 +36,12 @@ public class AlunoController {
 		return "Home";
 	}
 	@GetMapping("/loginAluno")
-	public String logarAluno(String email, String senha, Model model) {
+	public String logarAluno(String email, String senha, Model model, RedirectAttributes ra) {
 		if(alunoDAO.findByemailAndSenha(email, senha) != null){
+			ra.addFlashAttribute("menssagem", "usuário logado com sucesso");
 			return "redirect:/home";
 	} else {
+		ra.addFlashAttribute("menssagem", "usuário ou senha inválidos");
 			return "redirect:/";
 	}
 		
@@ -60,16 +63,17 @@ public class AlunoController {
 	}
 	  
 	@PostMapping("/salvarAluno")
-	public String salvarAluno(Alunos alunos) {
+	public String salvarAluno(Alunos alunos, RedirectAttributes ra) {
 		
 		this.alunoDAO.save(alunos);
-	
+		ra.addFlashAttribute("menssagem", "usuário salvo com sucesso");
 		return "redirect:/";
 	}
 	 
 	@GetMapping("/excluirAluno")
-	public String excluirCliente(Integer id) {
+	public String excluirCliente(Integer id, RedirectAttributes ra) {
 	this.alunoDAO.deleteById(id);
+	ra.addFlashAttribute("menssagem", "usuário excluido com sucesso");
 	return "redirect:/listaAluno";
 	}
 	

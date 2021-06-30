@@ -2,7 +2,6 @@
 <html xnlns:th="www.thymelaef.org">
 <head>
 <meta charset="UTF-8">
-
 <style>
    #hideMe {
     
@@ -24,27 +23,33 @@
     }
 }
 </style>
-<title>Lista dos Cursos</title>
+<title>Lista de Avatiações</title>
 </head>
 <body>
 </form>
 	<table>
 	<tr>
-	<th>Id</th>
-	<th>Nome</th>
+	<th>Aluno</th>
+	<th>Nota</th>
+	<th>Matéria</th>
+	<th>Periodo</th>
+	<th></th>
 	</tr>
-		<tr th:each="curso : ${lista}">
-				<td th:text="${curso.id}"></td>
-				<td th:text="${curso.nome}"></td>
+		<tr th:each="ava : ${lista}">
+				<td th:text="${ava.Alunos.nome}"></td>
+				<td th:text="${ava.nota}"></td>
+				<td th:text="${ava.materias.nome}"></td>
+				<td th:text="${ava.Periodo.periodo}"></td>
 				<td>
-				<a th:href="|/cadCurso?id=${curso.id}|">Editar</a
+				<a th:href="|/cadAvaliacao?id=${ava.id}|">Editar</a
 				>
-				<a th:href="|/excluirCurso?id=${curso.id}|">Excluir</a>
+				<a th:href="|/excluirAvaliacao?id=${ava.id}|">Excluir</a>
 		</td>
 	</tr>
 	</table>
 	<div id= "hideMe" th:text = '${menssagem}' ></div> 
 	<a href="/homeP">Voltar para a Home</a>
 </body>
+</html>
 </html>
 </html>

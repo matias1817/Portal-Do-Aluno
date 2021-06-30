@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.ifpe.pp2.DAO.AlunoDAO;
 import br.ifpe.pp2.DAO.FrequenciaDAO;
@@ -43,16 +44,17 @@ public class FrequenciaController {
 	}
 	  
 	@PostMapping("/salvarFrequencia")
-	public String salvarFrequencia(Frequencia frequencia) {
+	public String salvarFrequencia(Frequencia frequencia,  RedirectAttributes ra) {
 		
 		this.frequenciaDAO.save(frequencia);
-	
+		ra.addFlashAttribute("menssagem", "Frequência salva com sucesso");
 		return "redirect:/listaFrequencia";
 	}
 	 
 	@GetMapping("/excluirFrequencia")
-	public String excluirFrequencia(Integer id) {
+	public String excluirFrequencia(Integer id, RedirectAttributes ra) {
 	this.frequenciaDAO.deleteById(id);
+	ra.addFlashAttribute("menssagem", "Frequência deletada com sucesso");
 	return "redirect:/listaFrequencia";
 	}
 	

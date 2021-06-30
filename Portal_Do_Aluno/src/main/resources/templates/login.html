@@ -3,6 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <title>login de aluno</title>
+<style>
+   #hideMe {
+    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+   
+}
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+</style>
 </head>
 <body>
 <form action="/loginAluno" method="get">
@@ -11,5 +31,6 @@ Senha:<input type="password"  name="senha"><br>
 <button type="submit">Fazer login</button>
 <a href="/cad"> clique aqui caso não tenha cadastro</a>
 </form>
+<div id= "hideMe" th:text = '${menssagem}'  ></div> 
 </body>
 </html>
