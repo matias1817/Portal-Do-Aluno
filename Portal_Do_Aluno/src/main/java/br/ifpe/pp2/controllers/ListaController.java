@@ -29,7 +29,7 @@ public class ListaController {
 	@Autowired
 	private AvaliacaoDAO avaliacaoDAO;
 	
-	@GetMapping("/listaAluno")
+	@GetMapping("/aluno/listaAluno")
 	public String exibirLista(Model model) {
 		model.addAttribute("lista", this.alunoDAO.findAll()); 
 		return "Lista";

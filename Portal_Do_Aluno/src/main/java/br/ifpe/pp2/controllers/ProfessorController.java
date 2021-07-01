@@ -1,5 +1,7 @@
 package br.ifpe.pp2.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,21 +18,23 @@ public class ProfessorController {
 	@Autowired
 	private ProfessorDAO professorDAO;
 	
-	@GetMapping("/P")
+	@GetMapping("/loginProf")
 	public String exibirLogin(Model model) {
 		return "loginP";
 	}
 	
-	@GetMapping("/homeP")
+	@GetMapping("/professor/home")
 	public String exibirHomeP(Model model){
 		
 		return "HomeP";
 	}
 	@GetMapping("/loginProfessor")
-	public String logarAluno(String email, String senha, Model model, RedirectAttributes ra) {
-		if(professorDAO.findByemailAndSenha(email, senha) != null){
+	public String logarAluno(String email, String senha, Model model, RedirectAttributes ra, HttpSession session) {
+		Professores professorLogado = this.professorDAO.findByemailAndSenha(email, senha);
+		if(professorLogado != null){
 			ra.addFlashAttribute("menssagem", "usuário logado com sucesso");
-			return "redirect:/homeP";
+			session.setAttribute("professorLogado", professorLogado);
+			return "redirect:/professor/home";
 		} else {
 			ra.addFlashAttribute("menssagem", "usuário ou senha inválidos");
 			return "redirect:/P";
@@ -58,13 +62,13 @@ public class ProfessorController {
 		return "redirect:/P";
 	}
 	 
-	@GetMapping("/excluirProfessor")
+	@GetMapping("/professor/excluirProfessor")
 	public String excluirProfessor(Integer id, RedirectAttributes ra) {
 	this.professorDAO.deleteById(id);
 	ra.addFlashAttribute("menssagem", "usuário excluido com sucesso");
 	return "redirect:/listaP";
 	}
-	@GetMapping("/listaP")
+	@GetMapping("/professor/lista")
 	public String exibirLista(Model model) {
 		model.addAttribute("lista", this.professorDAO.findAll()); 
 		return "listaP";

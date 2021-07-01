@@ -1,5 +1,7 @@
 package br.ifpe.pp2.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,23 +28,25 @@ public class AlunoController {
 	public String exibir(Model model) {
 		return "Portal";
 	}
-	@GetMapping("/")
+	@GetMapping("/login")
 	public String exibirLogin(Model model) {
 		return "login";
 	}
 	
-	@GetMapping("/home")
+	@GetMapping("/aluno/home")
 	public String exibirHome(Model model){
 		return "Home";
 	}
 	@GetMapping("/loginAluno")
-	public String logarAluno(String email, String senha, Model model, RedirectAttributes ra) {
-		if(alunoDAO.findByemailAndSenha(email, senha) != null){
-			ra.addFlashAttribute("menssagem", "usuário logado com sucesso");
-			return "redirect:/home";
+	public String logarAluno(String email, String senha, Model model, RedirectAttributes ra, HttpSession session) {
+		Alunos alunoLogado = this.alunoDAO.findByemailAndSenha(email, senha);
+		if(alunoLogado == null){
+			ra.addFlashAttribute("menssagem", "usuário ou senha inválidos");
+			return "redirect:/login";
 	} else {
-		ra.addFlashAttribute("menssagem", "usuário ou senha inválidos");
-			return "redirect:/";
+			session.setAttribute("alunoLogado", alunoLogado);
+			ra.addFlashAttribute("menssagem", "usuário logado com sucesso");
+			return "redirect:/aluno/home";
 	}
 		
 	}
@@ -70,13 +74,22 @@ public class AlunoController {
 		return "redirect:/";
 	}
 	 
-	@GetMapping("/excluirAluno")
+	@GetMapping("/aluno/excluirAluno")
 	public String excluirCliente(Integer id, RedirectAttributes ra) {
 	this.alunoDAO.deleteById(id);
 	ra.addFlashAttribute("menssagem", "usuário excluido com sucesso");
 	return "redirect:/listaAluno";
 	}
 	
+	@GetMapping("/sair")
+	public String sair(HttpSession session) {
+		session.invalidate();
+		return "redirect:/PortalDoAluno";
+	}
+	@GetMapping("/acessoNegado")
+	public String negado() {
+		return "Acesso";
+	}
 	
 	
 	
