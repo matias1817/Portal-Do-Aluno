@@ -28,9 +28,10 @@ public class AvaliacaoController {
 	private MateriasDAO materiasDAO;
 		
 	
-	@GetMapping("/cadNotas")
+	@GetMapping("/professor/cadNotas")
 	public String exibirCad(Integer id, Model model) {
 	if (id != null) {
+		
 	Avaliacao avaliacao = this.avaliacaoDAO.getById(id);
 	model.addAttribute("Avaliacao", avaliacao);
 	} else {

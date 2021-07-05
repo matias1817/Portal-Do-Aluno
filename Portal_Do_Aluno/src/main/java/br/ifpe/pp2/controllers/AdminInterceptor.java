@@ -7,11 +7,11 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 @SuppressWarnings("deprecation")
-public class ProfessorInterceptor extends HandlerInterceptorAdapter {
+public class AdminInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 		throws Exception {
-		if(request.getSession().getAttribute("professorLogado") == null) {
+		if(request.getSession().getAttribute("adminLogado") == null) {
 			request.getRequestDispatcher("/acessoNegado").forward(request, response);
 			return false;
 		} else {

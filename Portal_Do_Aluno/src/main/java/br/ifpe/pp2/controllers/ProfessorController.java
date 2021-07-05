@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import br.ifpe.pp2.DAO.AdminDAO;
 import br.ifpe.pp2.DAO.ProfessorDAO;
+import br.ifpe.pp2.entities.Admin;
 import br.ifpe.pp2.entities.Professores;
 
 @Controller
@@ -17,6 +19,9 @@ public class ProfessorController {
 	
 	@Autowired
 	private ProfessorDAO professorDAO;
+	
+	@Autowired
+	private AdminDAO adminDAO;
 	
 	@GetMapping("/loginProf")
 	public String exibirLogin(Model model) {
@@ -30,6 +35,12 @@ public class ProfessorController {
 	}
 	@GetMapping("/loginProfessor")
 	public String logarAluno(String email, String senha, Model model, RedirectAttributes ra, HttpSession session) {
+		Admin adminLogado = this.adminDAO.findByemailAndSenha(email, senha);
+		if (adminLogado != null) {
+			session.setAttribute("adminLogado", adminLogado);
+			return "redirect:/admin/home";
+		} else {
+		
 		Professores professorLogado = this.professorDAO.findByemailAndSenha(email, senha);
 		if(professorLogado != null){
 			ra.addFlashAttribute("menssagem", "usuário logado com sucesso");
@@ -37,8 +48,8 @@ public class ProfessorController {
 			return "redirect:/professor/home";
 		} else {
 			ra.addFlashAttribute("menssagem", "usuário ou senha inválidos");
-			return "redirect:/P";
-	}	
+			return "redirect:/loginProf";
+	}	}
 	}
 	
 	@GetMapping("/cadP")
@@ -68,7 +79,7 @@ public class ProfessorController {
 	ra.addFlashAttribute("menssagem", "usuário excluido com sucesso");
 	return "redirect:/listaP";
 	}
-	@GetMapping("/professor/lista")
+	@GetMapping("/listaProfessor")
 	public String exibirLista(Model model) {
 		model.addAttribute("lista", this.professorDAO.findAll()); 
 		return "listaP";

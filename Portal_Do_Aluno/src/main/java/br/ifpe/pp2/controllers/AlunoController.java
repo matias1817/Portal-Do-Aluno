@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import br.ifpe.pp2.DAO.AdminDAO;
 import br.ifpe.pp2.DAO.AlunoDAO;
 import br.ifpe.pp2.DAO.CursoDAO;
+import br.ifpe.pp2.entities.Admin;
 import br.ifpe.pp2.entities.Alunos;
 
 
@@ -23,6 +25,8 @@ public class AlunoController {
 	@Autowired
 	private CursoDAO cursoDAO;
 	
+	@Autowired
+	private AdminDAO adminDAO;
 
 	@GetMapping("/PortalDoAluno")
 	public String exibir(Model model) {
@@ -39,6 +43,11 @@ public class AlunoController {
 	}
 	@GetMapping("/loginAluno")
 	public String logarAluno(String email, String senha, Model model, RedirectAttributes ra, HttpSession session) {
+		Admin adminLogado = this.adminDAO.findByemailAndSenha(email, senha);
+		if (adminLogado != null) {
+			session.setAttribute("adminLogado", adminLogado);
+			return "redirect:/admin/home";
+		} else {
 		Alunos alunoLogado = this.alunoDAO.findByemailAndSenha(email, senha);
 		if(alunoLogado == null){
 			ra.addFlashAttribute("menssagem", "usuário ou senha inválidos");
@@ -48,7 +57,7 @@ public class AlunoController {
 			ra.addFlashAttribute("menssagem", "usuário logado com sucesso");
 			return "redirect:/aluno/home";
 	}
-		
+		}
 	}
 	
 	@GetMapping("/cad")
@@ -90,7 +99,10 @@ public class AlunoController {
 	public String negado() {
 		return "Acesso";
 	}
-	
+	@GetMapping("/admin/home")
+	public String homeAdmin() {
+		return "homeA";
+	}
 	
 	
 }

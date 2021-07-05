@@ -28,7 +28,7 @@ public class FrequenciaController {
 	private MateriasDAO materiasDAO;
 		
 	
-	@GetMapping("/cadFrequencia")
+	@GetMapping("/professor/cadFrequencia")
 	public String exibirCad(Integer id, Model model) {
 	if (id != null) {
 	Frequencia frequencia = this.frequenciaDAO.getById(id);

@@ -13,6 +13,8 @@ public class AcessoConfig  implements WebMvcConfigurer{
 		.addPathPatterns(new String[]{"/aluno", "/aluno/*"});
 		registry.addInterceptor(new ProfessorInterceptor())
 		.addPathPatterns(new String[]{"/professor", "/professor/*"});
+		registry.addInterceptor(new AdminInterceptor())
+		.addPathPatterns(new String[]{"/admin", "/admin/*"});
 	}
 	
 }
