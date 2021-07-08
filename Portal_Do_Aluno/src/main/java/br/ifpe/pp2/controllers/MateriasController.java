@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.ifpe.pp2.DAO.CursoDAO;
 import br.ifpe.pp2.DAO.MateriasDAO;
@@ -23,7 +24,7 @@ public class MateriasController {
 	@Autowired
 	private PeriodoDAO periodoDAO;
 	
-	@GetMapping("/cadMateria")
+	@GetMapping("/admin/cadMateria")
 	public String exibirCad(Integer id, Model model) {
 	if (id != null) {
 	Materias materias = this.materiasDAO.getById(id);
@@ -37,15 +38,17 @@ public class MateriasController {
 	return "cadM";
 	}
 	   
-	@PostMapping("/salvarMateria")
-	public String salvarMateria(Materias materias) {
+	@PostMapping("/admin/salvarMateria")
+	public String salvarMateria(Materias materias,  RedirectAttributes ra) {
 		this.materiasDAO.save(materias);
+		ra.addFlashAttribute("menssagem", "materia salva com sucesso");
 		return "redirect:/listaMateria";
 	}
 	 
-	@GetMapping("/excluirMaterias")
-	public String excluirCurso(Integer id) {
+	@GetMapping("/admin/excluirMaterias")
+	public String excluirCurso(Integer id, RedirectAttributes ra) {
 	this.materiasDAO.deleteById(id); 
+	ra.addFlashAttribute("menssagem", "materia excluida com sucesso");
 	return "redirect:/listaMateria";
 	}
 }

@@ -14,6 +14,6 @@
     <fullyQualifiedTypeName name="org.springframework.web.servlet.config.annotation.InterceptorRegistry"/>
     <fullyQualifiedTypeName name="com.sun.istack.internal.Nullable"/>
     <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
-    <fullyQualifiedTypeName name="br.ifpe.pp2.entities.Admin"/>
     <fullyQualifiedTypeName name="javax.persistence.Id"/>
+    <fullyQualifiedTypeName name="br.ifpe.pp2.entities.Admin"/>
 </qualifiedTypeNameHistroy>

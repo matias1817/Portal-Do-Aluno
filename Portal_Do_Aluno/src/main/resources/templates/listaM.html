@@ -3,6 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <title>Lista de Materias</title>
+<style>
+   #hideMe {
+    
+    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+   
+}
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+</style>
 </head>
 <body>
 </form>
@@ -21,13 +42,14 @@
 				<td th:text="${materia.Periodo.periodo}"></td>
 				<td th:text="${materia.Professores.nome}"></td>
 				<td>
-				<a th:href="|/cadMateria?id=${materia.id}|">Editar</a
+				<a th:href="|/admin/cadMateria?id=${materia.id}|">Editar</a
 				>
-				<a th:href="|/excluirMaterias?id=${materia.id}|">Excluir</a>
+				<a th:href="|/admin/excluirMaterias?id=${materia.id}|">Excluir</a>
 		</td>
 	</tr>
 	</table>
-	<a href="/homeP">Voltar para a Home</a>
+	<div id= "hideMe" th:text = '${menssagem}' ></div> 
+	<a href="/admin/home">Voltar para a Home</a>
 </body>
 </html>
 </html>

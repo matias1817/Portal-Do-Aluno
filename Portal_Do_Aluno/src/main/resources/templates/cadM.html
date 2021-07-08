@@ -5,7 +5,7 @@
 <title>Cadastro de Matérias</title>
 </head>
 <body>
-<form action="/salvarMateria" method="post" th:object=${Materias}>
+<form action="/admin/salvarMateria" method="post" th:object=${Materias}>
 <input type="hidden" th:field="*{id}"/>
 	Nome: <input type="text" th:field = *{nome}><br>
 	

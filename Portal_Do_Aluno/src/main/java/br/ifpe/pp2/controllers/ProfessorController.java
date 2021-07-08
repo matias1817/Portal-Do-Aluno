@@ -38,6 +38,7 @@ public class ProfessorController {
 		Admin adminLogado = this.adminDAO.findByemailAndSenha(email, senha);
 		if (adminLogado != null) {
 			session.setAttribute("adminLogado", adminLogado);
+			ra.addFlashAttribute("menssagem", "admin logado com sucesso");
 			return "redirect:/admin/home";
 		} else {
 		
