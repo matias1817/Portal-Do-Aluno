@@ -6,7 +6,7 @@
    #hideMe {
     
     -webkit-animation: cssAnimation 0s ease-in 5s forwards;
-   
+   color: green;
 }
 @keyframes cssAnimation {
     to {
@@ -41,13 +41,13 @@
 				<td th:text="${ava.materias.nome}"></td>
 				<td th:text="${ava.Periodo.periodo}"></td>
 				<td>
-				<a th:href="|/cadAvaliacao?id=${ava.id}|">Editar</a
+				<a th:href="|/professor/cadAvaliacao?id=${ava.id}|">Editar</a
 				>
-				<a th:href="|/excluirAvaliacao?id=${ava.id}|">Excluir</a>
+				<a th:href="|/professor/excluirAvaliacao?id=${ava.id}|">Excluir</a>
 		</td>
 	</tr>
 	</table>
-	<div id= "hideMe" th:text = '${menssagem}' ></div> 
+	<div id= "hideMe" th:text = '${menssagemS}' ></div> 
 	<a href="/professor/home">Voltar para a Home</a>
 </body>
 </html>

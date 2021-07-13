@@ -5,7 +5,7 @@
 
 <style>
    #hideMe {
-    
+    color: green;
     -webkit-animation: cssAnimation 0s ease-in 5s forwards;
    
 }
@@ -30,11 +30,9 @@
 </form>
 	<table>
 	<tr>
-	<th>Id</th>
 	<th>Nome</th>
 	</tr>
 		<tr th:each="curso : ${lista}">
-				<td th:text="${curso.id}"></td>
 				<td th:text="${curso.nome}"></td>
 				<td>
 				<a th:href="|/cadCurso?id=${curso.id}|">Editar</a
@@ -43,8 +41,8 @@
 		</td>
 	</tr>
 	</table>
-	<div id= "hideMe" th:text = '${menssagem}' ></div> 
-	<a href="/homeP">Voltar para a Home</a>
+	<div id= "hideMe" th:text = '${menssagemS}' ></div> 
+	<a href="/admin/home">Voltar para a Home</a>
 </body>
 </html>
 </html>

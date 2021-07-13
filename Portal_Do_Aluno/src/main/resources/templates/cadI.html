@@ -1,0 +1,15 @@
+<!DOCTYPE html   >
+<html xnlns:th="www.thymelaef.org">
+<head>
+<meta charset="UTF-8">
+<title>Cadastro de Contatos da Instituição</title>
+</head>
+<body>
+<form action="/admin/salvarInstituição" method="get" th:object=${instituicao}>
+<input type="hidden" th:field="*{id}"/>
+	Telefone: <input type="text" th:field = *{numero}><br>
+	Endereço: <input type="text" th:field = *{endereco}><br>
+	Site: <input type="text" th:field = *{site}><br>
+		<button type ="submit">Cadastrar</button>
+</form>
+<a  href = "/listaInstituicao">ver contatos</a>

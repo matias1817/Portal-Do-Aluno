@@ -11,24 +11,24 @@
 	
 	Horario: <input type="text" th:field = *{horario}><br>
 	
-	Curso: <select name="curso">
+	Curso: <select name="curso" th:field = *{curso}>
 			<option th:each = "cat : ${curso}" 
 			th:value = "${cat.id}"
 			th:text = "${cat.nome}" 
 			> </select><br>
-			
-	Professor: <select name="professores">
-			<option th:each = "cat : ${professores}" 
-			th:value = "${cat.id}"
-			th:text = "${cat.nome}" 
-			> </select><br>
-
-	Periodo: <select name="periodo">
+	Periodo: <select name="periodo" th:field = *{periodo}>
 			<option th:each = "cat : ${periodo}" 
 			th:value = "${cat.id}"
 			th:text = "${cat.periodo}" 
 			></option>
-		</select>
+		</select><br>
+	Professor: <select name="professores" th:field = *{professores}>
+			<option  th:each = "cat : ${professores}" 
+			th:value = "${cat.id}"
+			th:text = "${cat.nome}" 
+			> </select><br>
+
+	
 		<button type ="submit">Cadastrar</button>
 </form>
 </body>

@@ -38,17 +38,17 @@ public class ProfessorController {
 		Admin adminLogado = this.adminDAO.findByemailAndSenha(email, senha);
 		if (adminLogado != null) {
 			session.setAttribute("adminLogado", adminLogado);
-			ra.addFlashAttribute("menssagem", "admin logado com sucesso");
+			ra.addFlashAttribute("menssagemS", "admin logado com sucesso");
 			return "redirect:/admin/home";
 		} else {
 		
 		Professores professorLogado = this.professorDAO.findByemailAndSenha(email, senha);
 		if(professorLogado != null){
-			ra.addFlashAttribute("menssagem", "usuário logado com sucesso");
+			ra.addFlashAttribute("menssagemS", "usuário logado com sucesso");
 			session.setAttribute("professorLogado", professorLogado);
 			return "redirect:/professor/home";
 		} else {
-			ra.addFlashAttribute("menssagem", "usuário ou senha inválidos");
+			ra.addFlashAttribute("menssagemE", "usuário ou senha inválidos");
 			return "redirect:/loginProf";
 	}	}
 	}
@@ -70,14 +70,14 @@ public class ProfessorController {
 	@PostMapping("/salvarProfessores")
 	public String salvarProfessor(Professores professores, RedirectAttributes ra) {
 		this.professorDAO.save(professores);
-		ra.addFlashAttribute("menssagem", "usuário salvo com sucesso");
-		return "redirect:/P";
+		ra.addFlashAttribute("menssagemS", "usuário salvo com sucesso");
+		return "redirect:/loginProf";
 	}
 	 
 	@GetMapping("/professor/excluirProfessor")
 	public String excluirProfessor(Integer id, RedirectAttributes ra) {
 	this.professorDAO.deleteById(id);
-	ra.addFlashAttribute("menssagem", "usuário excluido com sucesso");
+	ra.addFlashAttribute("menssagemS", "usuário excluido com sucesso");
 	return "redirect:/listaP";
 	}
 	@GetMapping("/listaProfessor")

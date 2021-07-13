@@ -43,18 +43,18 @@ public class FrequenciaController {
 	return "cadF";
 	}
 	  
-	@PostMapping("/salvarFrequencia")
+	@PostMapping("/professor/salvarFrequencia")
 	public String salvarFrequencia(Frequencia frequencia,  RedirectAttributes ra) {
 		
 		this.frequenciaDAO.save(frequencia);
-		ra.addFlashAttribute("menssagem", "Frequência salva com sucesso");
+		ra.addFlashAttribute("menssagemS", "Frequência salva com sucesso");
 		return "redirect:/listaFrequencia";
 	}
-	 
-	@GetMapping("/excluirFrequencia")
+	  
+	@GetMapping("/professor/excluirFrequencia")
 	public String excluirFrequencia(Integer id, RedirectAttributes ra) {
 	this.frequenciaDAO.deleteById(id);
-	ra.addFlashAttribute("menssagem", "Frequência deletada com sucesso");
+	ra.addFlashAttribute("menssagemS", "Frequência deletada com sucesso");
 	return "redirect:/listaFrequencia";
 	}
 	

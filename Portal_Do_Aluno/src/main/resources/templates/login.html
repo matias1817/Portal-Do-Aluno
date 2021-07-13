@@ -6,7 +6,25 @@
 <style>
    #hideMe {
     -webkit-animation: cssAnimation 0s ease-in 5s forwards;
-   
+    color: red;
+}
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+ #hideMe2 {
+    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+   color: green;
 }
 @keyframes cssAnimation {
     to {
@@ -30,7 +48,9 @@ Email: <input type="text" name="email"><br>
 Senha:<input type="password"  name="senha"><br>
 <button type="submit">Fazer login</button>
 <a href="/cad"> clique aqui caso não tenha cadastro</a>
-</form>
-<div id= "hideMe" th:text = '${menssagem}'  ></div> 
+</form><br>
+<a href= "/PortalDoAluno">Voltar</a>
+<div id= "hideMe" th:text = '${menssagemE}'  ></div> 
+<div id= "hideMe2" th:text = '${menssagemS}'  ></div> 
 </body>
 </html>

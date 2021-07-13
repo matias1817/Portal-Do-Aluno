@@ -2,6 +2,7 @@
 <html xnlns:th="www.thymelaef.org">
 <head>
 <meta charset="UTF-8">
+
 <style>
    #hideMe {
     color: green;
@@ -23,32 +24,27 @@
     }
 }
 </style>
-<title>Lista de Frequencias</title>
+<title>Lista dos Contatos</title>
 </head>
 <body>
 </form>
 	<table>
 	<tr>
-	<th>Aluno</th>
-	<th>Faltas</th>
-	<th>Matéria</th>
-	<th>Periodo</th>
-	<th></th>
+	<th>Telefone</th>
+	<th>Endereço</th>
+	<th>Site</th>
 	</tr>
-		<tr th:each="freq : ${lista}">
-				<td th:text="${freq.Alunos.nome}"></td>
-				<td th:text="${freq.faltas}"></td>
-				<td th:text="${freq.materias.nome}"></td>
-				<td th:text="${freq.Periodo.periodo}"></td>
+		<tr th:each="insti : ${lista}">
+				<td th:text="${insti.numero}"></td>
+				<td th:text="${insti.endereco}"></td>
+				<td th:text="${insti.site}"></td>
 				<td>
-				<a th:href="|/professor/cadFrequencia?id=${freq.id}|">Editar</a
-				>
-				<a th:href="|/professor/excluirFrequencia?id=${freq.id}|">Excluir</a>
+				<a th:href="|/admin/cadInstituicao?id=${insti.id}|">Editar</a>
+				<a th:href="|/admin/excluirInstituicao?id=${insti.id}|">Excluir</a>
 		</td>
 	</tr>
 	</table>
 	<div id= "hideMe" th:text = '${menssagemS}' ></div> 
-	<a href="/professor/home">Voltar para a Home</a>
-	
+	<a href="/admin/home">Voltar para a Home</a>
 </body>
 </html>

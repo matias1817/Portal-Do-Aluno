@@ -30,14 +30,14 @@ public class CursoController {
 	@PostMapping("/salvarCurso")
 	public String salvarCurso(Curso curso, RedirectAttributes ra) {
 		this.cursoDAO.save(curso);
-		ra.addFlashAttribute("menssagem", "curso salvo com sucesso");
+		ra.addFlashAttribute("menssagemS", "curso salvo com sucesso");
 		return "redirect:/listaCurso";
 	}
 	 
 	@GetMapping("/excluirCurso")
 	public String excluirCurso(Integer id,RedirectAttributes ra ) {
 	this.cursoDAO.deleteById(id); 
-	ra.addFlashAttribute("menssagem", "curso deletado com sucesso");
+	ra.addFlashAttribute("menssagemS", "curso deletado com sucesso");
 	return "redirect:/listaCurso";
 	}
 }

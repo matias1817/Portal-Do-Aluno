@@ -9,5 +9,6 @@ public class PortalDoAlunoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(PortalDoAlunoApplication.class, args);
 	}
+	 
 
 }

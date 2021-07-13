@@ -28,7 +28,7 @@ public class AvaliacaoController {
 	private MateriasDAO materiasDAO;
 		
 	
-	@GetMapping("/professor/cadNotas")
+	@GetMapping("/professor/cadAvaliacao")
 	public String exibirCad(Integer id, Model model) {
 	if (id != null) {
 		
@@ -44,17 +44,17 @@ public class AvaliacaoController {
 	return "cadA";
 	}
 	 
-	@PostMapping("/salvarAvaliacao")
+	@PostMapping("/professor/salvarAvaliacao")
 	public String salvarAvaliacao(Avaliacao avaliacao,  RedirectAttributes ra) {
 		this.avaliacaoDAO.save(avaliacao);
-		ra.addFlashAttribute("menssagem", "avaliação salva com sucesso");
+		ra.addFlashAttribute("menssagemS", "avaliação salva com sucesso");
 		return "redirect:/listaAvaliacao";
 	}
 	
-	@GetMapping("/excluirAvaliacao")
+	@GetMapping("/professor/excluirAvaliacao")
 	public String excluirAvaliacao(Integer id,  RedirectAttributes ra) {
 	this.avaliacaoDAO.deleteById(id);
-	ra.addFlashAttribute("menssagem", "avaliação deletada com sucesso");
+	ra.addFlashAttribute("menssagemS", "avaliação deletada com sucesso");
 	return "redirect:/listaAvaliacao";
 	}
 }

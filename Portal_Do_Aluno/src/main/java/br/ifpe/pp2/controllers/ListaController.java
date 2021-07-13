@@ -9,6 +9,7 @@ import br.ifpe.pp2.DAO.AlunoDAO;
 import br.ifpe.pp2.DAO.AvaliacaoDAO;
 import br.ifpe.pp2.DAO.CursoDAO;
 import br.ifpe.pp2.DAO.FrequenciaDAO;
+import br.ifpe.pp2.DAO.InstituiçãoDAO;
 import br.ifpe.pp2.DAO.MateriasDAO;
 
 @Controller
@@ -28,6 +29,9 @@ public class ListaController {
 	
 	@Autowired
 	private AvaliacaoDAO avaliacaoDAO;
+	
+	@Autowired
+	InstituiçãoDAO instituiçãoDAO;
 	
 	@GetMapping("/aluno/listaAluno")
 	public String exibirLista(Model model) {
@@ -53,5 +57,10 @@ public class ListaController {
 	public String exibirListaA(Model model) {
 		model.addAttribute("lista", this.avaliacaoDAO.findAll());
 		return "listaA";
+	}
+	@GetMapping("/listaInstituicao")
+	public String exibirListaI(Model model) {
+		model.addAttribute("lista", this.instituiçãoDAO.findAll());
+		return "listaI";
 	}
 }

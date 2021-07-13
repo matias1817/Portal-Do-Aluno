@@ -41,14 +41,14 @@ public class MateriasController {
 	@PostMapping("/admin/salvarMateria")
 	public String salvarMateria(Materias materias,  RedirectAttributes ra) {
 		this.materiasDAO.save(materias);
-		ra.addFlashAttribute("menssagem", "materia salva com sucesso");
+		ra.addFlashAttribute("menssagemS", "materia salva com sucesso");
 		return "redirect:/listaMateria";
 	}
 	 
 	@GetMapping("/admin/excluirMaterias")
 	public String excluirCurso(Integer id, RedirectAttributes ra) {
 	this.materiasDAO.deleteById(id); 
-	ra.addFlashAttribute("menssagem", "materia excluida com sucesso");
+	ra.addFlashAttribute("menssagemS", "materia excluida com sucesso");
 	return "redirect:/listaMateria";
 	}
 }

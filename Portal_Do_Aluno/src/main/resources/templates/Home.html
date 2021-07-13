@@ -23,6 +23,7 @@
     }
 }
 </style>
+
 <title>Home do Aluno</title>
 </head>
 <body>
@@ -34,7 +35,9 @@
 <h3><a href= "#">Links para materias de aula</a></h3> 
 <h3><a href= "#">Contatos dos docentes</a></h3> 
 <h3><a href= "/sair">Sair</a></h3> 
-
-  <div id= "hideMe" th:text = '${menssagem}' ></div> 
+	
+  <div id= "hideMe" th:text = '${menssagemS}' ></div> 
+  <span  th:text = '${session.alunoLogado.nome}' ></span> 
+ 
 </body>
 </html>

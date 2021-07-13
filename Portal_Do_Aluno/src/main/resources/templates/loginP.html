@@ -4,6 +4,26 @@
 <meta charset="UTF-8">
 <style>
    #hideMe {
+   color: red;
+    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+   
+}
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+ #hideMe2 {
+   color: green;
     -webkit-animation: cssAnimation 0s ease-in 5s forwards;
    
 }
@@ -28,8 +48,10 @@
 <form action="/loginProfessor" method="get">
 Email: <input type="text" name="email"><br>
 Senha:<input type="password"  name="senha"><br>
-<button type="submit">Fazer login</button>
-<div id= "hideMe" th:text = '${menssagem}'  ></div> 
+<button type="submit">Fazer login</button><br>
+<a href= "/PortalDoAluno">Voltar</a>
+<div id= "hideMe" th:text = '${menssagemE}'  ></div> 
+<div id= "hideMe2" th:text = '${menssagemS}'  ></div> 
 </form>
 </body>
 </html>
