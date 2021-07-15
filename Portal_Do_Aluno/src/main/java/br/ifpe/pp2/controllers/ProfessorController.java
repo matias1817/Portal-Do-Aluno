@@ -83,16 +83,27 @@ public class ProfessorController {
 	  
 	@PostMapping("/salvarProfessores")
 	public String editarProfessor(Professores professores, RedirectAttributes ra) {
+		if(professorDAO.findBycpf(professores.getCpf()) != null && professores.getId() == null) {
+			ra.addFlashAttribute("menssagemE", "Professor existente");
+			return "redirect:/cadP";
+			
+		} else {
 		this.professorDAO.save(professores);
 		ra.addFlashAttribute("menssagemS", "usuário editado com sucesso");
 		return "redirect:/loginProf";
+		}
 	}
 	@GetMapping("/admin/salvarProfessores")
 	public String salvarProfessor(Professores professores, RedirectAttributes ra) {
+		if(professorDAO.findBycpf(professores.getCpf()) != null && professores.getId() == null) {
+			ra.addFlashAttribute("menssagemE", "Professor existente");
+			return "redirect:/admin/cadP";
+		} else {
 		this.professorDAO.save(professores);
 		ra.addFlashAttribute("menssagemS", "usuário salvo com sucesso");
 		return "redirect:/admin/listaProfessor";
-	}
+		}	
+		}
 	 
 	@GetMapping("/excluirProfessor")
 	public String excluirProfessor(Integer id, RedirectAttributes ra) {

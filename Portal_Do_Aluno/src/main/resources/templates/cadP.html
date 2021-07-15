@@ -1,6 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+   #hideMe {
+    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+    color: red;
+}
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+ #hideMe2 {
+    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+   color: green;
+}
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+</style>
 <meta charset="UTF-8">
 <title>Edição dos dados do Professor</title>
 </head>
@@ -15,6 +53,9 @@ RG: <input type="text" th:field = *{rg} required><br>
 Telefone: <input type="text" th:field = *{telefone} required><br>
 Endereço: <input type="text" th:field = *{endereco} required><br>
 		<button type ="submit"> Cadastrar </button>
+		
+		<div id= "hideMe" th:text = '${menssagemE}'  ></div> 
+		<div id= "hideMe2" th:text = '${menssagemS}'  ></div> 
 	<h3><a href= "/professor/home">Voltar para a home</a></h3>
 </body>
 </html>

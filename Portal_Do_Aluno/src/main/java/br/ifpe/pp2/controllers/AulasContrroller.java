@@ -26,6 +26,7 @@ public class AulasContrroller {
 	
 	@GetMapping("/professor/cadAulas")
 	public String exibirCad(Integer id, Model model) {
+	
 	if (id != null) {
 		
 	Aulas aulas = this.aulasDAO.getById(id);
@@ -42,6 +43,7 @@ public class AulasContrroller {
 	 
 	@PostMapping("/professor/salvarAulas")
 	public String salvarAvaliacao(Aulas aulas,  RedirectAttributes ra) {
+		
 		this.aulasDAO.save(aulas);
 		ra.addFlashAttribute("menssagemS", "conteudo da aula salvo com sucesso");
 		return "redirect:/listaAulas";

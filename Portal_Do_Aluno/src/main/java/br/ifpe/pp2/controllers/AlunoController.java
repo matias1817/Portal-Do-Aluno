@@ -96,11 +96,16 @@ public class AlunoController {
 	  
 	@PostMapping("/salvarAluno")
 	public String salvarAluno(Alunos alunos, RedirectAttributes ra) {
-		
+		if(alunoDAO.findBycpf(alunos.getCpf()) != null && alunos.getId() == null) {
+			ra.addFlashAttribute("menssagemE", "Aluno existente");
+			return "redirect:/cad";
+			
+		} else {
 		this.alunoDAO.save(alunos);
 		ra.addFlashAttribute("menssagemS", "usuário salvo com sucesso");
 		return "redirect:/loginAluno";
-	}
+		}
+		}
 	 
 	@GetMapping("/aluno/excluirAluno")
 	public String excluirCliente(Integer id, RedirectAttributes ra) {
