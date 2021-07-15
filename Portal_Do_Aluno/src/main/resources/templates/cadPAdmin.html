@@ -2,10 +2,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Edição dos dados do Professor</title>
+<title>Cadastro de Professores</title>
 </head>
 <body>
-<form action="/salvarProfessores" method="post" th:object=${Professor}>
+<form action="/admin/salvarProfessores" method="get" th:object=${Professor}>
 <input type="hidden" th:field="*{id}"/>
 Nome: <input type="text" th:field = *{nome} required><br>
 Senha: <input type="password" th:field = *{senha} required><br>
@@ -15,6 +15,7 @@ RG: <input type="text" th:field = *{rg} required><br>
 Telefone: <input type="text" th:field = *{telefone} required><br>
 Endereço: <input type="text" th:field = *{endereco} required><br>
 		<button type ="submit"> Cadastrar </button>
-	<h3><a href= "/professor/home">Voltar para a home</a></h3>
+	<h3><a href= "/admin/home">Voltar para a home</a></h3>
+	</form>
 </body>
 </html>

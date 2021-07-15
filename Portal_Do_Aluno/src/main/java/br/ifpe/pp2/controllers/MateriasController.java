@@ -1,5 +1,7 @@
 package br.ifpe.pp2.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -50,5 +52,15 @@ public class MateriasController {
 	this.materiasDAO.deleteById(id); 
 	ra.addFlashAttribute("menssagemS", "materia excluida com sucesso");
 	return "redirect:/listaMateria";
+	}
+	@GetMapping("/aluno/meusHorarios")
+	public String boletim(Model model, HttpSession session) {
+		model.addAttribute("lista", this.materiasDAO.findAll());
+		return "horario";
+		}
+	@GetMapping("/aluno/contatosProfessores")
+	public String contatos(Model model, HttpSession session) {
+		model.addAttribute("lista", this.materiasDAO.findAll());
+		return "contatosProfessores";
 	}
 }

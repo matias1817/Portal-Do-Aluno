@@ -1,0 +1,30 @@
+<!DOCTYPE html   >
+<html xnlns:th="www.thymelaef.org">
+<head>
+<meta charset="UTF-8">
+<title>Cadastro de Conteudo de Aulas</title>
+</head>
+<body>
+<form action="/professor/salvarAulas" method="post" th:object=${aulas}>
+<input type="hidden" th:field="*{id}"/>
+	Link do Material de estudo: <input type="text"  th:field = *{material} required><br>
+	Data: <input type="date" th:field = *{data} required><br>
+			
+	Materia: <select name="materias"  th:field = *{materias} required>
+			<option th:each = "cat : ${materias}" 
+			th:value = "${cat.id}"
+			th:text = "${cat.nome}" 
+			th:if="${cat.professores.id} == ${session.professorLogado.id}"
+			> </select><br>
+
+	Professor: <select name="professores" th:field = *{professores} required>
+			<option  th:each = "cat : ${professores}" 
+			th:value = "${cat.id}"
+			th:text = "${cat.nome}" 
+			th:if="${cat.id} == ${session.professorLogado.id}"
+			> </select><br>
+		<button type ="submit">Cadastrar</button>
+</form>
+<a  href = "/listaAulas">ver conteudos</a>
+</body>
+</html>

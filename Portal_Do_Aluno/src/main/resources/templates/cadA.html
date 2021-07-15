@@ -7,21 +7,22 @@
 <body>
 <form action="/professor/salvarAvaliacao" method="post" th:object=${Avaliacao}>
 <input type="hidden" th:field="*{id}"/>
-	Nota do Aluno: <input type="number" step="0.1" min="0" max="10" th:field = *{nota}><br>
-	Data: <input type="date" th:field = *{data}><br>
-	Aluno: <select name="alunos">
+	Nota do Aluno: <input type="number" step="0.1" min="0" max="10" th:field = *{nota} required><br>
+	Data: <input type="date" th:field = *{data} required><br>
+	Aluno: <select name="alunos" required>
 			<option th:each = "cat : ${alunos}" th:field = *{alunos} 
 			th:value = "${cat.id}"
 			th:text = "${cat.nome}" 
 			> </select><br>
 			
-	Materia: <select name="materias"  th:field = *{materias}>
+	Materia: <select name="materias"  th:field = *{materias} required>
 			<option th:each = "cat : ${materias}" 
 			th:value = "${cat.id}"
-			th:text = "${cat.nome}" 
+			th:text = "${cat.nome}"
+			th:if = "${cat.professores.id} == ${session.professorLogado.id}" 
 			> </select><br>
 
-	Periodo: <select name="periodo"  th:field = *{periodo}>
+	Periodo: <select name="periodo"  th:field = *{periodo} required>
 			<option th:each = "cat : ${periodo}" 
 			th:value = "${cat.id}"
 			th:text = "${cat.periodo}" 

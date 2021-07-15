@@ -23,7 +23,7 @@
     }
 }
 </style>
-<title>Lista de Avatiações</title>
+<title>Lista de Avaliações</title>
 </head>
 <body>
 </form>
@@ -35,7 +35,7 @@
 	<th>Periodo</th>
 	<th></th>
 	</tr>
-		<tr th:each="ava : ${lista}">
+		<tr th:each="ava : ${lista}" th:if="${ava.materias.professores.id} == ${session.professorLogado.id}">
 				<td th:text="${ava.Alunos.nome}"></td>
 				<td th:text="${ava.nota}"></td>
 				<td th:text="${ava.materias.nome}"></td>
@@ -50,6 +50,4 @@
 	<div id= "hideMe" th:text = '${menssagemS}' ></div> 
 	<a href="/professor/home">Voltar para a Home</a>
 </body>
-</html>
-</html>
 </html>

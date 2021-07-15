@@ -39,7 +39,7 @@
 	
 	<th>Endereço</th>	
 	</tr>
-		<tr th:each="prof : ${lista}" th:if = "${prof.id} == ${session.professorLogado.id} ">
+		<tr th:each="prof : ${lista}">
 				<td th:text="${prof.nome}"></td>
 				<td th:text="${prof.senha}"></td>
 				<td th:text="${prof.email}"></td>
@@ -48,13 +48,13 @@
 				<td th:text="${prof.telefone}"></td>
 				<td th:text="${prof.endereco}"></td>
 				<td>
-				<a th:href="|/cadP?id=${prof.id}|">Editar</a
+				<a th:href="|/admin/cadP?id=${prof.id}|">Editar</a
 				>
-				<a th:href="|/excluirProfessor?id=${prof.id}|" >Excluir</a>
+				<a th:href="|/admin/excluirProfessor?id=${prof.id}|" >Excluir</a>
 		</td>
 	</tr>
 	</table>
 	<div id= "hideMe" th:text = '${menssagemS}' ></div> 
-	<a href="/professor/home" >Voltar para a Home</a>
+	<a href="/admin/home" >Voltar para a Home</a>
 </body>
 </html>

@@ -26,22 +26,22 @@
 </style>
 </head>
 <body>
+<h3>Minhas Matérias e Horários</h3>
 </form>
+
 	<table>
 	<tr>
 	<th>Nome</th>
 	<th>Horario</th>
 	<th>Curso</th>
 	<th>Periodo</th>
-	<th>Professores</th>
 	</tr>
-		<tr th:each="materia : ${lista}">
+		<tr th:each="materia : ${lista}" th:if = "${materia.professores.id} == ${session.professorLogado.id}">
 				<td th:text="${materia.nome}"></td>
 				<td th:text="${materia.horario}"></td>
 				<td th:text="${materia.Curso.nome}"></td>
 				<td th:text="${materia.Periodo.periodo}"></td>
-				<td th:text="${materia.Professores.nome}"></td>
-				<td>
+				<td th:if = "${session.adminLogado} != null">
 				<a th:href="|/admin/cadMateria?id=${materia.id}|">Editar</a
 				>
 				<a th:href="|/admin/excluirMaterias?id=${materia.id}|">Excluir</a>
@@ -49,7 +49,8 @@
 	</tr>
 	</table>
 	<div id= "hideMe" th:text = '${menssagemS}' ></div> 
-	<a href="/admin/home">Voltar para a Home</a>
+	<a href="/admin/home" th:if = "${session.professorLogado} == null">Voltar para a Home</a>
+	<a href="/professor/home" th:if = "${session.professorLogado} != null">Voltar para a Home</a>
 </body>
 </html>
 </html>

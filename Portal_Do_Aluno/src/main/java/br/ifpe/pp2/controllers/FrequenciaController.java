@@ -57,6 +57,9 @@ public class FrequenciaController {
 	ra.addFlashAttribute("menssagemS", "Frequência deletada com sucesso");
 	return "redirect:/listaFrequencia";
 	}
-	
-	
+	@GetMapping("/aluno/minhaFrequencia")
+	public String boletim(Model model) {
+		model.addAttribute("lista", this.frequenciaDAO.findAll());
+		return "frequencia";
+	}
 }

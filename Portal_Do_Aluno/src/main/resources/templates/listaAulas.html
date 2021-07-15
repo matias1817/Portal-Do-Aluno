@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <style>
    #hideMe {
-    color: green;
+    
     -webkit-animation: cssAnimation 0s ease-in 5s forwards;
-   
+   color: green;
 }
 @keyframes cssAnimation {
     to {
@@ -23,32 +23,33 @@
     }
 }
 </style>
-<title>Lista de Frequencias</title>
+<title>Lista de conteudos de aula</title>
 </head>
 <body>
 </form>
 	<table>
 	<tr>
-	<th>Aluno</th>
-	<th>Faltas</th>
+	<th>Link para o material</th>
+	<th>Data</th>
 	<th>Matéria</th>
 	<th>Periodo</th>
 	<th></th>
 	</tr>
-		<tr th:each="freq : ${lista}" th:if="${freq.materias.professores.id} == ${session.professorLogado.id}">
-				<td th:text="${freq.Alunos.nome}"></td>
-				<td th:text="${freq.faltas}"></td>
-				<td th:text="${freq.materias.nome}"></td>
-				<td th:text="${freq.Periodo.periodo}"></td>
+		<tr th:each="a : ${lista}" th:if="${a.professores.id} == ${session.professorLogado.id}">
+				<td><a th:href = "${a.material}" target="_blank">Link</a></td>
+				<td th:text="${a.data}"></td>
+				<td th:text="${a.materias.nome}"></td>
+				<td th:text="${a.professores.nome}"></td>
 				<td>
-				<a th:href="|/professor/cadFrequencia?id=${freq.id}|">Editar</a
+				<a th:href="|/professor/cadAulas?id=${a.id}|">Editar</a
 				>
-				<a th:href="|/professor/excluirFrequencia?id=${freq.id}|">Excluir</a>
+				<a th:href="|/professor/excluirAulas?id=${a.id}|">Excluir</a>
 		</td>
 	</tr>
 	</table>
 	<div id= "hideMe" th:text = '${menssagemS}' ></div> 
 	<a href="/professor/home">Voltar para a Home</a>
-	
 </body>
+</html>
+</html>
 </html>

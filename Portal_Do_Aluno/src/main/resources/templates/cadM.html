@@ -7,22 +7,22 @@
 <body>
 <form action="/admin/salvarMateria" method="post" th:object=${Materias}>
 <input type="hidden" th:field="*{id}"/>
-	Nome: <input type="text" th:field = *{nome}><br>
+	Nome: <input type="text" th:field = *{nome} required><br>
 	
-	Horario: <input type="text" th:field = *{horario}><br>
+	Horario: <input type="text" th:field = *{horario} required><br>
 	
-	Curso: <select name="curso" th:field = *{curso}>
+	Curso: <select name="curso" th:field = *{curso} required>
 			<option th:each = "cat : ${curso}" 
 			th:value = "${cat.id}"
 			th:text = "${cat.nome}" 
 			> </select><br>
-	Periodo: <select name="periodo" th:field = *{periodo}>
+	Periodo: <select name="periodo" th:field = *{periodo} required>
 			<option th:each = "cat : ${periodo}" 
 			th:value = "${cat.id}"
 			th:text = "${cat.periodo}" 
 			></option>
 		</select><br>
-	Professor: <select name="professores" th:field = *{professores}>
+	Professor: <select name="professores" th:field = *{professores} required>
 			<option  th:each = "cat : ${professores}" 
 			th:value = "${cat.id}"
 			th:text = "${cat.nome}" 

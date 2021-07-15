@@ -28,16 +28,18 @@
 </head>
 <body>
 <h1>Tela Inicial Aluno</h1>
-<h3><a href= "#">Ver Boletim</a></h3> 
-<h3><a href= "#">Horarios</a></h3> 
-<h3><a href= "/aluno/listaAluno">Alteração, exclusão, listagem</a></h3> 
-<h3><a href= "#">Frequência</a></h3> 
-<h3><a href= "#">Links para materias de aula</a></h3> 
-<h3><a href= "#">Contatos dos docentes</a></h3> 
+<h4>Olá <span  th:text = ' ${session.alunoLogado.nome} ' ></span> !</h4>
+<h3><a href= "/aluno/minhasNotas">Ver Boletim</a></h3> 
+<h3><a href= "/aluno/meusHorarios">Horarios e Materias</a></h3> 
+<h3><a href= "/aluno/listaAluno">Alteração de dados cadatrais</a></h3> 
+<h3><a href= "/aluno/minhaFrequencia">Frequência</a></h3> 
+<h3><a href= "/aluno/materiais">Links para materiais de aula</a></h3> 
+<h3><a href= "/aluno/contatosProfessores">Contatos dos docentes</a></h3> 
+<h3><a href= "/listaInstituicao">Contatos da instituição</a></h3> 
 <h3><a href= "/sair">Sair</a></h3> 
 	
   <div id= "hideMe" th:text = '${menssagemS}' ></div> 
-  <span  th:text = '${session.alunoLogado.nome}' ></span> 
+  
  
 </body>
 </html>

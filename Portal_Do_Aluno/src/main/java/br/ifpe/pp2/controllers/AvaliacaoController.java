@@ -1,6 +1,8 @@
 
 package br.ifpe.pp2.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -56,5 +58,10 @@ public class AvaliacaoController {
 	this.avaliacaoDAO.deleteById(id);
 	ra.addFlashAttribute("menssagemS", "avaliação deletada com sucesso");
 	return "redirect:/listaAvaliacao";
+	}
+	@GetMapping("/aluno/minhasNotas")
+	public String boletim(Model model, HttpSession session) {
+		model.addAttribute("lista", this.avaliacaoDAO.findAll());
+		return "boletim";
 	}
 }

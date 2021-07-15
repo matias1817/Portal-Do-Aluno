@@ -33,6 +33,7 @@ public class ProfessorController {
 		
 		return "HomeP";
 	}
+	
 	@GetMapping("/loginProfessor")
 	public String logarAluno(String email, String senha, Model model, RedirectAttributes ra, HttpSession session) {
 		Admin adminLogado = this.adminDAO.findByemailAndSenha(email, senha);
@@ -66,24 +67,54 @@ public class ProfessorController {
 	
 	return "cadP";
 	}
+	@GetMapping("/admin/cadP")
+	public String exibirCadPAdmin(Integer id, Model model) {
+		if (id != null) {
+			Professores professores = this.professorDAO.getById(id);
+			model.addAttribute("Professor", professores);
+		} else {
+			model.addAttribute("Professor", new Professores());
+		}
+		
+		model.addAttribute("lista", this.professorDAO.findAll());
+		
+		return "cadPAdmin";
+	}
 	  
 	@PostMapping("/salvarProfessores")
+	public String editarProfessor(Professores professores, RedirectAttributes ra) {
+		this.professorDAO.save(professores);
+		ra.addFlashAttribute("menssagemS", "usuário editado com sucesso");
+		return "redirect:/loginProf";
+	}
+	@GetMapping("/admin/salvarProfessores")
 	public String salvarProfessor(Professores professores, RedirectAttributes ra) {
 		this.professorDAO.save(professores);
 		ra.addFlashAttribute("menssagemS", "usuário salvo com sucesso");
-		return "redirect:/loginProf";
+		return "redirect:/admin/listaProfessor";
 	}
 	 
-	@GetMapping("/professor/excluirProfessor")
+	@GetMapping("/excluirProfessor")
 	public String excluirProfessor(Integer id, RedirectAttributes ra) {
 	this.professorDAO.deleteById(id);
 	ra.addFlashAttribute("menssagemS", "usuário excluido com sucesso");
-	return "redirect:/listaP";
+	return "redirect:/listaProfessor";
+	}
+	@GetMapping("/admin/excluirProfessor")
+	public String excluirProfessorA(Integer id, RedirectAttributes ra) {
+		this.professorDAO.deleteById(id);
+		ra.addFlashAttribute("menssagemS", "usuário excluido com sucesso");
+		return "redirect:/admin/listaProfessor";
 	}
 	@GetMapping("/listaProfessor")
 	public String exibirLista(Model model) {
 		model.addAttribute("lista", this.professorDAO.findAll()); 
 		return "listaP";
+	}
+	@GetMapping("/admin/listaProfessor")
+	public String exibirListaA(Model model) {
+		model.addAttribute("lista", this.professorDAO.findAll()); 
+		return "listaPAdmin";
 	}
 	
 }

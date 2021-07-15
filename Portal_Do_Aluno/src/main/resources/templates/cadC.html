@@ -5,9 +5,9 @@
 <title>Cadastro de Curso</title>
 </head>
 <body>
-<form action="/salvarCurso" method="post" th:object=${Curso}>
+<form action="/admin/salvarCurso" method="post" th:object=${Curso}>
 <input type="hidden" th:field="*{id}"/>
-Nome do curso: <input type="text" th:field = *{nome}><br>
+Nome do curso: <input type="text" th:field = *{nome} required><br>
 		<button type ="submit"> Cadastrar </button>
 	<h3><a href= "/admin/home">Voltar para a home</a></h3>
 </body>

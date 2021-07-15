@@ -20,26 +20,22 @@ public class Periodo {
 	private Integer id;
 	private String periodo;
 	
-	@OneToMany( orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @Fetch(FetchMode.SUBSELECT)
+	//( orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany			//@Fetch(FetchMode.SUBSELECT)
 	private List<Avaliacao> avaliacao;
 	
-	@OneToMany( orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @Fetch(FetchMode.SUBSELECT)
+	//( orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany			//@Fetch(FetchMode.SUBSELECT)
 	private List<Frequencia> frequencia;
 	
-	@OneToMany( orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @Fetch(FetchMode.SUBSELECT)
+		//( orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany			//@Fetch(FetchMode.SUBSELECT)
 	private List<Materias> materias;
 	
-	public Periodo(Integer id, String periodo, List<Avaliacao> avaliacao, List<Frequencia> frequencia,
-			List<Materias> materias) {
+	public Periodo(String periodo) {
 		super();
-		this.id = id;
 		this.periodo = periodo;
-		this.avaliacao = avaliacao;
-		this.frequencia = frequencia;
-		this.materias = materias;
+	
 	}
 	
 	public Periodo() {

@@ -12,8 +12,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import br.ifpe.pp2.DAO.AdminDAO;
 import br.ifpe.pp2.DAO.AlunoDAO;
 import br.ifpe.pp2.DAO.CursoDAO;
+import br.ifpe.pp2.DAO.PeriodoDAO;
 import br.ifpe.pp2.entities.Admin;
 import br.ifpe.pp2.entities.Alunos;
+import br.ifpe.pp2.entities.Periodo;
 
 
 @Controller
@@ -22,14 +24,27 @@ public class AlunoController {
 	@Autowired
 	private AlunoDAO alunoDAO;
 	
-	@Autowired
+	@Autowired 
 	private CursoDAO cursoDAO;
-	
+	@Autowired
+	private PeriodoDAO periodoDAO;
 	@Autowired
 	private AdminDAO adminDAO;
-
+	
+	Periodo periodo1 = new Periodo("Primeiro Periodo");
+	Periodo periodo2 = new Periodo("Segundo Periodo");
+	Periodo periodo3 = new Periodo("Terceiro Periodo");
+	Admin admin = new Admin("admin@gmail.com", "admin");
 	@GetMapping("/PortalDoAluno")
 	public String exibir(Model model) {
+		if(periodoDAO.findAll().isEmpty()) {
+			periodoDAO.save(periodo1);
+			periodoDAO.save(periodo2);
+			periodoDAO.save(periodo3);
+		}
+		if(adminDAO.findAll().isEmpty()) {
+			adminDAO.save(admin);
+		} 
 		return "Portal";
 	}
 	@GetMapping("/login")
@@ -41,8 +56,10 @@ public class AlunoController {
 	public String exibirHome(Model model){
 		return "Home";
 	}
+	
 	@GetMapping("/loginAluno")
 	public String logarAluno(String email, String senha, Model model, RedirectAttributes ra, HttpSession session) {
+		
 		Admin adminLogado = this.adminDAO.findByemailAndSenha(email, senha);
 		if (adminLogado != null) {
 			session.setAttribute("adminLogado", adminLogado);
@@ -89,7 +106,7 @@ public class AlunoController {
 	public String excluirCliente(Integer id, RedirectAttributes ra) {
 	this.alunoDAO.deleteById(id);
 	ra.addFlashAttribute("menssagemS", "usuário excluido com sucesso");
-	return "redirect:/listaAluno";
+	return "redirect:/aluno/listaAluno";
 	}
 	 
 	@GetMapping("/sair")

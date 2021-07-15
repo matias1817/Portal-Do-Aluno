@@ -7,21 +7,22 @@
 <body>
 <form action="/professor/salvarFrequencia" method="post" th:object=${Frequencia}>
 <input type="hidden" th:field="*{id}"/>
-	Quantidade de faltas do aluno no periodo: <input type="number" th:field = *{faltas}><br>
+	Quantidade de faltas do aluno no periodo: <input type="number" th:field = *{faltas} required><br>
 	
-	Aluno: <select name="alunos" th:field = *{alunos}>
+	Aluno: <select name="alunos" th:field = *{alunos} required>
 			<option th:each = "cat : ${alunos}" 
 			th:value = "${cat.id}"
 			th:text = "${cat.nome}" 
 			> </select><br>
 			
-	Materia: <select name="materias" th:field = *{materias}>
+	Materia: <select name="materias" th:field = *{materias} required>
 			<option th:each = "cat : ${materias}" 
 			th:value = "${cat.id}"
 			th:text = "${cat.nome}" 
+			th:if = "${cat.professores.id} == ${session.professorLogado.id}" 
 			> </select><br>
 
-	Periodo: <select name="periodo" th:field = *{periodo}>
+	Periodo: <select name="periodo" th:field = *{periodo} required>
 			<option th:each = "cat : ${periodo}" 
 			th:value = "${cat.id}"
 			th:text = "${cat.periodo}" 

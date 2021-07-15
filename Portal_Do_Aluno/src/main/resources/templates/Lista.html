@@ -39,7 +39,7 @@
 	<th>Nome de um dos pais</th>
 	<th>RG</th>
 	</tr>
-		<tr th:each="aluno : ${lista}">
+		<tr th:each="aluno : ${lista}" th:if="${aluno.id} == ${session.alunoLogado.id}">
 				<td th:text="${aluno.nome}"></td>
 				<td th:text="${aluno.senha}"></td>
 				<td th:text="${aluno.matricula}"></td>
@@ -54,7 +54,7 @@
 				<td>
 				<a th:href="|/cad?id=${aluno.id}|">Editar</a
 				>
-				<a th:href="|/excluirAluno?id=${aluno.id}|">Excluir</a
+				<a th:href="|/aluno/excluirAluno?id=${aluno.id}|">Excluir</a
 				>
 		</td>
 	</tr>
@@ -62,6 +62,6 @@
 	<div id= "hideMe" th:text = '${menssagemS}' ></div> 
 	<span th:text = '${session.alunoLogado.nome}' ></span> 
 	
-<h3><a href= "/home">Voltar para a home</a></h3>
+<h3><a href= "/aluno/home">Voltar para a home</a></h3>
 </body>
 </html>

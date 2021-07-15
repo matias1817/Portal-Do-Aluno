@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+ 
 @Entity
 public class Admin {
 	
@@ -12,9 +12,8 @@ public class Admin {
 	private Integer id;
 	private String email;
 	private String senha;
-	public Admin(String email, String senha, Integer id) {
+	public Admin(String email, String senha) {
 		super();
-		this.id = id;
 		this.email = email;
 		this.senha = senha;
 	}

@@ -16,7 +16,7 @@ public class CursoController {
 	@Autowired
 	private CursoDAO cursoDAO;
 	
-	@GetMapping("/cadCurso")
+	@GetMapping("/admin/cadCurso")
 	public String exibirCad(Integer id, Model model) {
 	if (id != null) {
 	Curso curso = this.cursoDAO.getById(id);
@@ -27,14 +27,14 @@ public class CursoController {
 	return "cadC";
 	}
 	  
-	@PostMapping("/salvarCurso")
+	@PostMapping("/admin/salvarCurso")
 	public String salvarCurso(Curso curso, RedirectAttributes ra) {
 		this.cursoDAO.save(curso);
 		ra.addFlashAttribute("menssagemS", "curso salvo com sucesso");
 		return "redirect:/listaCurso";
 	}
 	 
-	@GetMapping("/excluirCurso")
+	@GetMapping("/admin/excluirCurso")
 	public String excluirCurso(Integer id,RedirectAttributes ra ) {
 	this.cursoDAO.deleteById(id); 
 	ra.addFlashAttribute("menssagemS", "curso deletado com sucesso");

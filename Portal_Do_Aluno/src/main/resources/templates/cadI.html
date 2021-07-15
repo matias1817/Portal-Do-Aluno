@@ -7,9 +7,9 @@
 <body>
 <form action="/admin/salvarInstituição" method="get" th:object=${instituicao}>
 <input type="hidden" th:field="*{id}"/>
-	Telefone: <input type="text" th:field = *{numero}><br>
-	Endereço: <input type="text" th:field = *{endereco}><br>
-	Site: <input type="text" th:field = *{site}><br>
+	Telefone: <input type="text" th:field = *{numero} required><br>
+	Endereço: <input type="text" th:field = *{endereco} required><br>
+	Site: <input type="text" th:field = *{site} required><br>
 		<button type ="submit">Cadastrar</button>
 </form>
 <a  href = "/listaInstituicao">ver contatos</a>

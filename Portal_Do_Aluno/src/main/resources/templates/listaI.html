@@ -39,12 +39,14 @@
 				<td th:text="${insti.endereco}"></td>
 				<td th:text="${insti.site}"></td>
 				<td>
-				<a th:href="|/admin/cadInstituicao?id=${insti.id}|">Editar</a>
-				<a th:href="|/admin/excluirInstituicao?id=${insti.id}|">Excluir</a>
+				<a th:href="|/admin/cadInstituicao?id=${insti.id}|" th:if= "${session.adminLogado}!=null">Editar</a>
+				<a th:href="|/admin/excluirInstituicao?id=${insti.id}|" th:if= "${session.adminLogado}!=null">Excluir</a>
 		</td>
 	</tr>
 	</table>
 	<div id= "hideMe" th:text = '${menssagemS}' ></div> 
-	<a href="/admin/home">Voltar para a Home</a>
+	<a href="/professor/home" th:if= "${session.professorLogado}!=null">Voltar para a Home</a>
+	<a href="/aluno/home" th:if= "${session.alunoLogado} != null">Voltar para a Home</a>
+	<a href="/admin/home" th:if= "${session.adminLogado}!=null">Voltar para a Home</a>
 </body>
 </html>
