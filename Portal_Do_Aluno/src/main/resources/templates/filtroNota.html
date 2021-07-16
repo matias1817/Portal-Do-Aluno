@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="/professor/filtrarAvaliacao" method="post">
+
+	Nome: <input type="text"  name = "nome" ><br>
+			
+	Materia: <select name="materia" >
+			<option value = ""></option>
+			<option th:each = "cat : ${materias}" 
+			th:value = "${cat.id}"
+			th:text = "${cat.nome}"
+		
+			> </select><br>
+
+	Periodo: <select name="periodo" >
+		<option value = ""></option>
+			<option th:each = "cat : ${periodo}" 
+			th:value = "${cat.id}"
+			th:text = "${cat.periodo}" 
+			></option>
+		</select>
+		<button type ="submit">Filtrar</button>
+</form>
+<table>
+	<tr>
+	<th>Aluno</th>
+	<th>Nota</th>
+	<th>Matéria</th>
+	<th>Periodo</th>
+	<th></th>
+	</tr>
+		<tr th:each="ava : ${lista}" th:if="${ava.materias.professores.id} == ${session.professorLogado.id}">
+				<td th:text="${ava.Alunos.nome}"></td>
+				<td th:text="${ava.nota}"></td>
+				<td th:text="${ava.materias.nome}"></td>
+				<td th:text="${ava.Periodo.periodo}"></td>
+				<td>
+				<a th:href="|/professor/cadAvaliacao?id=${ava.id}|">Editar</a
+				>
+				<a th:href="|/professor/excluirAvaliacao?id=${ava.id}|">Excluir</a>
+		</td>
+	</tr>
+	</table>
+	<div id= "hideMe" th:text = '${menssagemS}' ></div> 
+	<a href="/professor/home">Voltar para a Home</a>
+
+
+</body>
+</html>

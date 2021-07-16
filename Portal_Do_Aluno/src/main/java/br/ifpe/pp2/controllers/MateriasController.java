@@ -38,7 +38,7 @@ public class MateriasController {
 	model.addAttribute("professores", this.professorDAO.findAll());
 	model.addAttribute("periodo", this.periodoDAO.findAll());
 	return "cadM";
-	}
+	} 
 	   
 	@PostMapping("/admin/salvarMateria")
 	public String salvarMateria(Materias materias,  RedirectAttributes ra) {
@@ -69,4 +69,5 @@ public class MateriasController {
 		model.addAttribute("lista", this.materiasDAO.findAll());
 		return "contatosProfessores";
 	}
+	
 }
