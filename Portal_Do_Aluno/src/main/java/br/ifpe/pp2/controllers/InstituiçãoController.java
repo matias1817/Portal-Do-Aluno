@@ -17,23 +17,27 @@ public class InstituiçãoController {
 	@Autowired
 	InstituiçãoDAO instituiçãoDAO;
 	
-	@GetMapping("/admin/cadInstituição")
+	@GetMapping("/admin/cadInstituicao")
 	public String exibirCad(Integer id, Model model) {
 	if (id != null) {
 	Instituição instituição = this.instituiçãoDAO.getById(id);
 	model.addAttribute("instituicao", instituição);
 	} else {
 	model.addAttribute("instituicao", new Instituição());
-	}
+	} 
 	return "cadI";
 	}
 	  
 	@GetMapping("/admin/salvarInstituição")
 	public String salvarInstituição(Instituição instituição,  RedirectAttributes ra) {
-		 
+		 if(instituiçãoDAO.findBynumeroAndEnderecoAndSite(instituição.getNumero(), instituição.getEndereco(), instituição.getSite()) != null && instituição.getId() == null) {
+			 ra.addFlashAttribute("menssagemE","Esses dados já estão no sistema, caso queira editar clique a baixo");
+			 return "redirect:/admin/cadInstituicao";
+		 } else {
 		this.instituiçãoDAO.save(instituição);
 		ra.addFlashAttribute("menssagemS", "Contatos da instituição salvos com sucesso");
 		return "redirect:/listaInstituicao";
+		 }
 	} 
 	
 	@GetMapping("/admin/excluirInstituicao")

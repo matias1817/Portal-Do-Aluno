@@ -36,21 +36,15 @@
 	<th>Curso</th>
 	<th>Periodo</th>
 	</tr>
-		<tr th:each="materia : ${lista}" >
+		<tr th:each="materia : ${lista}" th:if = "${materia.professores.id} == ${session.professorLogado.id}">
 				<td th:text="${materia.nome}"></td>
 				<td th:text="${materia.horario}"></td>
 				<td th:text="${materia.Curso.nome}"></td>
-				<td th:text="${materia.Periodo.periodo}"></td>
-				<td th:if = "${session.adminLogado} != null"> 
-				<td>
-				<a th:href="|/admin/cadMateria?id=${materia.id}|">Editar</a
-				>
-				<a th:href="|/admin/excluirMaterias?id=${materia.id}|">Excluir</a>
-		</td>
+				<td th:text="${materia.Periodo.periodo}">
 	</tr>
 	</table>
 	<div id= "hideMe" th:text = '${menssagemS}' ></div> 
-	<a href="/admin/home">Voltar para a Home</a>
+	<a href="/professor/home">Voltar para a Home</a>
 </body>
 </html>
 </html>

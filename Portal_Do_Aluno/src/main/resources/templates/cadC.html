@@ -3,12 +3,52 @@
 <head>
 <meta charset="UTF-8">
 <title>Cadastro de Curso</title>
+<style>
+   #hideMe {
+    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+    color: red;
+}
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+ #hideMe2 {
+    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+   color: green;
+}
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+</style>
 </head>
 <body>
 <form action="/admin/salvarCurso" method="post" th:object=${Curso}>
 <input type="hidden" th:field="*{id}"/>
 Nome do curso: <input type="text" th:field = *{nome} required><br>
 		<button type ="submit"> Cadastrar </button>
+		<div id= "hideMe" th:text = '${menssagemE}'  ></div> 
+<div id= "hideMe2" th:text = '${menssagemS}'  ></div> 
 	<h3><a href= "/admin/home">Voltar para a home</a></h3>
 </body>
 </html>

@@ -50,6 +50,11 @@ public class ListaController {
 	@GetMapping("/listaMateria")
 	public String exibirListaM(Model model) {
 		model.addAttribute("lista", this.materiasDAO.findAll());
+		return "listaMP";
+	}
+	@GetMapping("/admin/listaMateria")
+	public String exibirListaMA(Model model) {
+		model.addAttribute("lista", this.materiasDAO.findAll());
 		return "listaM";
 	}
 	@GetMapping("/listaFrequencia")

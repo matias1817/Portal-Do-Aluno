@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.ifpe.pp2.DAO.AlunoDAO;
+import br.ifpe.pp2.DAO.AulasDAO;
 import br.ifpe.pp2.DAO.AvaliacaoDAO;
 import br.ifpe.pp2.DAO.MateriasDAO;
 import br.ifpe.pp2.DAO.PeriodoDAO;
@@ -48,9 +49,14 @@ public class AvaliacaoController {
 	 
 	@PostMapping("/professor/salvarAvaliacao")
 	public String salvarAvaliacao(Avaliacao avaliacao,  RedirectAttributes ra) {
+		if(avaliacaoDAO.findByalunosAndMateriasAndPeriodo(avaliacao.getAlunos(), avaliacao.getMaterias(), avaliacao.getPeriodo()) != null && avaliacao.getId() == null) {
+			ra.addFlashAttribute("menssagemE", "nota desse aluno neste periodo já lançada");
+			return "redirect:/professor/cadAvaliacao";
+		} else {
 		this.avaliacaoDAO.save(avaliacao);
 		ra.addFlashAttribute("menssagemS", "avaliação salva com sucesso");
 		return "redirect:/listaAvaliacao";
+		}
 	}
 	
 	@GetMapping("/professor/excluirAvaliacao")

@@ -29,10 +29,15 @@ public class CursoController {
 	  
 	@PostMapping("/admin/salvarCurso")
 	public String salvarCurso(Curso curso, RedirectAttributes ra) {
+		if(cursoDAO.findBynome(curso.getNome()) != null && curso.getId() == null) {
+			ra.addFlashAttribute("menssagemE", "curso já existente");
+			return "redirect:/admin/cadCurso";
+		}else {
 		this.cursoDAO.save(curso);
 		ra.addFlashAttribute("menssagemS", "curso salvo com sucesso");
 		return "redirect:/listaCurso";
 	}
+		}
 	 
 	@GetMapping("/admin/excluirCurso")
 	public String excluirCurso(Integer id,RedirectAttributes ra ) {

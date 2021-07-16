@@ -3,6 +3,44 @@
 <head>
 <meta charset="UTF-8">
 <title>Cadastro de Matérias</title>
+<style>
+   #hideMe {
+    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+    color: red;
+}
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+ #hideMe2 {
+    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+   color: green;
+}
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+</style>
 </head>
 <body>
 <form action="/admin/salvarMateria" method="post" th:object=${Materias}>
@@ -28,7 +66,9 @@
 			th:text = "${cat.nome}" 
 			> </select><br>
 
-	
+	<div id= "hideMe" th:text = '${menssagemE}'  ></div> 
+	<div id= "hideMe2" th:text = '${menssagemS}'  ></div> 
+	<a href ="/admin/listaMateria">ver materias</a>
 		<button type ="submit">Cadastrar</button>
 </form>
 </body>

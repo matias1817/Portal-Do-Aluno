@@ -43,10 +43,14 @@ public class AulasContrroller {
 	 
 	@PostMapping("/professor/salvarAulas")
 	public String salvarAvaliacao(Aulas aulas,  RedirectAttributes ra) {
-		
+		 if(aulasDAO.findBymaterialAndDataAndMaterias(aulas.getMaterial(), aulas.getData(), aulas.getMaterias()) != null && aulas.getId() == null) {
+			 ra.addFlashAttribute("menssagemE", "Conteudo de aula já postado");
+				return "redirect:/professor/cadAulas";
+		 } else {
 		this.aulasDAO.save(aulas);
 		ra.addFlashAttribute("menssagemS", "conteudo da aula salvo com sucesso");
 		return "redirect:/listaAulas";
+		}
 	}
 	
 	@GetMapping("/professor/excluirAulas")

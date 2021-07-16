@@ -3,6 +3,44 @@
 <head>
 <meta charset="UTF-8">
 <title>Cadastro de Frequencia</title>
+<style>
+   #hideMe {
+    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+    color: red;
+}
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+ #hideMe2 {
+    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+   color: green;
+}
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+</style>
 </head>
 <body>
 <form action="/professor/salvarFrequencia" method="post" th:object=${Frequencia}>
@@ -30,6 +68,8 @@
 		</select>
 		<button type ="submit">Cadastrar</button>
 </form>
+<div id= "hideMe" th:text = '${menssagemE}'  ></div> 
+	<div id= "hideMe2" th:text = '${menssagemS}'  ></div> 
 <a  href = "/listaFrequencia">ver faltas</a>
 </body>
 </html>

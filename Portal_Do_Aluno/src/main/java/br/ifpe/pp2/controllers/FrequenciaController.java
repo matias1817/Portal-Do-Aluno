@@ -45,10 +45,14 @@ public class FrequenciaController {
 	  
 	@PostMapping("/professor/salvarFrequencia")
 	public String salvarFrequencia(Frequencia frequencia,  RedirectAttributes ra) {
-		
+		if (frequenciaDAO.findByalunosAndMateriasAndPeriodo(frequencia.getAlunos(), frequencia.getMaterias(), frequencia.getPeriodo()) != null && frequencia.getId() == null) {
+			ra.addFlashAttribute("menssagemE", "faltas desse aluno nessa materia e nesse periodo já lançados, clique a baixo caso queira editar");
+			return "redirect:/professor/cadFrequencia";
+		} else {
 		this.frequenciaDAO.save(frequencia);
 		ra.addFlashAttribute("menssagemS", "Frequência salva com sucesso");
 		return "redirect:/listaFrequencia";
+	}
 	}
 	  
 	@GetMapping("/professor/excluirFrequencia")

@@ -42,16 +42,22 @@ public class MateriasController {
 	   
 	@PostMapping("/admin/salvarMateria")
 	public String salvarMateria(Materias materias,  RedirectAttributes ra) {
+		if( ((materiasDAO.findBynome(materias.getNome()) != null ) || (materiasDAO.findByhorario(materias.getHorario()) != null)) && materias.getId() == null) {
+			ra.addFlashAttribute("menssagemE", "materia já existente e/ou materia com o mesmo horario");
+			return "redirect:/admin/cadMateria";
+		} else {
 		this.materiasDAO.save(materias);
 		ra.addFlashAttribute("menssagemS", "materia salva com sucesso");
-		return "redirect:/listaMateria";
+		return "redirect:/admin/listaMateria";
+	}
+		
 	}
 	 
 	@GetMapping("/admin/excluirMaterias")
 	public String excluirCurso(Integer id, RedirectAttributes ra) {
 	this.materiasDAO.deleteById(id); 
 	ra.addFlashAttribute("menssagemS", "materia excluida com sucesso");
-	return "redirect:/listaMateria";
+	return "redirect:/admin/listaMateria";
 	}
 	@GetMapping("/aluno/meusHorarios")
 	public String boletim(Model model, HttpSession session) {
