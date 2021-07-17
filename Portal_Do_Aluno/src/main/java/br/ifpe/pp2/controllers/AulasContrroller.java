@@ -1,5 +1,7 @@
 package br.ifpe.pp2.controllers;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -64,5 +66,36 @@ public class AulasContrroller {
 		model.addAttribute("lista", this.aulasDAO.findAll());
 		return "materias";
 }
+	@GetMapping("/listaAulas")
+	public String exibirListaAulas(Model model) {
+		
+		model.addAttribute("lista", this.aulasDAO.findAll());
+		model.addAttribute("materias", this.materiasDAO.findAll());
+		
+		return "listaAulas";
+	}
+	
+	@PostMapping("/professor/filtrarAulas")
+	public String filtar(LocalDate data, Integer materia, RedirectAttributes ra, Model model) {
+		if (data == null) {
+			model.addAttribute("lista", this.aulasDAO.filtrarAulasMateria(materia));
+			model.addAttribute("materias", this.materiasDAO.findAll());
+			return "listaAulas";
+		} else {
+			if (materia == null) {
+				model.addAttribute("lista", this.aulasDAO.filtrarAulasData(data));
+				model.addAttribute("materias", this.materiasDAO.findAll());
+				return "listaAulas";
+			} else {
+				model.addAttribute("lista", this.aulasDAO.filtrarAulasMaterias(materia, data));
+				model.addAttribute("materias", this.materiasDAO.findAll());
+				return "listaAulas";
+
+			}
+
+		}
+
+	}
+	
 	
 }

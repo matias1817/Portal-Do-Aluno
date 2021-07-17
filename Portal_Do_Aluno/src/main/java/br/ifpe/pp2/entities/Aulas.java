@@ -16,7 +16,8 @@ public class Aulas {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String material;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+
+	@DateTimeFormat(pattern = "yyyy-MM-dd")//@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
 	private LocalDate data;
 	
 	

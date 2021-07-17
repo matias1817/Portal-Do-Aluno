@@ -106,10 +106,33 @@ public class AvaliacaoController {
 							}
 							}
 						}
-			}}
+			}}}
 		}
 
-	}
+		@PostMapping("/aluno/filtrarAvaliacao")
+		public String filtarAluno(Integer materia, Integer periodo, RedirectAttributes ra, Model model) {
+			if (periodo == null) {
+				model.addAttribute("lista", this.avaliacaoDAO.filtrarAvaliacaoMateria(materia));
+				model.addAttribute("periodo", this.periodoDAO.findAll());
+				model.addAttribute("materias", this.materiasDAO.findAll());
+				return "boletim";
+			} else {
+				if (materia == null) {
+					model.addAttribute("lista", this.avaliacaoDAO.filtrarAvaliacaoPeriodo(periodo));
+					model.addAttribute("periodo", this.periodoDAO.findAll());
+					model.addAttribute("materias", this.materiasDAO.findAll());
+					return "boletim";
+				} else {
+					model.addAttribute("lista", this.avaliacaoDAO.filtrarAvaliacaoMateriaPeriodo(materia, periodo));
+					model.addAttribute("periodo", this.periodoDAO.findAll());
+					model.addAttribute("materias", this.materiasDAO.findAll());
+					return "boletim";
+
+				}
+			}
+		}
+
+	
 
 	@GetMapping("/listaAvaliacao")
 	public String exibirListaA(Model model) {
@@ -131,6 +154,8 @@ public class AvaliacaoController {
 	@GetMapping("/aluno/minhasNotas")
 	public String boletim(Model model, HttpSession session) {
 		model.addAttribute("lista", this.avaliacaoDAO.findAll());
+		model.addAttribute("periodo", this.periodoDAO.findAll());
+		model.addAttribute("materias", this.materiasDAO.findAll());
 		return "boletim";
 	}
 }

@@ -27,6 +27,25 @@
 </head>
 <body>
 <h4>Notas do discente <span  th:text = ' ${session.alunoLogado.nome} ' ></span></h4>
+<form action="/aluno/filtrarAvaliacao" method="post">
+
+			
+	Materia: <select name="materia" >
+			<option value = ""></option>
+			<option th:each = "cat : ${materias}" 
+			th:value = "${cat.id}"
+			th:text = "${cat.nome}"
+		
+			> </select><br>
+
+	Periodo: <select name="periodo" >
+		<option value = ""></option>
+			<option th:each = "cat : ${periodo}" 
+			th:value = "${cat.id}"
+			th:text = "${cat.periodo}" 
+			></option>
+		</select>
+		<button type ="submit">Filtrar</button>
 </form>
 	<table>
 	<tr>

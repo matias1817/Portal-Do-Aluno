@@ -64,6 +64,8 @@ public class FrequenciaController {
 	@GetMapping("/aluno/minhaFrequencia")
 	public String boletim(Model model) {
 		model.addAttribute("lista", this.frequenciaDAO.findAll());
+		model.addAttribute("periodo", this.periodoDAO.findAll());
+		model.addAttribute("materias", this.materiasDAO.findAll());
 		return "frequencia";
 	}
 	@GetMapping("/listaFrequencia")
@@ -75,7 +77,6 @@ public class FrequenciaController {
 
 		return "listaF";
 	}
-
 	@PostMapping("/professor/filtrarFrequencia")
 	public String filtar(String nome, Integer materia, Integer periodo, RedirectAttributes ra, Model model) {
 		if (materia == null && periodo == null) {
@@ -97,36 +98,56 @@ public class FrequenciaController {
 					model.addAttribute("materias", this.materiasDAO.findAll());
 					return "listaF";
 				} else {
-					if (materia == null) {
-						model.addAttribute("lista", this.frequenciaDAO.filtrarFrequenciaNomePeriodo(nome, periodo));
+					if(materia == null) {
+						model.addAttribute("lista",this.frequenciaDAO.filtrarFrequenciaNomePeriodo(nome, periodo));
 						model.addAttribute("periodo", this.periodoDAO.findAll());
 						model.addAttribute("materias", this.materiasDAO.findAll());
 						return "listaF";
-					} else {
-						if (periodo == null) {
-							model.addAttribute("lista", this.frequenciaDAO.filtrarFrequenciaNomeMateria(nome, materia));
-							model.addAttribute("periodo", this.periodoDAO.findAll());
-							model.addAttribute("materias", this.materiasDAO.findAll());
-							return "listaF";
-						} else {
-							if (nome.isEmpty()) {
-								model.addAttribute("lista",
-										this.frequenciaDAO.filtrarFrequenciaMateriaPeriodo(materia, periodo));
+						} else { 
+							if(periodo == null) {
+									model.addAttribute("lista",this.frequenciaDAO.filtrarFrequenciaNomeMateria(nome, materia));
+									model.addAttribute("periodo", this.periodoDAO.findAll());
+									model.addAttribute("materias", this.materiasDAO.findAll());
+									return "listaF";
+							}else { 
+								if(nome.isEmpty()) {
+								model.addAttribute("lista",this.frequenciaDAO.filtrarFrequenciaMateriaPeriodo(materia, periodo));
 								model.addAttribute("periodo", this.periodoDAO.findAll());
 								model.addAttribute("materias", this.materiasDAO.findAll());
 								return "listaF";
-							} else {
-								model.addAttribute("lista",
-										this.frequenciaDAO.filtrarFrequencia(nome, materia, periodo));
-								model.addAttribute("periodo", this.periodoDAO.findAll());
-								model.addAttribute("materias", this.materiasDAO.findAll());
-								return "listaF";
+										} else {
+					model.addAttribute("lista", this.frequenciaDAO.filtrarFrequencia(nome, materia, periodo));
+					model.addAttribute("periodo", this.periodoDAO.findAll());
+					model.addAttribute("materias", this.materiasDAO.findAll());
+					return "listaF";
+							}
 							}
 						}
-					}
-				}
-			}
+			}}
 		}
 
 	}
+	
+	@PostMapping("/aluno/filtrarFrequencia")
+	public String filtarAluno(Integer materia, Integer periodo, RedirectAttributes ra, Model model) {
+		if (periodo == null) {
+			model.addAttribute("lista", this.frequenciaDAO.filtrarFrequenciaMateria(materia));
+			model.addAttribute("periodo", this.periodoDAO.findAll());
+			model.addAttribute("materias", this.materiasDAO.findAll());
+			return "frequencia";
+		} else {
+			if (materia == null) {
+				model.addAttribute("lista", this.frequenciaDAO.filtrarFrequenciaPeriodo(periodo));
+				model.addAttribute("periodo", this.periodoDAO.findAll());
+				model.addAttribute("materias", this.materiasDAO.findAll());
+				return "frequencia";
+			} else {
+				model.addAttribute("lista", this.frequenciaDAO.filtrarFrequenciaMateriaPeriodo(materia, periodo));
+				model.addAttribute("periodo", this.periodoDAO.findAll());
+				model.addAttribute("materias", this.materiasDAO.findAll());
+				return "frequencia";
+			}
+		}
+	}
+	
 }

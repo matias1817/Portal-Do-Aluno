@@ -59,7 +59,7 @@ public class ListaController {
 		return "listaMP";
 	}
 
-	@GetMapping("/admin/listaMateria")
+	@GetMapping("/admin/listaMateria") 
 	public String exibirListaMA(Model model) {
 		model.addAttribute("lista", this.materiasDAO.findAll());
 		return "listaM";
@@ -75,9 +75,5 @@ public class ListaController {
 		return "listaI";
 	}
 
-	@GetMapping("/listaAulas")
-	public String exibirListaAulas(Model model) {
-		model.addAttribute("lista", this.aulasDAO.findAll());
-		return "listaAulas";
-	}
+	
 }
