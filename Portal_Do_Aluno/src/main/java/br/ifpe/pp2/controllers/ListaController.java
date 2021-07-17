@@ -65,11 +65,7 @@ public class ListaController {
 		return "listaM";
 	}
 
-	@GetMapping("/listaFrequencia")
-	public String exibirListaF(Model model) {
-		model.addAttribute("lista", this.frequenciaDAO.findAll());
-		return "listaF";
-	}
+
 
 	
 

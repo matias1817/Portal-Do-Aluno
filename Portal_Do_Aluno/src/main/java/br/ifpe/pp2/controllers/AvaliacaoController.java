@@ -59,30 +59,58 @@ public class AvaliacaoController {
 			return "redirect:/listaAvaliacao";
 		}
 	}
+
 	@PostMapping("/professor/filtrarAvaliacao")
 	public String filtar(String nome, Integer materia, Integer periodo, RedirectAttributes ra, Model model) {
-		if(materia == null && periodo == null) {
-			model.addAttribute("lista",this.avaliacaoDAO.filtrarAvaliacaoNome(nome));
+		if (materia == null && periodo == null) {
+			model.addAttribute("lista", this.avaliacaoDAO.filtrarAvaliacaoNome(nome));
 			model.addAttribute("periodo", this.periodoDAO.findAll());
 			model.addAttribute("materias", this.materiasDAO.findAll());
 			return "filtroNota";
-			
-		}else{
-			if(nome.isEmpty() && periodo == null) {
-				model.addAttribute("lista",this.avaliacaoDAO.filtrarAvaliacaoMateria(materia));
+
+		} else {
+			if (nome.isEmpty() && periodo == null) {
+				model.addAttribute("lista", this.avaliacaoDAO.filtrarAvaliacaoMateria(materia));
 				model.addAttribute("periodo", this.periodoDAO.findAll());
 				model.addAttribute("materias", this.materiasDAO.findAll());
 				return "filtroNota";
 			} else {
-			model.addAttribute("lista",this.avaliacaoDAO.filtrarAvaliacao(nome, materia, periodo));
-			model.addAttribute("periodo", this.periodoDAO.findAll());
-			model.addAttribute("materias", this.materiasDAO.findAll());
-			return "filtroNota";
-			}
+				if (nome.isEmpty() && materia == null) {
+					model.addAttribute("lista", this.avaliacaoDAO.filtrarAvaliacaoPeriodo(periodo));
+					model.addAttribute("periodo", this.periodoDAO.findAll());
+					model.addAttribute("materias", this.materiasDAO.findAll());
+					return "filtroNota";
+				} else {
+					if(materia == null) {
+						model.addAttribute("lista",this.avaliacaoDAO.filtrarAvaliacaoNomePeriodo(nome, periodo));
+						model.addAttribute("periodo", this.periodoDAO.findAll());
+						model.addAttribute("materias", this.materiasDAO.findAll());
+						return "filtroNota";
+						} else { 
+							if(periodo == null) {
+									model.addAttribute("lista",this.avaliacaoDAO.filtrarAvaliacaoNomeMateria(nome, materia));
+									model.addAttribute("periodo", this.periodoDAO.findAll());
+									model.addAttribute("materias", this.materiasDAO.findAll());
+									return "filtroNota";
+							}else { 
+								if(nome.isEmpty()) {
+								model.addAttribute("lista",this.avaliacaoDAO.filtrarAvaliacaoMateriaPeriodo(materia, periodo));
+								model.addAttribute("periodo", this.periodoDAO.findAll());
+								model.addAttribute("materias", this.materiasDAO.findAll());
+								return "filtroNota";
+										} else {
+					model.addAttribute("lista", this.avaliacaoDAO.filtrarAvaliacao(nome, materia, periodo));
+					model.addAttribute("periodo", this.periodoDAO.findAll());
+					model.addAttribute("materias", this.materiasDAO.findAll());
+					return "filtroNota";
+							}
+							}
+						}
+			}}
 		}
-			
+
 	}
-	
+
 	@GetMapping("/listaAvaliacao")
 	public String exibirListaA(Model model) {
 

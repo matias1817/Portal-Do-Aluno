@@ -17,4 +17,7 @@
     <fullyQualifiedTypeName name="javax.persistence.Id"/>
     <fullyQualifiedTypeName name="br.ifpe.pp2.entities.Admin"/>
     <fullyQualifiedTypeName name="org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry"/>
+    <fullyQualifiedTypeName name="br.ifpe.pp2.controllers.AlunoController"/>
+    <fullyQualifiedTypeName name="br.ifpe.pp2.DAO.AulasDAO"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>
