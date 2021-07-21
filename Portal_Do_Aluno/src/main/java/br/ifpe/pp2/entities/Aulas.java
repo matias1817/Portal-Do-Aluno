@@ -17,7 +17,7 @@ public class Aulas {
 	private Integer id;
 	private String material;
 
-	@DateTimeFormat(pattern = "yyyy-MM-dd")//@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate data;
 	
 	

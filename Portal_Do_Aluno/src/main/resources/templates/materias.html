@@ -27,6 +27,17 @@
 </head>
 <body>
 <h4>Materiais disponibilizados ao discente <span  th:text = ' ${session.alunoLogado.nome} ' ></span></h4>
+<form action="/aluno/filtrarAulas" method="post">
+
+	Data: <input type = "date" name = "data">
+	
+	Materia: <select name="materia" >
+			<option value = ""></option>
+			<option th:each = "cat : ${materias}" 
+			th:value = "${cat.id}"
+			th:text = "${cat.nome}"
+			> </select><br>
+		<button type ="submit">Filtrar</button>
 </form>
 	<table>
 	<tr>

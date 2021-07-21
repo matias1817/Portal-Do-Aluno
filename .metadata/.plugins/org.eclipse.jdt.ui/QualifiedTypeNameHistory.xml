@@ -20,4 +20,5 @@
     <fullyQualifiedTypeName name="br.ifpe.pp2.controllers.AlunoController"/>
     <fullyQualifiedTypeName name="br.ifpe.pp2.DAO.AulasDAO"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.databind.util.Converter"/>
 </qualifiedTypeNameHistroy>
