@@ -9424,3 +9424,69 @@ Caused by: java.lang.ClassNotFoundException: javax.activation.DataSource cannot 
 	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:171)
 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
 	... 188 more
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-23 17:06:08.510
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-23 17:06:08.516
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@5255f358[org.springframework.tooling.boot.ls:1.25.0.202103111026(id=555)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-23 17:06:08.520
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-23 17:06:14.467
+!MESSAGE Boot LS startup time from start to initialized: 5932ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-23 17:06:14.675
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.VyLoiyzBisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-23 17:06:14.684
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-23 17:06:14.688
+!MESSAGE Scheduling initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-23 17:06:14.691
+!MESSAGE Scheduling initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-23 17:06:14.693
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-23 17:06:14.694
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.VyLoiyzB => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-23 17:06:14.848
+!MESSAGE classpath=117 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-23 17:06:14.910
+!MESSAGE buffering callback sts4.classpath.VyLoiyzB Portal_Do_Aluno false 117
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-23 17:06:14.912
+!MESSAGE executing callback sts4.classpath.VyLoiyzB 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-23 17:06:15.794
+!MESSAGE executing callback sts4.classpath.VyLoiyzB SUCCESS [done]
+
+!ENTRY org.eclipse.lsp4e 2 0 2021-07-23 17:17:23.145
+!MESSAGE Timeout waiting for data to generate LS hover
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1950)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2085)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:70)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-23 17:19:20.612
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.VyLoiyzB
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-23 17:19:20.614
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.VyLoiyzB
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-23 17:19:20.616
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-23 17:19:20.618
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.VyLoiyzB => OK
