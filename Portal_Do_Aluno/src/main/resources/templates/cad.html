@@ -1,7 +1,9 @@
 <!DOCTYPE html   >
-<html xnlns:th="www.thymelaef.org">
+<html xmlns:th="www.thymelaef.org">
 <head>
 <meta charset="UTF-8">
+  <link rel="stylesheet" href="./css/cad.css">
+<title>Cadastro de alunos</title>
 <style>
    #hideMe {
     -webkit-animation: cssAnimation 0s ease-in 5s forwards;
@@ -40,29 +42,31 @@
     }
 }
 </style>
-<title>Cadastro de alunos</title>
 </head>
 <body>
-<form action="/salvarAluno" method="post" th:object=${Aluno}>
-<input type="hidden" th:field="*{id}"/>
-Nome: <input type="text" th:field = *{nome} required><br>
-Senha: <input type="password" th:field = *{senha} required><br>
-Matricula: <input type="text" th:field = *{matricula} required><br>
-Sexo: <input type="text" th:field = *{sexo} required><br>
-Email: <input type="email" th:field = *{email} required><br>
-CPF: <input type="text" th:field = *{cpf} required><br>
-Telefone: <input type="text" th:field = *{telefone} required><br>
-Nome de um dos pais: <input type="text" th:field = *{nomePais} required><br>
-RG: <input type="text" th:field = *{rg} required><br>
-Curso: <select name="curso" required>
+
+	<form action="/salvarAluno" method="post" th:object=${Aluno}>
+	  
+        <h3>Cadastro do aluno</h3>
+         <input type="hidden" th:field="*{id}"/>
+        <input type="text" th:field = *{nome} placeholder="Nome">
+        <input type="text"  th:field = *{matricula} placeholder="Matricula">
+        Curso: <select name="curso">
 		<option th:each = "cat : ${curso}" 
 		th:value = "${cat.id}"
 		th:text = "${cat.nome}" 
 		>
 		</select>
-		<button type ="submit"> Cadastrar </button>
-</form>
-	<div id= "hideMe" th:text = '${menssagemE}'  ></div> 
+        <input type="text" th:field = *{sexo} placeholder="Sexo">
+       <input type="text" th:field = *{cpf} placeholder="CPF">
+       <input type="text" th:field = *{rg} placeholder="RG">
+       <input type="text" th:field = *{nomePais} placeholder="Nome de um dos pais">
+       <input type="text" th:field = *{telefone} placeholder="Telefone">
+       <input type="text" th:field = *{email} placeholder="E-mail">
+        <input type="password" th:field = *{senha} placeholder="Senha" required>
+        <input type="submit" value="Cadastrar" >
+    </form>
+    <div id= "hideMe" th:text = '${menssagemE}'  ></div> 
 	<div id= "hideMe2" th:text = '${menssagemS}'  ></div> 
 </body>
 </html>

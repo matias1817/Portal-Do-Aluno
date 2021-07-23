@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="www.thymelaef.org">
 <head>
 <meta charset="UTF-8">
+  <link rel="stylesheet" href="../css/HomeAdm.css">
 <style>
    #hideMe {
     color: green;
@@ -27,14 +28,30 @@
 <title>Home Do Administrador</title>
 </head>
 <body>
-<h1>Tela Inicial Administrador</h1>
-<h3><a href= "/admin/listaMateria">Disciplinas e Horarios</a></h3> 
-<h3><a href= "/admin/cadCurso">Cadastrar curso</a></h3>
-<h3><a href="/admin/cadP">Cadastro de professor</a></h3>
-<h3><a href= "/admin/cadMateria">Cadastrar materias</a></h3>
-<h3><a href= "/admin/cadInstituicao">Contatos da instituição</a></h3> 
-<h3><a href= "/sair">Sair</a></h3>
+<nav>
+       <div class="logo">
+           <h1>Menu do Administrador</h1>
+       </div>
+
+       <ul> 
+           <li><a href="/admin/listaMateria" title="Disciplinas e Horários"><img src="../icons/clockandbooks.png" alt=""></a></li>
+           <li><a href="/admin/cadCurso" title="Cadastrar cursos"><img src="../icons/notebook.png" alt=""></a></li>
+           <li> <a href="/admin/cadP" title="Cadastrar Professores"><img src="../icons/teacher.png" alt=""></a></li>
+           <li><a href="/admin/cadMateria" title="Cadastrar matérias"><img src="../icons/books.png" alt=""></a></li>
+           <li><a href="/admin/cadInstituição" title="Contatos das Instituição"><img src="../icons/email.png" alt=""></a></li>
+       </ul>
+   </nav>
+  <br><br>
+
+  <div>
+   <p><img src="../icons/clockandbooks.png" alt=""><a href="/admin/listaMateria">Disciplinas e Horários</a></p>
+   <p><img src="../icons/notebook.png" alt=""><a href="/admin/cadCurso">Cadastrar cursos</a></p>
+   <p><img src="../icons/teacher.png" alt=""><a href="/admin/cadP">Cadastrar Professores</a></p>
+   <p><img src="../icons/books.png" alt=""><a href="/admin/cadMateria">Cadastrar matérias</a></p>
+   <p><img src="../icons/email.png" alt=""><a href="/admin/cadInstituicao">Contatos da Instituição</a></p>
+   <p><img src="../icons/sair.png" alt=""><a href="/sair">Sair</a></p>
+
+</div>
+
 <div id= "hideMe" th:text = '${menssagemS}' ></div> 
-</h3>
 </body>
-</html>

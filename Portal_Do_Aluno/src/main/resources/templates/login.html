@@ -1,7 +1,8 @@
  <!DOCTYPE html>
-<html>
+<html xmlns:th="www.thymelaef.org">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="./css/login.css">
 <title>login de aluno</title>
 <style>
    #hideMe {
@@ -44,12 +45,16 @@
 </head>
 <body>
 <form action="/loginAluno" method="get">
-Email: <input type="text" name="email" required><br>
-Senha:<input type="password"  name="senha" required><br>
-<button type="submit">Fazer login</button>
-<a href="/cad"> clique aqui caso não tenha cadastro</a>
-</form><br>
-<a href= "/PortalDoAluno">Voltar</a>
+        <h3>Login</h3>
+        <input type="text" name="email" placeholder="Seu e-mail">
+        <input type="password" name="senha" placeholder="Sua senha">
+        <input type="submit" name="acao" value="Entrar" >
+        
+              <p>Ou clique no link abaixo caso não tenha cadastro  <br>
+                  <a href="/cad">Cadastrar novo aluno</a></p>
+                  <br>
+                  <p><a href="/PortalDoAluno">Voltar</a></p>        
+    </form>
 <div id= "hideMe" th:text = '${menssagemE}'  ></div> 
 <div id= "hideMe2" th:text = '${menssagemS}'  ></div> 
 </body>
