@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymelaef.org">
+<head>
+<meta charset="UTF-8">
+  <link rel="stylesheet" href="../css/HomeAdm.css">
+<style>
+   #hideMe {
+    color: green;
+    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+   
+}
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+</style>
+
+<title>Home Do Administrador</title>
+</head>
+<body>
+<nav>
+       <div class="logo">
+           <h1>Menu do Administrador</h1>
+       </div>
+
+       <ul> 
+           <li><a href="/listaMateria" title="Disciplinas e Horários"><img src="../icons/clockandbooks.png" alt=""></a></li>
+           <li><a href="/cadCurso" title="Cadastrar cursos"><img src="../icons/notebook.png" alt=""></a></li>
+           <li> <a href="/cadP" title="Cadastrar Professores"><img src="../icons/teacher.png" alt=""></a></li>
+           <li><a href="/admin/cadMateria" title="Cadastrar matérias"><img src="../icons/books.png" alt=""></a></li>
+           <li ><a href="#" title="Links para materiais de apoio"><img src="../icons/links.png" alt=""></a></li>
+           <li><a href="/admin/cadInstituição" title="Contatos das Instituição"><img src="../icons/email.png" alt=""></a></li>
+       </ul>
+   </nav>
+  <br><br>
+
+  <div>
+   <p><img src="../icons/clockandbooks.png" alt=""><a href="/listaMateria">Disciplinas e Horários</a></p>
+   <p><img src="../icons/notebook.png" alt=""><a href="/cadCurso">Cadastrar cursos</a></p>
+   <p><img src="../icons/teacher.png" alt=""><a href="/cadP">Cadastrar Professores</a></p>
+   <p><img src="../icons/books.png" alt=""><a href="/admin/cadMateria">Cadastrar matérias</a></p>
+   <p><img src="../icons/links.png" alt=""><a href="#">Links para materiais de apoio</a></p>
+   <p><img src="../icons/email.png" alt=""><a href="/admin/cadInstituição">Contatos da Instituição</a></p>
+   <p><img src="../icons/sair.png" alt=""><a href="/sair">Sair</a></p>
+
+</div>
+
+<div id= "hideMe" th:text = '${menssagemS}' ></div> 
+</body>
+</html>

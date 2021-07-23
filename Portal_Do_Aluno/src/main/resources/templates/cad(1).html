@@ -1,0 +1,32 @@
+<!DOCTYPE html   >
+<html xmlns:th="www.thymelaef.org">
+<head>
+<meta charset="UTF-8">
+  <link rel="stylesheet" href="./css/cad.css">
+<title>Cadastro de alunos</title>
+</head>
+<body>
+
+	<form action="/salvarAluno" method="post" th:object=${Aluno}>
+	  
+        <h3>Cadastro do aluno</h3>
+         <input type="hidden" th:field="*{id}"/>
+        <input type="text" th:field = *{nome} placeholder="Nome">
+        <input type="text"  th:field = *{matricula} placeholder="Matricula">
+        Curso: <select name="curso">
+		<option th:each = "cat : ${curso}" 
+		th:value = "${cat.id}"
+		th:text = "${cat.nome}" 
+		>
+		</select>
+        <input type="text" th:field = *{sexo} placeholder="Sexo">
+       <input type="text" th:field = *{cpf} placeholder="CPF">
+       <input type="text" th:field = *{rg} placeholder="RG">
+       <input type="text" th:field = *{nomePais} placeholder="Nome dos pais">
+       <input type="text" th:field = *{telefone} placeholder="Telefone">
+       <input type="text" th:field = *{email} placeholder="E-mail">
+        <input type="password" th:field = *{senha} placeholder="Senha">
+        <input type="submit" value="Cadastrar" >
+    </form>
+</body>
+</html>

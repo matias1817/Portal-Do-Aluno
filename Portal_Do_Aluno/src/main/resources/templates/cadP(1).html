@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymelaef.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="./css/cadP.css">
+<title>Cadastro de Professores</title>
+</head>
+<body>
+	<form action="/salvarProfessores" method="post" th:object=${Professor}>
+        <h3>Cadastro do professor</h3>
+        <input type="hidden" th:field="*{id}"/>
+        <input type="text" th:field = *{nome} placeholder="Nome">
+       <input type="text" th:field = *{cpf} placeholder="CPF">
+       <input type="text" th:field = *{rg} placeholder="RG">
+       <input type="text" th:field = *{telefone} placeholder="Telefone">
+       <input type="text" th:field = *{endereco} placeholder="Endereço">
+       <input type="text" th:field = *{email} placeholder="E-mail">
+        <input type="password" th:field = *{senha} placeholder="Senha">
+        <input type="submit" name="acao" value="Cadastrar" >
+         <p><a href="/homeP">Voltar para home</a></p>
+    </form>
+</body>
+</html>
