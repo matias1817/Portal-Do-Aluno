@@ -15,8 +15,6 @@ import br.ifpe.pp2.DAO.AvaliacaoDAO;
 import br.ifpe.pp2.DAO.MateriasDAO;
 import br.ifpe.pp2.DAO.PeriodoDAO;
 import br.ifpe.pp2.entities.Avaliacao;
-import br.ifpe.pp2.entities.Materias;
-import br.ifpe.pp2.entities.Periodo;
 
 @Controller
 public class AvaliacaoController {

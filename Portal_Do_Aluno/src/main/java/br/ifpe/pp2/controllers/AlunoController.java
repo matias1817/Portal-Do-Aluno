@@ -1,5 +1,8 @@
 package br.ifpe.pp2.controllers;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +11,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.thymeleaf.TemplateEngine;
+import org.thymeleaf.templatemode.TemplateMode;
+import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
+import org.xhtmlrenderer.pdf.ITextRenderer;
+
+import com.lowagie.text.DocumentException;
+
+import java.io.OutputStream;
+
+import java.io.File;
+import java.io.FileNotFoundException;
 
 import br.ifpe.pp2.DAO.AdminDAO;
 import br.ifpe.pp2.DAO.AlunoDAO;
@@ -16,6 +30,7 @@ import br.ifpe.pp2.DAO.PeriodoDAO;
 import br.ifpe.pp2.entities.Admin;
 import br.ifpe.pp2.entities.Alunos;
 import br.ifpe.pp2.entities.Periodo;
+import org.thymeleaf.context.Context;
 
 
 @Controller
@@ -127,6 +142,48 @@ public class AlunoController {
 	public String homeAdmin() {
 		return "homeA";
 	}
+	@GetMapping("/aluno/historico")
+	public String gerador(HttpSession session) {
+		Alunos alunoLogado = (Alunos) session.getAttribute("alunoLogado");
+		generatePdfFromHtml(alunoLogado.getNome());
+		return "redirect:/aluno/home";
+	}
+ 
+	public void generatePdfFromHtml(String nome) {
+		String Fil = System.getProperty("user.home");
+		String outputFolder = Fil + File.separator +"Downloads"+ File.separator + "MeuHistorico.pdf";
+		OutputStream outputStream;
+		try {
+			String html = parseThymeleafTemplate(nome);
+			outputStream = new FileOutputStream(outputFolder);
+			ITextRenderer renderer = new ITextRenderer();
+			renderer.setDocumentFromString(html);
+			renderer.layout();
+			renderer.createPDF(outputStream);
+
+			outputStream.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (DocumentException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	private String parseThymeleafTemplate(String nome) {
+	    ClassLoaderTemplateResolver templateResolver = new ClassLoaderTemplateResolver();
+	    templateResolver.setSuffix(".html");
+	    templateResolver.setTemplateMode(TemplateMode.HTML);
+	    templateResolver.setPrefix("/templates/");
+	    TemplateEngine templateEngine = new TemplateEngine();
+	    templateEngine.setTemplateResolver(templateResolver);
+  
+	    Context context = new Context();
+	    context.setVariable("to", nome);
+
+	    return templateEngine.process("gerador.html", context);
+	}
+	
 	
 	
 }

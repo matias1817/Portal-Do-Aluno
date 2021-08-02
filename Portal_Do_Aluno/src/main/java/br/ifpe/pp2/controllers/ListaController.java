@@ -7,15 +7,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import br.ifpe.pp2.DAO.AlunoDAO;
 import br.ifpe.pp2.DAO.AulasDAO;
-import br.ifpe.pp2.DAO.AvaliacaoDAO;
 import br.ifpe.pp2.DAO.CursoDAO;
-import br.ifpe.pp2.DAO.FrequenciaDAO;
 import br.ifpe.pp2.DAO.InstituiçãoDAO;
 import br.ifpe.pp2.DAO.MateriasDAO;
 import br.ifpe.pp2.DAO.PeriodoDAO;
 
 @Controller
-public class ListaController {
+public class ListaController { 
 
 	@Autowired
 	private AlunoDAO alunoDAO;
@@ -26,11 +24,6 @@ public class ListaController {
 	@Autowired
 	private MateriasDAO materiasDAO;
 
-	@Autowired
-	private FrequenciaDAO frequenciaDAO;
-
-	@Autowired
-	private AvaliacaoDAO avaliacaoDAO;
 
 	@Autowired
 	InstituiçãoDAO instituiçãoDAO;
