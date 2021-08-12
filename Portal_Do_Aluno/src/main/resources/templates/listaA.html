@@ -2,6 +2,10 @@
 <html xnlns:th="www.thymelaef.org">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link rel="stylesheet" href="/css/lista.css">
 <style>
    #hideMe {
     
@@ -25,14 +29,16 @@
 </style>
 <title>Lista de Avaliações</title>
 </head>
-<body>
-</form>
+<body><br>
+	<p><a href="/professor/home">Voltar para a Home</a></p>
+	<h3>Avaliações</h3>
+
 	<table>
 	<tr>
 	<th>Aluno</th>
-	<th>Nota</th>
+	<th>Nota</h3></th>
 	<th>Matéria</th>
-	<th>Periodo</th>
+	<th>Período</th>
 	<th></th>
 	</tr>
 		<tr th:each="ava : ${lista}" th:if="${ava.materias.professores.id} == ${session.professorLogado.id}">
@@ -43,11 +49,12 @@
 				<td>
 				<a th:href="|/professor/cadAvaliacao?id=${ava.id}|">Editar</a
 				>
-				<a th:href="|/professor/excluirAvaliacao?id=${ava.id}|">Excluir</a>
+				
 		</td>
+		<td><a th:href="|/professor/excluirAvaliacao?id=${ava.id}|">Excluir</a></td>
 	</tr>
 	</table>
 	<div id= "hideMe" th:text = '${menssagemS}' ></div> 
-	<a href="/professor/home">Voltar para a Home</a>
+	
 </body>
 </html>

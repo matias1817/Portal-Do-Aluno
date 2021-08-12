@@ -2,6 +2,10 @@
 <html xnlns:th="www.thymelaef.org">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link rel="stylesheet" href="/css/listaAulas.css">
 <style>
    #hideMe {
     
@@ -25,19 +29,23 @@
 </style>
 <title>Lista de conteudos de aula</title>
 </head>
-<body>
+<body><br>
+
+
 <form action="/professor/filtrarAulas" method="post">
 
-	Data: <input type = "date" name = "data">
+	<h4>Data:</h4><input type = "date" name = "data">
 	
-	Materia: <select name="materia" >
+   <h4>Matéria:</h4> <select name="materia" >
 			<option value = ""></option>
 			<option th:each = "cat : ${materias}" 
 			th:value = "${cat.id}"
 			th:text = "${cat.nome}"
 			> </select><br>
-		<button type ="submit">Filtrar</button>
+		<input type ="submit" value="Filtrar">
 </form>
+<p><a href="/professor/home">Voltar para a Home</a></p>	
+<h3>Conteúdos de aula</h3>
 	<table>
 	<tr>
 	<th>Link para o material</th>
@@ -47,19 +55,20 @@
 	<th></th>
 	</tr>
 		<tr th:each="a : ${lista}" th:if="${a.professores.id} == ${session.professorLogado.id}">
-				<td><a th:href = "${a.material}" target="_blank">Link</a></td>
-				<td th:text="${a.data}"></td>
+				<td><a th:href = "${a.material}" target="_blank"><h6>Link</h6></a></td>
+				<td th:text= "${#temporals.format(a.data, 'dd-MM-yyyy')}"></td>
 				<td th:text="${a.materias.nome}"></td>
-				<td th:text="${a.professores.nome}"></td>
-				<td>
-				<a th:href="|/professor/cadAulas?id=${a.id}|">Editar</a
-				>
-				<a th:href="|/professor/excluirAulas?id=${a.id}|">Excluir</a>
-		</td>
+				<td th:text="${a.professores.nome}"></td>	
+				<td><h5><a  th:href="|/professor/cadAulas?id=${a.id}|">Editar</a></h5>
+
+					</td>	
+				<td><h5><a th:href="|/professor/excluirAulas?id=${a.id}|">Excluir</a></h5></td>
 	</tr>
+	
 	</table>
 	<div id= "hideMe" th:text = '${menssagemS}' ></div> 
-	<a href="/professor/home">Voltar para a Home</a>
+
+	
 </body>
 </html>
 </html>

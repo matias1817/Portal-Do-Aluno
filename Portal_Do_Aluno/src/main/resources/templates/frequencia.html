@@ -2,6 +2,7 @@
 <html xnlns:th="www.thymelaef.org">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="/css/lista.css">
 <style>
    #hideMe {
     
@@ -23,27 +24,12 @@
     }
 }
 </style>
-<title>Notas</title>
+<title>Frequência</title>
 </head>
 <body>
-<h4>Faltas do discente <span  th:text = ' ${session.alunoLogado.nome} ' ></span></h4>
-<form action="/aluno/filtrarFrequencia" method="post">	
-	Materia: <select name="materia" >
-			<option value = ""></option>
-			<option th:each = "cat : ${materias}" 
-			th:value = "${cat.id}"
-			th:text = "${cat.nome}"
-		
-			> </select><br>
-
-	Periodo: <select name="periodo" >
-		<option value = ""></option>
-			<option th:each = "cat : ${periodo}" 
-			th:value = "${cat.id}"
-			th:text = "${cat.periodo}" 
-			></option>
-		</select>
-		<button type ="submit">Filtrar</button>
+	<br>
+	<p><a href="/aluno/home">Voltar para a Home</a></p>
+<h3>Faltas do discente <span  th:text = ' ${session.alunoLogado.nome} ' ></span></h3>
 </form>
 	<table>
 	<tr>
@@ -59,6 +45,6 @@
 	</tr>
 	</table>
 	<div id= "hideMe" th:text = '${menssagemS}' ></div> 
-	<a href="/aluno/home">Voltar para a Home</a>
+	
 </body>
 </html>

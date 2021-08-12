@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html xnlns:th="www.thymelaef.org" >
+<html xmlns:th="www.thymelaef.org" >
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="/css/lista.css">
 <style>
    #hideMe {
     
@@ -23,44 +24,50 @@
     }
 }
 </style>
+   
 <title>Lista</title>
 </head>
 <body>
+<p><a href= "/aluno/home">Voltar para a home</a></p>
+   <h3>Alteração de dados cadastrais</h3>
 <table>
 	<tr> 
 	<th>Nome</th>
-	<th>Senha</th>
 	<th>Matricula</th>
 	<th>Sexo</th>	
-	<th>Email</th>
-	<th>Curso</th>
 	<th>CPF</th>
-	<th>Telefone</th>
-	<th>Nome de um dos pais</th>
 	<th>RG</th>
-	</tr>
+	<th>Curso</th>
+	<th>Nome mae/pai</th>
+	<th>Telefone</th>
+	<th>Email</th>
+	<th>Senha</th>
+	
+	</tr>   
 		<tr th:each="aluno : ${lista}" th:if="${aluno.id} == ${session.alunoLogado.id}">
-				<td th:text="${aluno.nome}"></td>
-				<td th:text="${aluno.senha}"></td>
+				<td th:text="${aluno.nome}">s</td>
 				<td th:text="${aluno.matricula}"></td>
 				<td th:text="${aluno.sexo}"></td>
-				<td th:text="${aluno.email}"></td>
-				<td th:text="${aluno.curso.nome}"></td>
 				<td th:text="${aluno.cpf}"></td>
-				<td th:text="${aluno.telefone}"></td>
-			
-				<td th:text="${aluno.nomePais}"></td>
 				<td th:text="${aluno.rg}"></td>
+				<td th:text="${aluno.curso.nome}"></td>
+				<td th:text="${aluno.nomePais}"></td>
+				<td th:text="${aluno.telefone}"></td>
+				<td th:text="${aluno.email}"></td>
+				<td th:text="${aluno.senha}"></td>
+				
 				<td>
 				<a th:href="|/cad?id=${aluno.id}|">Editar</a
 				>
-				<a th:href="|/aluno/excluirAluno?id=${aluno.id}|">Excluir</a
-				>
+				
 		</td>
+		<td><a th:href="|/aluno/excluirAluno?id=${aluno.id}|">Excluir</a
+			></td>
 	</tr>
 	</table>
 	<div id= "hideMe" th:text = '${menssagemS}' ></div> 
+	<span th:text = '${session.alunoLogado.nome}' ></span> 
 	
-<h3><a href= "/aluno/home">Voltar para a home</a></h3>
+
 </body>
 </html>

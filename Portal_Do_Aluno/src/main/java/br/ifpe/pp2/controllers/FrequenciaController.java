@@ -77,6 +77,7 @@ public class FrequenciaController {
 
 		return "listaF";
 	}
+
 	@PostMapping("/professor/filtrarFrequencia")
 	public String filtar(String nome, Integer materia, Integer periodo, RedirectAttributes ra, Model model) {
 		if (materia == null && periodo == null) {
@@ -98,32 +99,35 @@ public class FrequenciaController {
 					model.addAttribute("materias", this.materiasDAO.findAll());
 					return "listaF";
 				} else {
-					if(materia == null) {
-						model.addAttribute("lista",this.frequenciaDAO.filtrarFrequenciaNomePeriodo(nome, periodo));
+					if (materia == null) {
+						model.addAttribute("lista", this.frequenciaDAO.filtrarFrequenciaNomePeriodo(nome, periodo));
 						model.addAttribute("periodo", this.periodoDAO.findAll());
 						model.addAttribute("materias", this.materiasDAO.findAll());
 						return "listaF";
-						} else { 
-							if(periodo == null) {
-									model.addAttribute("lista",this.frequenciaDAO.filtrarFrequenciaNomeMateria(nome, materia));
-									model.addAttribute("periodo", this.periodoDAO.findAll());
-									model.addAttribute("materias", this.materiasDAO.findAll());
-									return "listaF";
-							}else { 
-								if(nome.isEmpty()) {
-								model.addAttribute("lista",this.frequenciaDAO.filtrarFrequenciaMateriaPeriodo(materia, periodo));
+					} else {
+						if (periodo == null) {
+							model.addAttribute("lista", this.frequenciaDAO.filtrarFrequenciaNomeMateria(nome, materia));
+							model.addAttribute("periodo", this.periodoDAO.findAll());
+							model.addAttribute("materias", this.materiasDAO.findAll());
+							return "listaF";
+						} else {
+							if (nome.isEmpty()) {
+								model.addAttribute("lista",
+										this.frequenciaDAO.filtrarFrequenciaMateriaPeriodo(materia, periodo));
 								model.addAttribute("periodo", this.periodoDAO.findAll());
 								model.addAttribute("materias", this.materiasDAO.findAll());
 								return "listaF";
-										} else {
-					model.addAttribute("lista", this.frequenciaDAO.filtrarFrequencia(nome, materia, periodo));
-					model.addAttribute("periodo", this.periodoDAO.findAll());
-					model.addAttribute("materias", this.materiasDAO.findAll());
-					return "listaF";
-							}
+							} else {
+								model.addAttribute("lista",
+										this.frequenciaDAO.filtrarFrequencia(nome, materia, periodo));
+								model.addAttribute("periodo", this.periodoDAO.findAll());
+								model.addAttribute("materias", this.materiasDAO.findAll());
+								return "listaF";
 							}
 						}
-			}}
+					}
+				}
+			}
 		}
 
 	}

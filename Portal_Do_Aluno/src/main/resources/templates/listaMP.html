@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html xnlns:th="www.thymelaef.org">
+<html xmlns:th="www.thymelaef.org">
 <head>
 <meta charset="UTF-8">
 <title>Lista de Materias</title>
+ <link rel="stylesheet" href="/css/lista.css">
 <style>
    #hideMe {
     color: green;
@@ -25,9 +26,10 @@
 }
 </style>
 </head>
-<body>
+<body> <br>
+<p><a href="/professor/home">Voltar para a Home</a></p>
 <h3>Minhas Matérias e Horários</h3>
-</form>
+
 
 	<table>
 	<tr>
@@ -44,7 +46,7 @@
 	</tr>
 	</table>
 	<div id= "hideMe" th:text = '${menssagemS}' ></div> 
-	<a href="/professor/home">Voltar para a Home</a>
+	
 </body>
 </html>
 </html>

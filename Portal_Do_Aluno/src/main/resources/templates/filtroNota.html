@@ -2,30 +2,33 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Filtro Nota</title>
+<link rel="stylesheet" href="/css/listaF.css">
 </head>
-<body>
+<body><br>
 <form action="/professor/filtrarAvaliacao" method="post">
 
-	Nome: <input type="text"  name = "nome" ><br>
+	<h4>Nome: </h4><input type="text"  name = "nome" >
 			
-	Materia: <select name="materia" >
+	<h4>Materia: </h4><select name="materia" >
 			<option value = ""></option>
 			<option th:each = "cat : ${materias}" 
 			th:value = "${cat.id}"
 			th:text = "${cat.nome}"
 		
-			> </select><br>
+			> </select>
 
-	Periodo: <select name="periodo" >
+	<h4>Periodo:</h4> <select name="periodo" >
 		<option value = ""></option>
 			<option th:each = "cat : ${periodo}" 
 			th:value = "${cat.id}"
 			th:text = "${cat.periodo}" 
 			></option>
 		</select>
-		<button type ="submit">Filtrar</button>
+		<input type ="submit" value="Filtrar">
 </form>
+<p><a href="/professor/home">Voltar para a Home</a></p>
+ <h3>Notas</h3>
 <table>
 	<tr>
 	<th>Aluno</th>
@@ -42,12 +45,13 @@
 				<td>
 				<a th:href="|/professor/cadAvaliacao?id=${ava.id}|">Editar</a
 				>
-				<a th:href="|/professor/excluirAvaliacao?id=${ava.id}|">Excluir</a>
+			
 		</td>
+		<td>	<a th:href="|/professor/excluirAvaliacao?id=${ava.id}|">Excluir</a></td>
 	</tr>
 	</table>
 	<div id= "hideMe" th:text = '${menssagemS}' ></div> 
-	<a href="/professor/home">Voltar para a Home</a>
+	
 
 
 </body>

@@ -31,7 +31,7 @@ form {
  }
  
  form input[type=text],
- form input[type=password],form input[type=hidden]{
+ form input[type=password],form input[type=email]{
      width: 100%;
      height: 30px;
      border: 1px solid #ccc;
@@ -56,10 +56,19 @@ form {
      transition: 1s;
  }
  
+ 
  form input[type=submit]:hover{
     background-color:#3ba2ad;
  }
  
- .curso{
-     color: rgb(77, 77, 77);
- }
+form p {
+    text-align: center;
+    margin: 10px 0;
+   
+}
+
+
+a{
+    color: rgb(68, 64, 64);
+    
+}

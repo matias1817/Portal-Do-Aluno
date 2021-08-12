@@ -4,47 +4,9 @@
 <meta charset="UTF-8">
   <link rel="stylesheet" href="./css/cad.css">
 <title>Cadastro de alunos</title>
-<style>
-   #hideMe {
-    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
-    color: red;
-}
-@keyframes cssAnimation {
-    to {
-        width:0;
-        height:0;
-        overflow:hidden;
-    }
-}
-@-webkit-keyframes cssAnimation {
-    to {
-        width:0;
-        height:0;
-        visibility:hidden;
-    }
-}
- #hideMe2 {
-    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
-   color: green;
-}
-@keyframes cssAnimation {
-    to {
-        width:0;
-        height:0;
-        overflow:hidden;
-    }
-}
-@-webkit-keyframes cssAnimation {
-    to {
-        width:0;
-        height:0;
-        visibility:hidden;
-    }
-}
-</style>
 </head>
 <body>
-
+ 
 	<form action="/salvarAluno" method="post" th:object=${Aluno}>
 	  
         <h3>Cadastro do aluno</h3>
@@ -60,13 +22,11 @@
         <input type="text" th:field = *{sexo} placeholder="Sexo">
        <input type="text" th:field = *{cpf} placeholder="CPF">
        <input type="text" th:field = *{rg} placeholder="RG">
-       <input type="text" th:field = *{nomePais} placeholder="Nome de um dos pais">
+       <input type="text" th:field = *{nomePais} placeholder="Nome dos pais">
        <input type="text" th:field = *{telefone} placeholder="Telefone">
        <input type="text" th:field = *{email} placeholder="E-mail">
-        <input type="password" th:field = *{senha} placeholder="Senha" required>
+        <input type="password" th:field = *{senha} placeholder="Senha">
         <input type="submit" value="Cadastrar" >
     </form>
-    <div id= "hideMe" th:text = '${menssagemE}'  ></div> 
-	<div id= "hideMe2" th:text = '${menssagemS}'  ></div> 
 </body>
 </html>

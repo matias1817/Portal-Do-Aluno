@@ -7,13 +7,14 @@
     font-family: "Nunito", sans-serif;
 }
 
+
+
 body{
     background: linear-gradient(329.54deg, #29B6D1 0%, #00C7C7 100%);
     background-repeat: no-repeat;
     min-height: 100vh;
     min-width: 100vh;
 }
-
 form {
     background-color:  #EBF2F5;
     max-width: 500px;
@@ -24,42 +25,55 @@ form {
     top: 50%;
     transform: translate(-50%, -50%);
  }
- 
+
  form h3{
-     text-align: center;
-     color: black;  
- }
- 
- form input[type=text],
- form input[type=password],form input[type=hidden]{
-     width: 100%;
-     height: 30px;
-     border: 1px solid #ccc;
-     padding-left: 10px;
-     margin: 10px 0;
- }
- form select{
+
+    text-align: center;
+    color: black;  
+    margin: 18px 0;
+
+}
+form input[type=text]
+{
     width: 100%;
     height: 30px;
     border: 1px solid #ccc;
     padding-left: 10px;
     margin: 10px 0;
 }
- form input[type=submit]{
-     width: 100%;
-     height: 40px;
-     cursor: pointer;
-     background-color: #a5d1d6;
-     border-radius: 20px;
-     border: 0;
-     color: black;
-     transition: 1s;
- }
- 
- form input[type=submit]:hover{
+form select{
+    width: 100%;
+    height: 30px;
+    border: 1px solid #ccc;
+    padding-left: 10px;
+    margin: 10px 0;
+}
+
+
+form input[type=submit]{
+    width: 100%;
+    height: 30px;
+    cursor: pointer;
+    background-color: #a5d1d6;
+    border-radius: 20px;
+    border: 0;
+    color: black;
+    transition: 1s;
+}
+
+form input[type=submit]:hover{
     background-color:#3ba2ad;
  }
  
- .curso{
-     color: rgb(77, 77, 77);
- }
+form p {
+    text-align: center;
+    margin: 10px 0;
+   
+}
+
+
+a{
+    color: rgb(68, 64, 64);
+    
+}
+

@@ -25,24 +25,31 @@
 }
 </style>
 <title>Lista dos Cursos</title>
+<link rel="stylesheet" href="/css/lista.css">
 </head>
 <body>
-</form>
+	<br>
+	<p><a href="/admin/home">Voltar para a Home</a></p>
+  <h3>Cursos</h3>
 	<table>
 	<tr>
 	<th>Nome</th>
+	<th>Duração</th>
 	</tr>
 		<tr th:each="curso : ${lista}">
 				<td th:text="${curso.nome}"></td>
+				<td th:text="${curso.duracao}"></td>
 				<td>
-				<a th:href="|/admin/cadCurso?id=${curso.id}|">Editar</a
-				>
-				<a th:href="|/admin/excluirCurso?id=${curso.id}|">Excluir</a>
+					<td>
+						<a th:href="|/admin/cadCurso?id=${curso.id}|">Editar</a>
+					</td>
+				
+				<td><a th:href="|/admin/excluirCurso?id=${curso.id}|">Excluir</a>
 		</td>
 	</tr>
 	</table>
 	<div id= "hideMe" th:text = '${menssagemS}' ></div> 
-	<a href="/admin/home">Voltar para a Home</a>
+
 </body>
 </html>
 </html>

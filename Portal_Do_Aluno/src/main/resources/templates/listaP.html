@@ -2,6 +2,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link rel="stylesheet" href="/css/lista.css">
 <style>
    #hideMe {
     
@@ -26,15 +30,18 @@
 <title>Lista dos Professores</title>
 </head>
 <body>
+	<br>
+	<p><a href="/professor/home" >Voltar para a Home</a></p>
+	<h3>Lista dos Professores</h3>
 </form>
 	<table>
 	<tr> 
 	<th>Nome</th>
-	<th>Senha</th>	
+	<th>Senha</th>
 	<th>Email</th>
 	<th>CPF</th>
 	<th>RG</th>
-	<th>Telefone</th>	
+	<th>Telefone</th>
 	
 	
 	<th>Endereço</th>	
@@ -48,13 +55,14 @@
 				<td th:text="${prof.telefone}"></td>
 				<td th:text="${prof.endereco}"></td>
 				<td>
-				<a th:href="|/cadP?id=${prof.id}|">Editar</a
+				<a th:href="|/cadP?id=${prof.id}|"><h5>Editar</h5></a
 				>
-				<a th:href="|/excluirProfessor?id=${prof.id}|" >Excluir</a>
+			
 		</td>
+		<td>	<a th:href="|/excluirProfessor?id=${prof.id}|" ><h5>Excluir</h5></a></td>
 	</tr>
 	</table>
 	<div id= "hideMe" th:text = '${menssagemS}' ></div> 
-	<a href="/professor/home" >Voltar para a Home</a>
+
 </body>
 </html>

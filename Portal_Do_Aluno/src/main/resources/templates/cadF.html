@@ -1,7 +1,11 @@
 <!DOCTYPE html   >
-<html xnlns:th="www.thymelaef.org">
+<html xmlns:th="www.thymelaef.org">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link rel="stylesheet" href="/css/cadF.css">
 <title>Cadastro de Frequencia</title>
 <style>
    #hideMe {
@@ -42,34 +46,38 @@
 }
 </style>
 </head>
-<body>
+<body><br>
+
+   
 <form action="/professor/salvarFrequencia" method="post" th:object=${Frequencia}>
+    <h3> Cadastro de Frequência</h3>
 <input type="hidden" th:field="*{id}"/>
-	Quantidade de faltas do aluno no periodo: <input type="number" th:field = *{faltas} required><br>
+	<h2>Quantidade de faltas do aluno no período:</h2> <input type="number" th:field = *{faltas} required><br>
 	
-	Aluno: <select name="alunos" th:field = *{alunos} required>
+	<h2>Aluno:</h2> <select name="alunos" th:field = *{alunos} required>
 			<option th:each = "cat : ${alunos}" 
 			th:value = "${cat.id}"
 			th:text = "${cat.nome}" 
 			> </select><br>
 			
-	Materia: <select name="materias" th:field = *{materias} required>
+	<h2>Matéria:</h2> <select name="materias" th:field = *{materias} required>
 			<option th:each = "cat : ${materias}" 
 			th:value = "${cat.id}"
 			th:text = "${cat.nome}" 
 			th:if = "${cat.professores.id} == ${session.professorLogado.id}" 
 			> </select><br>
 
-	Periodo: <select name="periodo" th:field = *{periodo} required>
+	<h2>Período:</h2> <select name="periodo" th:field = *{periodo} required>
 			<option th:each = "cat : ${periodo}" 
 			th:value = "${cat.id}"
 			th:text = "${cat.periodo}" 
 			></option>
 		</select>
-		<button type ="submit">Cadastrar</button>
+        <input type="submit" name="acao" value="Cadastrar" >
+        <p><a href="/listaFrequencia">Ver faltas</a></p>
 </form>
 <div id= "hideMe" th:text = '${menssagemE}'  ></div> 
 	<div id= "hideMe2" th:text = '${menssagemS}'  ></div> 
-<a  href = "/listaFrequencia">ver faltas</a>
+
 </body>
 </html>

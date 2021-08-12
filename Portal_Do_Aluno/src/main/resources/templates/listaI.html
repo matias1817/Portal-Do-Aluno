@@ -25,9 +25,12 @@
 }
 </style>
 <title>Lista dos Contatos</title>
+<link rel="stylesheet" href="/css/lista.css">
 </head>
 <body>
-</form>
+	<br>
+	<p><a href="/admin/home" th:if= "${adminLogado}!=null">Voltar para a Home</a></p>
+   <h3>Contatos</h3>
 	<table>
 	<tr>
 	<th>Telefone</th>
@@ -38,15 +41,11 @@
 				<td th:text="${insti.numero}"></td>
 				<td th:text="${insti.endereco}"></td>
 				<td th:text="${insti.site}"></td>
-				<td>
-				<a th:href="|/admin/cadInstituicao?id=${insti.id}|" th:if= "${session.adminLogado}!=null">Editar</a>
-				<a th:href="|/admin/excluirInstituicao?id=${insti.id}|" th:if= "${session.adminLogado}!=null">Excluir</a>
-		</td>
+				<td><a th:href="|/admin/cadInstituicao?id=${insti.id}|" th:if= "${adminLogado}!=null">Editar</a></td>
+				<td><a th:href="|/admin/excluirInstituicao?id=${insti.id}|" th:if= "${adminLogado}!=null">Excluir</a></td>
 	</tr>
 	</table>
 	<div id= "hideMe" th:text = '${menssagemS}' ></div> 
-	<a href="/professor/home" th:if= "${session.professorLogado}!=null">Voltar para a Home</a>
-	<a href="/aluno/home" th:if= "${session.alunoLogado} != null">Voltar para a Home</a>
-	<a href="/admin/home" th:if= "${session.adminLogado}!=null">Voltar para a Home</a>
+
 </body>
 </html>

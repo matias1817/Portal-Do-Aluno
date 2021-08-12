@@ -2,6 +2,10 @@
 <html xnlns:th="www.thymelaef.org">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link rel="stylesheet" href="/css/cadAulas.css">
 <title>Cadastro de Conteudo de Aulas</title>
 <style>
    #hideMe {
@@ -42,29 +46,35 @@
 }
 </style>
 </head>
-<body>
+<body><br>
+    
+
 <form action="/professor/salvarAulas" method="post" th:object=${aulas}>
+    <h3>Cadastro de Conteúdo de Aulas</h3>
 <input type="hidden" th:field="*{id}"/>
-	Link do Material de estudo: <input type="text"  th:field = *{material} required><br>
-	Data: <input type="date" th:field = *{data} required><br>
+	<h2>Link do Material de estudo: </h2><input type="text"  th:field = *{material} required><br>
+	<h2>Data:</h2> <input type="date" th:field = *{data} required><br>
 			
-	Materia: <select name="materias"  th:field = *{materias} required>
+	<h2>Matéria: </h2><select name="materias"  th:field = *{materias} required>
 			<option th:each = "cat : ${materias}" 
 			th:value = "${cat.id}"
 			th:text = "${cat.nome}" 
 			th:if="${cat.professores.id} == ${session.professorLogado.id}"
 			> </select><br>
 
-	Professor: <select name="professores" th:field = *{professores} required>
+	<h2>Professor:</h2> <select name="professores" th:field = *{professores} required>
 			<option  th:each = "cat : ${professores}" 
 			th:value = "${cat.id}"
 			th:text = "${cat.nome}" 
 			th:if="${cat.id} == ${session.professorLogado.id}"
 			> </select><br>
-		<button type ="submit">Cadastrar</button>
+
+            <input type="submit" name="acao" value="Cadastrar" >
+        <p><a href="/listaAulas">Ver conteúdos</a></p>
+		
 </form>
 <div id= "hideMe" th:text = '${menssagemE}'  ></div> 
 <div id= "hideMe2" th:text = '${menssagemS}'  ></div> 
-<a  href = "/listaAulas">ver conteudos</a>
+
 </body>
 </html>

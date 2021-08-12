@@ -2,6 +2,7 @@
 <html xnlns:th="www.thymelaef.org">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="/css/lista.css">
 <style>
    #hideMe {
     
@@ -26,8 +27,9 @@
 <title>Horario do discente</title>
 </head>
 <body>
-<h4>Horarios do discente <span  th:text = ' ${session.alunoLogado.nome} ' ></span></h4>
-</form>
+    <br>
+    <p><a href="/aluno/home">Voltar para a Home</a></p>
+<h3>Horarios do discente <span  th:text = ' ${session.alunoLogado.nome} ' ></span></h3>
 	<table>
 	<tr>
 	<th>Matéria</th>
@@ -40,6 +42,6 @@
 	</tr>
 	</table>
 	<div id= "hideMe" th:text = '${menssagemS}' ></div> 
-	<a href="/aluno/home">Voltar para a Home</a>
+	
 </body>
 </html>

@@ -1,75 +1,37 @@
 <!DOCTYPE html   >
-<html xnlns:th="www.thymelaef.org">
+<html xmlns:th="www.thymelaef.org">
 <head>
 <meta charset="UTF-8">
 <title>Cadastro de Matérias</title>
-<style>
-   #hideMe {
-    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
-    color: red;
-}
-@keyframes cssAnimation {
-    to {
-        width:0;
-        height:0;
-        overflow:hidden;
-    }
-}
-@-webkit-keyframes cssAnimation {
-    to {
-        width:0;
-        height:0;
-        visibility:hidden;
-    }
-}
- #hideMe2 {
-    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
-   color: green;
-}
-@keyframes cssAnimation {
-    to {
-        width:0;
-        height:0;
-        overflow:hidden;
-    }
-}
-@-webkit-keyframes cssAnimation {
-    to {
-        width:0;
-        height:0;
-        visibility:hidden;
-    }
-}
-</style>
+<link rel="stylesheet" href="/css/cadM.css">
 </head>
 <body>
 <form action="/admin/salvarMateria" method="post" th:object=${Materias}>
 <input type="hidden" th:field="*{id}"/>
-	Nome: <input type="text" th:field = *{nome} required><br>
+<h3>Cadastro de Matérias</h3>
+	Nome: <input type="text" th:field = *{nome}><br>
 	
-	Horario: <input type="text" th:field = *{horario} required><br>
+	Horario: <input type="text" th:field = *{horario}><br>
 	
-	Curso: <select name="curso" th:field = *{curso} required>
+	Curso: <select name="curso" th:field = *{curso}>
 			<option th:each = "cat : ${curso}" 
 			th:value = "${cat.id}"
 			th:text = "${cat.nome}" 
 			> </select><br>
-	Periodo: <select name="periodo" th:field = *{periodo} required>
+	Periodo: <select name="periodo" th:field = *{periodo}>
 			<option th:each = "cat : ${periodo}" 
 			th:value = "${cat.id}"
 			th:text = "${cat.periodo}" 
 			></option>
 		</select><br>
-	Professor: <select name="professores" th:field = *{professores} required>
+	Professor: <select name="professores" th:field = *{professores}>
 			<option  th:each = "cat : ${professores}" 
 			th:value = "${cat.id}"
 			th:text = "${cat.nome}" 
 			> </select><br>
 
-	<div id= "hideMe" th:text = '${menssagemE}'  ></div> 
-	<div id= "hideMe2" th:text = '${menssagemS}'  ></div> 
-	<a href ="/admin/listaMateria">ver materias</a>
-		<button type ="submit">Cadastrar</button>
+	 <input type="submit" name="acao" value="Cadastrar">
+	 <p><a href= "/admin/home">Voltar para a home</a></p>
 </form>
 </body>
 </html>

@@ -1,12 +1,228 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8"/>
+<meta charset="UTF-8" />
 <title>gerador</title>
+<link rel="stylesheet"  type="text/css" href="./css/lista.css"/>
+<style type="text/css">
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@800&display;=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito", sans-serif;
+}
+h3{
+    text-align: center;
+  margin: 40px;
+}
+h4{
+    text-align: center;
+  margin: 40px;
+}
+
+
+body{
+    background: linear-gradient(329.54deg, #29B6D1 0%, #00C7C7 100%);
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    min-width: 100vh;
+}
+
+table{
+    width: 80%;
+    height: 30px;
+    border: 1px solid rgb(243, 226, 226);
+    margin: 60px 100px;
+    font-size: 16px;
+    background-color:white;
+    color: black;
+    border-radius: 10px;
+}
+
+
+th{
+    text-align: justify;
+   
+   
+}
+
+td{
+    color:black;
+    background-color: rgb(196, 226, 226);
+    border-radius: 10px;
+    text-align: center;
+}
+
+ p {
+
+   
+   margin: 10px 30px;
+
+   
+}
+
+
+a{
+ color: black;
+    
+}
+
+</style>
 </head>
-  <body>
-    <h3 style="text-align: center; color: green">
-      <span th:text="'olá' + ${to} + '!'"></span>
-    </h3>
-  </body>
+<body>
+	<h3>
+		Historico escolar de <span th:text="${lista.nome}"></span> 
+	</h3>
+	<h3>
+		NOTAS
+	</h3>
+	<h4>
+		Primeiro Periodo
+	</h4>
+	<table>
+		<tr>
+			<th>Nota</th>
+			<th>Matéria</th>
+			 
+			<th></th>
+			
+		</tr>
+		<tr th:each="lista1 : ${lista1}"
+			th:if="${lista1.alunos.id} == ${lista.id}"
+			th:unless=" ${lista1.Periodo.periodo} != ${Primeiro}">
+			<td th:text="${lista1.nota}"></td>
+			<td th:text="${lista1.materias.nome}"></td>
+	
+
+		</tr>
+	</table>
+	<table>
+			<tr>
+			<th>Média geral do periodo</th>
+			</tr>
+			<tr>
+			<td th:text = "${Media1}"></td>
+			</tr>
+			</table>
+	<h4>
+		Segundo Periodo
+	</h4>
+	<table>
+		<tr>
+			<th>Nota</th>
+			<th>Matéria</th>
+			 
+			<th></th>
+			<!--  "-->
+		</tr>
+		<tr th:each="lista1 : ${lista1}"
+			th:if="${lista1.alunos.id} == ${lista.id}"
+			th:unless=" ${lista1.Periodo.periodo} != ${Segundo}">
+			<td th:text="${lista1.nota}"></td>
+			<td th:text="${lista1.materias.nome}"></td>
+	
+
+		</tr>
+	</table>
+	<table>
+			<tr>
+			<th>Média geral do periodo</th>
+			</tr>
+			<tr>
+			<td th:text = "${Media2}"></td>
+			</tr>
+			</table>
+	<h4>
+		Terceiro Periodo
+	</h4>
+	<table>
+		<tr>
+			<th>Nota</th>
+			<th>Matéria</th>
+			 
+		</tr>
+		<tr th:each="lista1 : ${lista1}"
+			th:if="${lista1.alunos.id} == ${lista.id}"
+			th:unless=" ${lista1.Periodo.periodo} != ${Terceiro}">
+			<td th:text="${lista1.nota}"></td>
+			<td th:text="${lista1.materias.nome}"></td>
+	
+		</tr>
+	</table>
+	<table>
+			<tr>
+			<th>Média geral do periodo</th>
+			</tr>
+			<tr>
+			<td th:text = "${Media3}"></td>
+			</tr>
+			</table>
+			<table>
+			<tr>
+			<th>Média geral do curso</th>
+			</tr>
+			<tr>
+			<td th:text = "${Media}"></td>
+			</tr>
+			</table>
+	<h3>
+		FALTAS
+	</h3>
+	<h4>
+		Primeiro Periodo
+	</h4>
+	<table>
+		<tr>
+			<th>Faltas</th>
+			<th>Matéria</th>
+			 
+			<th></th>
+		</tr>
+		<tr th:each="lista2 : ${lista2}"
+			th:if="${lista2.alunos.id} == ${lista.id}" th:unless=" ${lista2.Periodo.periodo} != ${Primeiro}">
+			<td th:text="${lista2.faltas}"></td>
+			<td th:text="${lista2.materias.nome}"></td>
+
+
+		</tr>
+	</table>
+	<h4>
+		Segundo Periodo
+	</h4>
+	<table>
+		<tr>
+			<th>Faltas</th>
+			<th>Matéria</th>
+			 
+			<th></th>
+		</tr>
+		<tr th:each="lista2 : ${lista2}"
+			th:if="${lista2.alunos.id} == ${lista.id}" th:unless=" ${lista2.Periodo.periodo} != ${Segundo}">
+			<td th:text="${lista2.faltas}"></td>
+			<td th:text="${lista2.materias.nome}"></td>
+	
+
+		</tr>
+	</table>
+	<h4>
+		Terceiro Periodo
+	</h4>
+	<table>
+		<tr>
+			<th>Faltas</th>
+			<th>Matéria</th>
+			 
+			<th></th>
+		</tr>
+		<tr th:each="lista2 : ${lista2}"
+			th:if="${lista2.alunos.id} == ${lista.id}"th:unless=" ${lista2.Periodo.periodo} != ${Terceiro}">
+			<td th:text="${lista2.faltas}"></td>
+			<td th:text="${lista2.materias.nome}"></td>
+
+
+		</tr>
+	</table>
+</body>
 </html>

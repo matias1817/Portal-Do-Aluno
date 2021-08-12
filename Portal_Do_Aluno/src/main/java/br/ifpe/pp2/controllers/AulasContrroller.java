@@ -1,6 +1,9 @@
 package br.ifpe.pp2.controllers;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Iterator;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -64,7 +67,9 @@ public class AulasContrroller {
 	}
 	@GetMapping("/aluno/materiais")
 	public String materias(Model model) {
-		model.addAttribute("lista", this.aulasDAO.findAll());
+		
+		
+		model.addAttribute("lista", this.aulasDAO.findAll() );
 		model.addAttribute("materias", this.materiasDAO.findAll());
 		return "materias";
 }

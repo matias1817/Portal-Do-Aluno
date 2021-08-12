@@ -2,6 +2,10 @@
 <html xnlns:th="www.thymelaef.org">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link rel="stylesheet" href="/css/listaF.css">
 <style>
    #hideMe {
     color: green;
@@ -25,12 +29,13 @@
 </style>
 <title>Lista de Frequencias</title>
 </head>
-<body>
+<body><br>
+
 <form action="/professor/filtrarFrequencia" method="post">
 
-	Nome: <input type="text"  name = "nome" ><br>
+<h4>Nome: </h4><input type="text"  name = "nome" >
 			
-	Materia: <select name="materia" >
+<h4>Matéria:</h4> <select name="materia" >
 			<option value = ""></option>
 			<option th:each = "cat : ${materias}" 
 			th:value = "${cat.id}"
@@ -38,21 +43,24 @@
 		
 			> </select><br>
 
-	Periodo: <select name="periodo" >
+		<h4>Período:</h4> <select name="periodo" >
 		<option value = ""></option>
 			<option th:each = "cat : ${periodo}" 
 			th:value = "${cat.id}"
 			th:text = "${cat.periodo}" 
 			></option>
 		</select>
-		<button type ="submit">Filtrar</button>
+		<input type ="submit" value="Filtrar">
 </form>
+<p><a href="/professor/home">Voltar para a Home</a></p>
+	
+<h3>Frequências</h3>
 	<table>
 	<tr>
 	<th>Aluno</th>
 	<th>Faltas</th>
 	<th>Matéria</th>
-	<th>Periodo</th>
+	<th>Período</th>
 	<th></th>
 	</tr>
 		<tr th:each="freq : ${lista}" th:if="${freq.materias.professores.id} == ${session.professorLogado.id}">
@@ -61,14 +69,15 @@
 				<td th:text="${freq.materias.nome}"></td>
 				<td th:text="${freq.Periodo.periodo}"></td>
 				<td>
-				<a th:href="|/professor/cadFrequencia?id=${freq.id}|">Editar</a
+
+				<a th:href="|/professor/cadFrequencia?id=${freq.id}|"><h5>Editar</h5></a
 				>
-				<a th:href="|/professor/excluirFrequencia?id=${freq.id}|">Excluir</a>
+				
 		</td>
+		<td><a th:href="|/professor/excluirFrequencia?id=${freq.id}|"><h5>Excluir</h5></a></td>
 	</tr>
 	</table>
 	<div id= "hideMe" th:text = '${menssagemS}' ></div> 
-	<a href="/professor/home">Voltar para a Home</a>
-	
+
 </body>
 </html>

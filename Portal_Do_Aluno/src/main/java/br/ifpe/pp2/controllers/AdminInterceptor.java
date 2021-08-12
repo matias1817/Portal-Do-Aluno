@@ -4,13 +4,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 @SuppressWarnings("deprecation")
 public class AdminInterceptor extends HandlerInterceptorAdapter {
+	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 		throws Exception {
+		
 		if(request.getSession().getAttribute("adminLogado") == null) {
 			request.getRequestDispatcher("/acessoNegado").forward(request, response);
 			return false;
@@ -24,4 +27,5 @@ public class AdminInterceptor extends HandlerInterceptorAdapter {
 			ModelAndView modelAndView) throws Exception {
 		super.postHandle(request, response, handler, modelAndView);
 	}
+
 }
