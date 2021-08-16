@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Filtro Nota</title>
 <link rel="stylesheet" href="/css/listaF.css">
+<link rel="stylesheet" href="/css/msg.css">
 </head>
 <body><br>
 <form action="/professor/filtrarAvaliacao" method="post">
@@ -50,8 +51,8 @@
 		<td>	<a th:href="|/professor/excluirAvaliacao?id=${ava.id}|">Excluir</a></td>
 	</tr>
 	</table>
-	<div id= "hideMe" th:text = '${menssagemS}' ></div> 
 	
+	<div id= "hideMe2" th:text = '${menssagemS}' th:unless="${menssagemS} == null"  ></div> 
 
 
 </body>

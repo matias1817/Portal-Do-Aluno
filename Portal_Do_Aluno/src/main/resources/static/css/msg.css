@@ -1,0 +1,73 @@
+#hideMe {
+    
+    -webkit-animation: cssAnimation  5s ease forwards; animation-delay: 3s;
+    min-width: 250px;
+  margin-left: -125px; 
+  background-color: #e61919; 
+  color: #fff; 
+  text-align: center; 
+  border-radius: 2px; 
+  padding: 6px; 
+  position: fixed; 
+  left: 50%; 
+  bottom: 30px; 
+   
+}
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@keyframes cssAnimation {
+	
+	 50% {opacity: 1;}
+    100% { opacity: 0;}
+    
+    }
+
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+
+#hideMe2 {
+    
+    -webkit-animation: cssAnimation1  5s ease forwards; animation-delay: 3s;
+    min-width: 250px;
+  margin-left: -125px; 
+  background-color: green; 
+  color: #fff; 
+  text-align: center; 
+  border-radius: 2px; 
+  padding: 6px; 
+  position: fixed; 
+  left: 50%; 
+  bottom: 30px; 
+   
+}
+@keyframes cssAnimation1 {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@keyframes cssAnimation1 {
+	
+	 50% {opacity: 1;}
+    100% { opacity: 0;}
+    
+    }
+
+@-webkit-keyframes cssAnimation1 {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}

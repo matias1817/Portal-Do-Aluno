@@ -11,21 +11,21 @@
 	  
         <h3>Cadastro do aluno</h3>
          <input type="hidden" th:field="*{id}"/>
-        <input type="text" th:field = *{nome} placeholder="Nome">
-        <input type="text"  th:field = *{matricula} placeholder="Matricula">
-        Curso: <select name="curso">
+        <input type="text" th:field = *{nome} placeholder="Nome" required>
+        <input type="text"  th:field = *{matricula} placeholder="Matricula" required>
+        Curso: <select name="curso" required>
 		<option th:each = "cat : ${curso}" 
 		th:value = "${cat.id}"
 		th:text = "${cat.nome}" 
 		>
 		</select>
-        <input type="text" th:field = *{sexo} placeholder="Sexo">
-       <input type="text" th:field = *{cpf} placeholder="CPF">
-       <input type="text" th:field = *{rg} placeholder="RG">
-       <input type="text" th:field = *{nomePais} placeholder="Nome dos pais">
-       <input type="text" th:field = *{telefone} placeholder="Telefone">
-       <input type="text" th:field = *{email} placeholder="E-mail">
-        <input type="password" th:field = *{senha} placeholder="Senha">
+        <input type="text" th:field = *{sexo} placeholder="Sexo" required>
+       <input type="text" th:field = *{cpf} placeholder="CPF" required>
+       <input type="text" th:field = *{rg} placeholder="RG"required>
+       <input type="text" th:field = *{nomePais} placeholder="Nome dos pais" required>
+       <input type="text" th:field = *{telefone} placeholder="Telefone" required>
+       <input type="text" th:field = *{email} placeholder="E-mail" required>
+        <input type="password" th:field = *{senha} placeholder="Senha" required>
         <input type="submit" value="Cadastrar" >
     </form>
 </body>

@@ -9,10 +9,11 @@
 <form action="/admin/salvarCurso" method="post" th:object=${Curso}>
 <input type="hidden" th:field="*{id}"/>
 <h3> Cadastro de Curso</h3>
-Nome do curso: <input type="text" th:field = *{nome}><br>
-Duração do curso: <input type="text" th:field = *{duracao}><br>
+Nome do curso: <input type="text" th:field = *{nome} required><br>
+Duração do curso: <input type="text" th:field = *{duracao} required><br>
 		<input type="submit" name="acao" value="Cadastrar">
 	<p><a href= "/admin/home">Voltar para a home</a></p>
+	<p><a href= "/listaCurso">Ver cursos</a></p>
 </form>
 </body>
 </html>

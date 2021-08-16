@@ -3,224 +3,221 @@
 <head>
 <meta charset="UTF-8" />
 <title>gerador</title>
-<link rel="stylesheet"  type="text/css" href="./css/lista.css"/>
+<link rel="stylesheet" type="text/css" href="./css/lista.css" />
 <style type="text/css">
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@800&display;=swap');
+@import
+	url('https://fonts.googleapis.com/css2?family=Nunito:wght@800&display;=swap')
+	;
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Nunito", sans-serif;
-}
-h3{
-    text-align: center;
-  margin: 40px;
-}
-h4{
-    text-align: center;
-  margin: 40px;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Nunito", sans-serif;
 }
 
-
-body{
-    background: linear-gradient(329.54deg, #29B6D1 0%, #00C7C7 100%);
-    background-repeat: no-repeat;
-    min-height: 100vh;
-    min-width: 100vh;
+h3 {
+	text-align: center;
+	margin: 40px;
 }
 
-table{
-    width: 80%;
-    height: 30px;
-    border: 1px solid rgb(243, 226, 226);
-    margin: 60px 100px;
-    font-size: 16px;
-    background-color:white;
-    color: black;
-    border-radius: 10px;
+h4 {
+	text-align: center;
+	margin: 40px;
 }
 
-
-th{
-    text-align: justify;
-   
-   
+body {
+	background: linear-gradient(329.54deg, #29B6D1 0%, #00C7C7 100%);
+	background-repeat: no-repeat;
+	min-height: 100vh;
+	min-width: 100vh;
 }
 
-td{
-    color:black;
-    background-color: rgb(196, 226, 226);
-    border-radius: 10px;
-    text-align: center;
+table {
+	width: 80%;
+	height: 30px;
+	border: 1px solid rgb(243, 226, 226);
+	margin: 60px 100px;
+	font-size: 16px;
+	background-color: white;
+	color: black;
+	border-radius: 10px;
 }
 
- p {
-
-   
-   margin: 10px 30px;
-
-   
+th {
+	text-align: justify;
 }
 
-
-a{
- color: black;
-    
+td {
+	color: black;
+	background-color: rgb(196, 226, 226);
+	border-radius: 10px;
+	text-align: center;
 }
 
+p {
+	margin: 10px 30px;
+}
+
+a {
+	color: black;
+}
 </style>
 </head>
 <body>
-	<h3>
-		Historico escolar de <span th:text="${lista.nome}"></span> 
-	</h3>
-	<h3>
-		NOTAS
-	</h3>
-	<h4>
-		Primeiro Periodo
-	</h4>
+	<h3>Historico escolar</h3>
+	<h4>Dados do discente</h4>
 	<table>
 		<tr>
+			<th>Nome</th>
+			<th>Matricula</th>
+			<th>Curso</th>
+			<th>Nome da mãe/pai</th>
+
+		</tr>
+		<tr th:each="aluno : ${lista}">
+			<td th:text="${aluno.nome}">s</td>
+			<td th:text="${aluno.matricula}"></td>
+			<td th:text="${aluno.curso.nome}"></td>
+			<td th:text="${aluno.nomePais}"></td>
+
+		</tr>
+	</table>
+
+
+	<h3>NOTAS</h3>
+	<table>
+		<tr>
+			<th>Média geral do curso</th>
+		</tr>
+		<tr>
+			<td th:text="${Media}"></td>
+		</tr>
+	</table>
+	<h4>Primeiro Periodo</h4>
+	<table>
+		<tr>
+			<th>Disciplina</th>
 			<th>Nota</th>
-			<th>Matéria</th>
-			 
+
+
 			<th></th>
-			
+
 		</tr>
 		<tr th:each="lista1 : ${lista1}"
 			th:if="${lista1.alunos.id} == ${lista.id}"
 			th:unless=" ${lista1.Periodo.periodo} != ${Primeiro}">
-			<td th:text="${lista1.nota}"></td>
 			<td th:text="${lista1.materias.nome}"></td>
-	
-
+			<td th:text="${lista1.nota}"></td>
 		</tr>
 	</table>
 	<table>
-			<tr>
+		<tr>
 			<th>Média geral do periodo</th>
-			</tr>
-			<tr>
-			<td th:text = "${Media1}"></td>
-			</tr>
-			</table>
-	<h4>
-		Segundo Periodo
-	</h4>
+		</tr>
+		<tr>
+			<td th:text="${Media1}"></td>
+		</tr>
+	</table>
+	<h4>Segundo Periodo</h4>
 	<table>
 		<tr>
+			<th>Disciplina</th>
 			<th>Nota</th>
-			<th>Matéria</th>
-			 
+
 			<th></th>
 			<!--  "-->
 		</tr>
 		<tr th:each="lista1 : ${lista1}"
 			th:if="${lista1.alunos.id} == ${lista.id}"
 			th:unless=" ${lista1.Periodo.periodo} != ${Segundo}">
-			<td th:text="${lista1.nota}"></td>
+
 			<td th:text="${lista1.materias.nome}"></td>
-	
+			<td th:text="${lista1.nota}"></td>
 
 		</tr>
 	</table>
 	<table>
-			<tr>
+		<tr>
 			<th>Média geral do periodo</th>
-			</tr>
-			<tr>
-			<td th:text = "${Media2}"></td>
-			</tr>
-			</table>
-	<h4>
-		Terceiro Periodo
-	</h4>
+		</tr>
+		<tr>
+			<td th:text="${Media2}"></td>
+		</tr>
+	</table>
+	<h4>Terceiro Periodo</h4>
 	<table>
 		<tr>
+			<th>Disciplina</th>
 			<th>Nota</th>
-			<th>Matéria</th>
-			 
+
 		</tr>
 		<tr th:each="lista1 : ${lista1}"
 			th:if="${lista1.alunos.id} == ${lista.id}"
 			th:unless=" ${lista1.Periodo.periodo} != ${Terceiro}">
-			<td th:text="${lista1.nota}"></td>
+
 			<td th:text="${lista1.materias.nome}"></td>
-	
+			<td th:text="${lista1.nota}"></td>
 		</tr>
 	</table>
 	<table>
-			<tr>
+		<tr>
 			<th>Média geral do periodo</th>
-			</tr>
-			<tr>
-			<td th:text = "${Media3}"></td>
-			</tr>
-			</table>
-			<table>
-			<tr>
-			<th>Média geral do curso</th>
-			</tr>
-			<tr>
-			<td th:text = "${Media}"></td>
-			</tr>
-			</table>
-	<h3>
-		FALTAS
-	</h3>
-	<h4>
-		Primeiro Periodo
-	</h4>
+		</tr>
+		<tr>
+			<td th:text="${Media3}"></td>
+		</tr>
+	</table>
+
+	<h3>FALTAS</h3>
+	<h4>Primeiro Periodo</h4>
 	<table>
 		<tr>
+			<th>Disciplina</th>
 			<th>Faltas</th>
-			<th>Matéria</th>
-			 
+
 			<th></th>
 		</tr>
 		<tr th:each="lista2 : ${lista2}"
-			th:if="${lista2.alunos.id} == ${lista.id}" th:unless=" ${lista2.Periodo.periodo} != ${Primeiro}">
-			<td th:text="${lista2.faltas}"></td>
-			<td th:text="${lista2.materias.nome}"></td>
+			th:if="${lista2.alunos.id} == ${lista.id}"
+			th:unless=" ${lista2.Periodo.periodo} != ${Primeiro}">
 
+			<td th:text="${lista2.materias.nome}"></td>
+			<td th:text="${lista2.faltas}"></td>
 
 		</tr>
 	</table>
-	<h4>
-		Segundo Periodo
-	</h4>
+	<h4>Segundo Periodo</h4>
 	<table>
 		<tr>
+			<th>Disciplina</th>
 			<th>Faltas</th>
-			<th>Matéria</th>
-			 
+
 			<th></th>
 		</tr>
 		<tr th:each="lista2 : ${lista2}"
-			th:if="${lista2.alunos.id} == ${lista.id}" th:unless=" ${lista2.Periodo.periodo} != ${Segundo}">
-			<td th:text="${lista2.faltas}"></td>
+			th:if="${lista2.alunos.id} == ${lista.id}"
+			th:unless=" ${lista2.Periodo.periodo} != ${Segundo}">
+
 			<td th:text="${lista2.materias.nome}"></td>
-	
+			<td th:text="${lista2.faltas}"></td>
 
 		</tr>
 	</table>
-	<h4>
-		Terceiro Periodo
-	</h4>
+	<h4>Terceiro Periodo</h4>
 	<table>
 		<tr>
+			<th>Disciplina</th>
 			<th>Faltas</th>
-			<th>Matéria</th>
-			 
+
 			<th></th>
 		</tr>
 		<tr th:each="lista2 : ${lista2}"
-			th:if="${lista2.alunos.id} == ${lista.id}"th:unless=" ${lista2.Periodo.periodo} != ${Terceiro}">
-			<td th:text="${lista2.faltas}"></td>
-			<td th:text="${lista2.materias.nome}"></td>
+			th:if="${lista2.alunos.id} == ${lista.id}"
+			th:unless=" ${lista2.Periodo.periodo} != ${Terceiro}">
 
+			<td th:text="${lista2.materias.nome}"></td>
+			<td th:text="${lista2.faltas}"></td>
 
 		</tr>
 	</table>

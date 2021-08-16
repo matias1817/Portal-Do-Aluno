@@ -3,27 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/css/lista.css">
-<style>
-   #hideMe {
-    
-    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
-   color: green;
-}
-@keyframes cssAnimation {
-    to {
-        width:0;
-        height:0;
-        overflow:hidden;
-    }
-}
-@-webkit-keyframes cssAnimation {
-    to {
-        width:0;
-        height:0;
-        visibility:hidden;
-    }
-}
-</style>
+<link rel="stylesheet" href="/css/msg.css">
 <title>Horario do discente</title>
 </head>
 <body>
@@ -41,7 +21,8 @@
 				<td th:text="${mate.horario}"  ></td>
 	</tr>
 	</table>
-	<div id= "hideMe" th:text = '${menssagemS}' ></div> 
+	<div id= "hideMe" th:text = '${menssagemE}' th:unless="${menssagemE} == null" ></div> 
+	<div id= "hideMe2" th:text = '${menssagemS}' th:unless="${menssagemS} == null"  ></div> 
 	
 </body>
 </html>

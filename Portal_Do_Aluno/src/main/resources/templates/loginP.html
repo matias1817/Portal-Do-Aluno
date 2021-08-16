@@ -6,46 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/login.css">
     <title>Login do professor</title>
-<style>
-   #hideMe {
-   color: red;
-    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
-   
-}
-@keyframes cssAnimation {
-    to {
-        width:0;
-        height:0;
-        overflow:hidden;
-    }
-}
-@-webkit-keyframes cssAnimation {
-    to {
-        width:0;
-        height:0;
-        visibility:hidden;
-    }
-}
- #hideMe2 {
-   color: green;
-    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
-   
-}
-@keyframes cssAnimation {
-    to {
-        width:0;
-        height:0;
-        overflow:hidden;
-    }
-}
-@-webkit-keyframes cssAnimation {
-    to {
-        width:0;
-        height:0;
-        visibility:hidden;
-    }
-}
-</style>
+<link rel="stylesheet" href="/css/msg.css">
 <title>login de Professor</title>
 </head>
 <body>
@@ -56,8 +17,8 @@
         <input type="password" name="senha" placeholder="Sua senha">
         <input type="submit" name="acao" value="Entrar" >
         <p><a href= "/PortalDoAluno">Voltar</a></p>
-        <div id= "hideMe" th:text = '${menssagemE}'  ></div> 
-<div id= "hideMe2" th:text = '${menssagemS}'  ></div> 
     </form>
+    <div id= "hideMe" th:text = '${menssagemE}' th:unless="${menssagemE} == null" ></div> 
+	<div id= "hideMe2" th:text = '${menssagemS}' th:unless="${menssagemS} == null"  ></div> 
 </body>
 </html>

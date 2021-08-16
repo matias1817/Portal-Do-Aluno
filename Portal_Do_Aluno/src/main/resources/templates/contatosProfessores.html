@@ -2,27 +2,7 @@
 <html xnlns:th="www.thymelaef.org">
 <head>
 <meta charset="UTF-8">
-<style>
-   #hideMe {
-    
-    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
-   color: green;
-}
-@keyframes cssAnimation {
-    to {
-        width:0;
-        height:0;
-        overflow:hidden;
-    }
-}
-@-webkit-keyframes cssAnimation {
-    to {
-        width:0;
-        height:0;
-        visibility:hidden;
-    }
-}
-</style>
+<link rel="stylesheet" href="/css/msg.css">
 <title>Contatos</title>
 <link rel="stylesheet" href="/css/lista.css">
 </head>
@@ -44,7 +24,6 @@
 				<td th:text="${prof.professores.email}"  ></td>
 	</tr>
 	</table>
-	<div id= "hideMe" th:text = '${menssagemS}' ></div> 
 	
 </body>
 </html>

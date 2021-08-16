@@ -1,65 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="/css/cadPAdmin.css">
-<style>
-   #hideMe {
-    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
-    color: red;
-}
-@keyframes cssAnimation {
-    to {
-        width:0;
-        height:0;
-        overflow:hidden;
-    }
-}
-@-webkit-keyframes cssAnimation {
-    to {
-        width:0;
-        height:0;
-        visibility:hidden;
-    }
-}
- #hideMe2 {
-    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
-   color: green;
-}
-@keyframes cssAnimation {
-    to {
-        width:0;
-        height:0;
-        overflow:hidden;
-    }
-}
-@-webkit-keyframes cssAnimation {
-    to {
-        width:0;
-        height:0;
-        visibility:hidden;
-    }
-}
-</style>
+<link rel="stylesheet" href="/css/cadPAdmin.css">
+<link rel="stylesheet" href="/css/msg.css">
 <meta charset="UTF-8">
 <title>Cadastro de Professores</title>
 </head>
 <body>
-<form action="/admin/salvarProfessores" method="get" th:object=${Professor}>
-<input type="hidden" th:field="*{id}"/>
-<h3>Cadastro de Professores</h3>
-Nome: <input type="text" th:field = *{nome} required><br>
-CPF: <input type="text" th:field = *{cpf} required><br>
-RG: <input type="text" th:field = *{rg} required><br>
-Telefone: <input type="text" th:field = *{telefone} required><br>
-Endereço: <input type="text" th:field = *{endereco} required><br>
-Email: <input type="email" th:field = *{email} required><br>
-Senha: <input type="password" th:field = *{senha} required><br>
-<input type="submit" name="acao" value="Cadastrar">
-<p><a href= "/admin/home">Voltar para a home</a></p>
-	
-		<div id= "hideMe" th:text = '${menssagemE}'  ></div> 
-<div id= "hideMe2" th:text = '${menssagemS}'  ></div> 
-	
+	<form action="/admin/salvarProfessores" method="get"
+		th:object=${Professor}>
+		<input type="hidden" th:field="*{id}" />
+		<h3>Cadastro de Professores</h3>
+		Nome: <input type="text" th:field=*{nome} required><br>
+		CPF: <input type="text" th:field=*{cpf} required><br> RG:
+		<input type="text" th:field=*{rg} required><br> Telefone:
+		<input type="text" th:field=*{telefone} required><br>
+		Endereço: <input type="text" th:field=*{endereco} required><br>
+		Email: <input type="email" th:field=*{email} required><br>
+		Senha: <input type="password" th:field=*{senha} required><br>
+		<input type="submit" name="acao" value="Cadastrar">
+		<p>
+			<a href="/admin/home">Voltar para a home</a>
+		</p>
+
+		<div id="hideMe" th:text='${menssagemE}'
+			th:unless="${menssagemE} == null"></div>
+		<div id="hideMe2" th:text='${menssagemS}'
+			th:unless="${menssagemS} == null"></div>
+
 	</form>
 </body>
 </html>

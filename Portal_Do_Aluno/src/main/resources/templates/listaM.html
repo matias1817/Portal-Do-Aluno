@@ -3,27 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Lista de Materias</title>
-<style>
-   #hideMe {
-    color: green;
-    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
-   
-}
-@keyframes cssAnimation {
-    to {
-        width:0;
-        height:0;
-        overflow:hidden;
-    }
-}
-@-webkit-keyframes cssAnimation {
-    to {
-        width:0;
-        height:0;
-        visibility:hidden;
-    }
-}
-</style>
+<link rel="stylesheet" href="/css/msg.css">
 <link rel="stylesheet" href="/css/lista.css">
 </head>
 <body>
@@ -53,7 +33,8 @@
 		<td><a th:href="|/admin/excluirMaterias?id=${materia.id}|">Excluir</a></td>
 	</tr>
 	</table>
-	<div id= "hideMe" th:text = '${menssagemS}' ></div> 
+	<div id= "hideMe" th:text = '${menssagemE}' th:unless="${menssagemE} == null" ></div> 
+	<div id= "hideMe2" th:text = '${menssagemS}' th:unless="${menssagemS} == null"  ></div> 
 	
 </body>
 </html>
