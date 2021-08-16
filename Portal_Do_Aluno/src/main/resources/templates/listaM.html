@@ -19,7 +19,7 @@
 	<th>Periodo</th>
 	<th>Professores</th>
 	</tr>
-		<tr th:each="materia : ${lista}" th:if = "${materia.professores.id} == ${session.professorLogado.id}">
+		<tr th:each="materia : ${lista}" >
 				<td th:text="${materia.nome}"></td>
 				<td th:text="${materia.horario}"></td>
 				<td th:text="${materia.Curso.nome}"></td>

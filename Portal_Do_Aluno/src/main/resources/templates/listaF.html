@@ -20,7 +20,7 @@
 			<option th:each = "cat : ${materias}" 
 			th:value = "${cat.id}"
 			th:text = "${cat.nome}"
-		
+			th:if="${cat.professores.id} == ${session.professorLogado.id}"
 			> </select><br>
 
 		<h4>Período:</h4> <select name="periodo" >

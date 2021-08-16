@@ -87,10 +87,11 @@ public class ProfessorController {
 			ra.addFlashAttribute("menssagemE", "Professor existente");
 			return "redirect:/cadP";
 			
+			
 		} else {
 		this.professorDAO.save(professores);
 		ra.addFlashAttribute("menssagemS", "usuário editado com sucesso");
-		return "redirect:/loginProf";
+		return "redirect:/professor/home";
 		}
 	}
 	@GetMapping("/admin/salvarProfessores")

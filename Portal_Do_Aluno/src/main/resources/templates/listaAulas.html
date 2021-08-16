@@ -21,6 +21,7 @@
 			<option th:each = "cat : ${materias}" 
 			th:value = "${cat.id}"
 			th:text = "${cat.nome}"
+			th:if="${cat.professores.id} == ${session.professorLogado.id}"
 			> </select><br>
 		<input type ="submit" value="Filtrar">
 </form>

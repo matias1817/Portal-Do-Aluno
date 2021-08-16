@@ -68,6 +68,7 @@ public class AlunoController {
 		if (adminDAO.findAll().isEmpty()) {
 			adminDAO.save(admin);
 		}
+
 		return "Portal";
 	}
 
@@ -119,7 +120,7 @@ public class AlunoController {
 	}
 
 	@PostMapping("/salvarAluno")
-	public String salvarAluno(Alunos alunos, RedirectAttributes ra) {
+	public String salvarAluno(Alunos alunos, RedirectAttributes ra, HttpSession session) {
 		if (alunoDAO.findBycpf(alunos.getCpf()) != null && alunos.getId() == null) {
 			ra.addFlashAttribute("menssagemE", "Aluno existente");
 			return "redirect:/cad";
@@ -127,7 +128,13 @@ public class AlunoController {
 		} else {
 			this.alunoDAO.save(alunos);
 			ra.addFlashAttribute("menssagemS", "usuário salvo com sucesso");
-			return "redirect:/loginAluno";
+			Alunos alunoLogado = (Alunos) session.getAttribute("alunoLogado");
+			if (alunoLogado != null ) {
+				ra.addFlashAttribute("menssagemS", "usuário editado com sucesso");
+				return "redirect:/aluno/home";
+			} else {
+			return "redirect:/PortalDoAluno";
+			}
 		}
 	}
 

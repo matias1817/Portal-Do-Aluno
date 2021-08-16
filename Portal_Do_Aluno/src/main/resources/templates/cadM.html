@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Cadastro de Matérias</title>
 <link rel="stylesheet" href="/css/cadM.css">
+<link rel="stylesheet" href="/css/msg.css">
 </head>
 <body>
 <form action="/admin/salvarMateria" method="post" th:object=${Materias}>
@@ -32,6 +33,9 @@
 
 	 <input type="submit" name="acao" value="Cadastrar">
 	 <p><a href= "/admin/home">Voltar para a home</a></p>
+	 <p><a href= "/admin/listaMateria">Ver Materias</a></p>
 </form>
+<div id= "hideMe" th:text = '${menssagemE}' th:unless="${menssagemE} == null" ></div> 
+	<div id= "hideMe2" th:text = '${menssagemS}' th:unless="${menssagemS} == null"  ></div> 
 </body>
 </html>
