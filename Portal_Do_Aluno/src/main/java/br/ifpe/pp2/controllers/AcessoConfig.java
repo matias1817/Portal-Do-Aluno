@@ -17,7 +17,7 @@ public class AcessoConfig  implements WebMvcConfigurer{
 		registry.addInterceptor(new ProfessorInterceptor())
 		.addPathPatterns(new String[]{"/professor", "/professor/*"}).excludePathPatterns("/**/*.png", "/**/*.css");
 		registry.addInterceptor(new AdminInterceptor())
-		.addPathPatterns(new String[]{"/admin", "/admin/*"}).excludePathPatterns("/**/*.png", "/**/*.css");
+		.addPathPatterns(new String[]{"/admin", "/admin/*"});
 		
 
 	}

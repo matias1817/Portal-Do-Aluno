@@ -8,35 +8,83 @@
 <title>Home do Aluno</title>
 </head>
 <body>
-
- <nav>
-       <div class="logo">
-           <h1>Menu do aluno</h1>
+<nav>
+    <h1>Menu do aluno</h1>
+    <br>
+   <h4>Olá <span  th:text = ' ${session.alunoLogado.nome} ' ></span> !</h4>
+  
+<main class="cards">
+   <section class="card">
+       <div class="icon">
+        <img src="/icons/books.png" alt="Boletim">
        </div>
-           
-       <ul> 
-           <li><a href="/aluno/minhasNotas" title="Boletim"><img src="../icons/books.png" alt="Boletim"></a></li>
-           <li><a href="/aluno/meusHorarios" title="Horários"><img src="../icons/clock.png" alt=""></a></li>
-           <li> <a href="/aluno/listaAluno" title="Alteração de dados cadastrais"><img src="../icons/edit.png" alt=""></a></li>
-           <li><a href="/aluno/minhaFrequencia" title="Frequência"><img src="../icons/calendar.png" alt=""></a></li>
-           <li ><a href="/aluno/materiais" title="Links para materiais de apoio"><img src="../icons/links.png" alt=""></a></li>
-           <li><a href="/aluno/contatosProfessores" title="Contatos dos docentes"><img src="../icons/email.png" alt=""></a></li>
-       </ul>
-   </nav>
-  <br><br>
-  <h4>Olá <span  th:text = ' ${session.alunoLogado.nome} ' ></span> !</h4>
-  <div>
-   <p><img src="../icons/books.png" alt=""><a href="/aluno/minhasNotas">Boletim</a></p>
-   <p><img src="../icons/clock.png" alt=""><a href="/aluno/meusHorarios">Horários</a></p>
-   <p><img src="../icons/edit.png" alt=""><a href="/aluno/listaAluno">Alteração de dados cadastrais</a></p>
-   <p><img src="../icons/calendar.png" alt=""><a href="/aluno/minhaFrequencia">Frequência</a></p>
-   <p><img src="../icons/pdf.png" alt=""><a href="/aluno/historico">Gerar meu historico escolar</a></p>
-   <p><img src="../icons/links.png" alt=""><a href="/aluno/materiais">Links para materiais de apoio</a></p>
-   <p><img src="../icons/email.png" alt=""><a href="/aluno/contatosProfessores">Contato dos docentes</a></p>
-   <p><img src="../icons/sair.png" alt=""><a href="/sair">Sair</a></p>
+      <h3>Boletim</h3>
+      <button><a href="/aluno/minhasNotas">Acessar</a></button>
+   </section>
 
-</div>
+   <section class="card">
+       <div class="icon">
+        <img src="/icons/clock.png" alt="Horários">
+       </div>
+      <h3>Horários</h3>
+      <button><a href="/aluno/meusHorarios">Acessar</a></button>
+   </section>
 
+   <section class="card">
+       <div class="icon">
+        <img src="/icons/calendar.png" alt="Frequencia">
+       </div>
+      
+        <h3>Frequência</h3>
+        <button><a href="/aluno/minhaFrequencia">Acessar</a></button>
+   </section>
+
+   <section class="card">
+       <div class="icon">
+        <img src="/icons/edit.png" alt="Alteração de dados">
+       </div>
+          
+           <h3>Alteração de dados cadastrais</h3>
+           <button><a href="/aluno/listaAluno">Editar</a></button>
+   </section>
+
+   <section class="card">
+       <div class="icon">
+        <img src="/icons/pdf.png" alt="Gerar histórico escolar">
+       </div>
+         
+          <h3>Gerar histórico escolar</h3>
+          <button ><a href="/aluno/historico">Gerar</a></button>
+   </section>
+
+   <section class="card">
+    <div class="icon">
+     <img src="/icons/links.png" alt="material de apoio">
+    </div>
+      
+       <h3>Material de apoio</h3>
+       <button ><a href="/aluno/materiais">Acessar</a></button>
+</section>
+
+<section class="card">
+    <div class="icon">
+     <img src="/icons/email.png" alt="Contato dos docentes">
+    </div>
+      
+       <h3>Contatos dos docentes</h3>
+       <button ><a href="/aluno/materiais">Acessar</a></button>
+</section>
+
+<section class="card">
+    <div class="icon">
+     <img src="/icons/sair.png" alt="Sair">
+    </div>
+      
+       <h3>Deixar a página</h3>
+       <button ><a href="/sair">Sair</a></button>
+</section>
+
+</main>
 <div id= "hideMe" th:text = '${menssagemE}' th:unless="${menssagemE} == null" ></div> 
 	<div id= "hideMe2" th:text = '${menssagemS}' th:unless="${menssagemS} == null"  ></div> 
 </body>

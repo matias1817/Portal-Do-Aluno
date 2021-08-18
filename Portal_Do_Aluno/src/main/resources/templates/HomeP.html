@@ -9,32 +9,76 @@
 </head>
 <body>
  <nav>
-       <div class="logo">
-           <h1>Menu do professor</h1>
-       </div>
-   
-       <ul> 
-           <li><a href="/listaMateria" title="Disciplinas"><img src="../icons/books.png" alt="Boletim"></a></li>
-            <li><a href="/listaProfessor" title="Alteração de dados cadastrais"><img src="../icons/edit.png" alt="Boletim"></a></li>
-            <li> <a href="/professor/cadAvaliacao" title="Lançar notas dos alunos"><img src="../icons/notebook.png" alt=""></a></li>
-           <li><a href="/professor/cadFrequencia" title="Frequência"><img src="../icons/calendar.png" alt=""></a></li>
-           <li ><a href="/professor/cadAulas" title="Links para materiais de apoio"><img src="../icons/links.png" alt=""></a></li>
-           <li><a href="/listaInstituicao" title="Contatos da Instituição"><img src="../icons/email.png" alt=""></a></li>
-       </ul>
-   </nav>
-  <br><br>
- 
-  <div>
- <h4>Olá, <span  th:text = ' ${session.professorLogado.nome} ' ></span> !</h4>
-   <p><img src="../icons/books.png" alt=""><a href="/listaMateria">Disciplinas e Horários</a></p>
-   <p><img src="../icons/edit.png" alt=""><a href="/listaProfessor">Alteração de dados cadastrais</a></p>
-   <p><img src="../icons/notebook.png" alt=""><a href="/professor/cadAvaliacao">Lançar notas dos alunos</a></p>
-   <p><img src="../icons/calendar.png" alt=""><a href="/professor/cadFrequencia">Cadastrar frequência dos alunos</a></p>
-   <p><img src="../icons/links.png" alt=""><a href="/professor/cadAulas">Links para materiais das aulas</a></p>
-   <p><img src="../icons/email.png" alt=""><a href="/listaInstituicao">Contatos da Instituição</a></p>
-   <p><img src="../icons/sair.png" alt=""><a href="/sair">Sair</a></p>
+        <h2>Menu do Professor</h2>
+        <br>
+           <h4>Olá, <span  th:text = ' ${session.professorLogado.nome} ' ></span></h4>
 
-   </div>
+   
+       
+   <main class="cards">
+    <section class="card">
+        <div class="icon">
+         <img src="/icons/books.png" alt="Disciplinas e horários">
+        </div>
+       <h3>Disciplinas e Horários</h3>
+       <button><a href="/listaMateria">Acessar</a></button>
+    </section>
+ 
+    <section class="card">
+        <div class="icon">
+         <img src="/icons/edit.png" alt="Alteração de dados cadastrais">
+        </div>
+       <h3>Alteração de dados cadastrais</h3>
+       <button><a href="/listaProfessor">Editar</a></button>
+    </section>
+ 
+    <section class="card">
+        <div class="icon">
+         <img src="/icons/notebook.png" alt="Lançar notas dos alunos">
+        </div>
+       
+         <h3>Lançar notas dos alunos</h3>
+         <button><a href="/professor/cadAvaliacao">Acessar</a></button>
+    </section>
+ 
+    <section class="card">
+        <div class="icon">
+         <img src="/icons/calendar.png" alt="Cadastrar frequência dos alunos">
+        </div>
+           
+            <h3>Cadastrar frequência dos alunos</h3>
+            <button><a href="/professor/cadFrequencia">Acessar</a></button>
+    </section>
+ 
+    <section class="card">
+        <div class="icon">
+         <img src="/icons/links.png" alt="Materiais de apoio">
+        </div>
+          
+           <h3>Materiais de apoio</h3>
+           <button ><a href="/professor/cadAulas">Acessar</a></button>
+    </section>
+ 
+    <section class="card">
+     <div class="icon">
+      <img src="/icons/email.png" alt="material de apoio">
+     </div>
+       
+        <h3>Contatos da Instituição</h3>
+        <button ><a href="/listaInstituicao">Acessar</a></button>
+ </section>
+ 
+ <section class="card">
+     <div class="icon">
+      <img src="/icons/sair.png" alt="Sair">
+     </div>
+       
+        <h3>Deixar a página</h3>
+        <button ><a href="/sair">Sair</a></button>
+ </section>
+ 
+ 
+ </main>
 <div id= "hideMe" th:text = '${menssagemE}' th:unless="${menssagemE} == null" ></div> 
 	<div id= "hideMe2" th:text = '${menssagemS}' th:unless="${menssagemS} == null"  ></div> 
   

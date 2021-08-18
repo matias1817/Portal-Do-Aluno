@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Cadastro de Curso</title>
 <link rel="stylesheet" href="/css/cadC.css">
+<link rel="stylesheet" href="/css/msg.css">
 </head>
 <body>
 <form action="/admin/salvarCurso" method="post" th:object=${Curso}>
@@ -15,5 +16,7 @@ Duração do curso: <input type="text" th:field = *{duracao} required><br>
 	<p><a href= "/admin/home">Voltar para a home</a></p>
 	<p><a href= "/listaCurso">Ver cursos</a></p>
 </form>
+<div id= "hideMe" th:text = '${menssagemE}' th:unless="${menssagemE} == null" ></div> 
+	<div id= "hideMe2" th:text = '${menssagemS}' th:unless="${menssagemS} == null"  ></div> 
 </body>
 </html>

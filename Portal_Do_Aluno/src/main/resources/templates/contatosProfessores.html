@@ -24,6 +24,7 @@
 				<td th:text="${prof.professores.email}"  ></td>
 	</tr>
 	</table>
-	
+	<div id= "hideMe" th:text = '${menssagemE}' th:unless="${menssagemE} == null" ></div> 
+	<div id= "hideMe2" th:text = '${menssagemS}' th:unless="${menssagemS} == null"  ></div> 
 </body>
 </html>

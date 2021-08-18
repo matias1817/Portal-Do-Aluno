@@ -8,11 +8,23 @@
 <link rel="stylesheet" href="/css/lista.css">
 </head>
 <body>
-
+	<nav>
+		<div class="logo">
+			<h1>Contatos da Instituição</h1>
+		</div>
+		
+		<ul> 
+			<li><a href="/listaMateria" title="Disciplinas"><img src="../icons/books.png" alt="Boletim"></a></li>
+            <li><a href="/listaProfessor" title="Alteração de dados cadastrais"><img src="../icons/edit.png" alt="Boletim"></a></li>
+            <li> <a href="/professor/cadAvaliacao" title="Lançar notas dos alunos"><img src="../icons/notebook.png" alt=""></a></li>
+           <li><a href="/professor/cadFrequencia" title="Frequência"><img src="../icons/calendar.png" alt=""></a></li>
+           <li ><a href="/professor/cadAulas" title="Links para materiais de apoio"><img src="../icons/links.png" alt=""></a></li>
+           <li><a href="/listaInstituicao" title="Contatos da Instituição"><img src="../icons/email.png" alt=""></a></li>
+			<li><a href="/professor/home" title="Voltar para home"><img src="./icons/sair.png" alt="Voltar para home"></a></li>
+		</ul>
 
 	<br>
-	<p><a href="/admin/home" th:if= "${session.adminLogado}!=null">Voltar para a Home</a></p>
-	<p><a href="/professor/home" th:if= "${session.professorLogado}!=null">Voltar para a Home</a></p>
+
    <h3>Contatos</h3>
 	
 	<table>

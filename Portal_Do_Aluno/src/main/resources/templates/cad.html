@@ -7,7 +7,6 @@
 <title>Cadastro de alunos</title>
 </head>
 <body>
- 
 	<form action="/salvarAluno" method="post" th:object=${Aluno}>
 	  
         <h3>Cadastro do aluno</h3>
@@ -28,6 +27,8 @@
        <input type="text" th:field = *{email} placeholder="E-mail" required>
         <input type="password" th:field = *{senha} placeholder="Senha" required>
         <input type="submit" value="Cadastrar" >
+        <br>
+         <p><a href="/PortalDoAluno">Voltar</a></p> 
     </form>
     <div id= "hideMe" th:text = '${menssagemE}' th:unless="${menssagemE} == null" ></div> 
 	<div id= "hideMe2" th:text = '${menssagemS}' th:unless="${menssagemS} == null"  ></div> 

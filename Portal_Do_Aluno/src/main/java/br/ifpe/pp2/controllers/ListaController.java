@@ -67,6 +67,11 @@ public class ListaController {
 		model.addAttribute("lista", this.instituiçãoDAO.findAll());
 		return "listaI";
 	}
+	@GetMapping("/admin/listaInstituicao")
+	public String exibirListaIA(Model model) {
+		model.addAttribute("lista", this.instituiçãoDAO.findAll());
+		return "listaIA";
+	}
 
 	
 }

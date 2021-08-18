@@ -4,12 +4,11 @@
 <meta charset="UTF-8">
 
 <link rel="stylesheet" href="/css/msg.css">
-<title>Lista dos Cursos</title>
+<title>Lista dos Contatos</title>
 <link rel="stylesheet" href="/css/lista.css">
 </head>
 <body>
-
-<nav>
+	<nav>
 		<div class="logo">
 			<h1>Matérias</h1>
 		</div>
@@ -23,29 +22,25 @@
 			<li><a href="/admin/home" title="Voltar para home"><img src="./icons/sair.png" alt="Voltar para home"></a></li>
 		</ul>
 	</nav>
-	<br>
-	<p><a href="/admin/home">Voltar para a Home</a></p>
-  <h3>Cursos</h3>
+
+   <h3>Contatos</h3>
+	
 	<table>
 	<tr>
-	<th>Nome</th>
-	<th>Duração</th>
+	<th>Telefone</th>
+	<th>Endereço</th>
+	<th>Site</th>
 	</tr>
-		<tr th:each="curso : ${lista}">
-				<td th:text="${curso.nome}"></td>
-				<td th:text="${curso.duracao}"></td>
-				<td>
-					<td>
-						<a th:href="|/admin/cadCurso?id=${curso.id}|">Editar</a>
-					</td>
-				
-				<td><a th:href="|/admin/excluirCurso?id=${curso.id}|">Excluir</a>
-		</td>
+		<tr th:each="insti : ${lista}">
+				<td th:text="${insti.numero}"></td>
+				<td th:text="${insti.endereco}"></td>
+				<td><a th:href = "${insti.site}" target="_blank">site</a></td>
+				<td><a th:href="|/admin/cadInstituicao?id=${insti.id}|" th:if= "${session.adminLogado}!=null">Editar</a></td>
+				<td><a th:href="|/admin/excluirInstituicao?id=${insti.id}|" th:if= "${session.adminLogado}!=null">Excluir</a></td>
 	</tr>
 	</table>
 	<div id= "hideMe" th:text = '${menssagemE}' th:unless="${menssagemE} == null" ></div> 
 	<div id= "hideMe2" th:text = '${menssagemS}' th:unless="${menssagemS} == null"  ></div> 
-
+	<p><a href="/admin/cadInstituicao">Cadastrar um novo contato</a></p>
 </body>
-</html>
 </html>

@@ -8,8 +8,24 @@
 <title>Notas</title>
 </head>
 <body>
-	<br>
-	<p><a href="/aluno/home">Voltar para a Home</a></p>
+	<nav>
+		<div class="logo">
+			<h1>Boletim</h1>
+		</div>
+		
+		<ul> 
+			<li><a href="/aluno/minhasNotas" title="Boletim"><img src="/icons/books.png" alt="Boletim"></a></li>
+			<li><a href="/aluno/meusHorarios" title="Horários"><img src="/icons/clock.png" alt=""></a></li>
+			<li> <a href="/aluno/listaAluno" title="Alteração de dados cadastrais"><img src="/icons/edit.png" alt=""></a></li>
+			<li><a href="/aluno/minhaFrequencia" title="Frequência"><img src="/icons/calendar.png" alt=""></a></li>
+			<li ><a href="/aluno/materiais" title="Links para materiais de apoio"><img src="/icons/links.png" alt=""></a></li>
+			<li><a href="/aluno/historico" title="Gerar histórico escolar"><img src="/icons/pdf.png" alt="Gerar histórico"></a></li>
+			<li><a href="/aluno/contatosProfessores" title="Contatos dos docentes"><img src="/icons/email.png" alt=""></a></li>
+			<li><a href="/aluno/home" title="Voltar para home"><img src="/icons/sair.png" alt="Voltar para home"></a></li>
+		</ul>
+	</nav>
+	
+	
 <h3>Notas do discente <span  th:text = ' ${session.alunoLogado.nome} ' ></span></h3>
 	<table>
 	<tr>

@@ -34,7 +34,7 @@ public class InstituiçãoController {
 		 } else {
 		this.instituiçãoDAO.save(instituição);
 		ra.addFlashAttribute("menssagemS", "Contatos da instituição salvos com sucesso");
-		return "redirect:/listaInstituicao";
+		return "redirect:/admin/listaInstituicao";
 		 }
 	} 
 	
@@ -42,6 +42,6 @@ public class InstituiçãoController {
 	public String excluirFrequencia(Integer id, RedirectAttributes ra) {
 	this.instituiçãoDAO.deleteById(id);
 	ra.addFlashAttribute("menssagemS", "Contatos da instituição deletada com sucesso");
-	return "redirect:/listaInstituicao";
+	return "redirect:/admin/listaInstituicao";
 	}
 }
