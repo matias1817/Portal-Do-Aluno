@@ -42,8 +42,8 @@ public class MateriasController {
 	   
 	@PostMapping("/admin/salvarMateria")
 	public String salvarMateria(Materias materias,  RedirectAttributes ra) {
-		if( ((materiasDAO.findBynome(materias.getNome()) != null ) || (materiasDAO.findByhorario(materias.getHorario()) != null)) && materias.getId() == null) {
-			ra.addFlashAttribute("menssagemE", "materia já existente e/ou materia com o mesmo horario");
+		if( (materiasDAO.findBynome(materias.getNome()) != null ) && materias.getId() == null) {
+			ra.addFlashAttribute("menssagemE", "materia já existente");
 			return "redirect:/admin/cadMateria";
 		} else {
 		this.materiasDAO.save(materias);

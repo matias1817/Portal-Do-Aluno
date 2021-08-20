@@ -60,6 +60,17 @@ form {
     background-color:#3ba2ad;
  }
  
+ form p{
+    text-align: center;
+    margin: 10px 0;
+    color: rgb(68, 64, 64);
+}
+
+p a{
+    color: rgb(32, 29, 29);
+   
+}
+ 
  .curso{
      color: rgb(77, 77, 77);
  }

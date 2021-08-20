@@ -19,12 +19,12 @@
            <li><a href="/admin/cadCurso" title="Cadastrar cursos"><img src="../icons/notebook.png" alt=""></a></li>
            <li> <a href="/admin/cadP" title="Cadastrar Professores"><img src="../icons/teacher.png" alt=""></a></li>
            <li><a href="/admin/cadMateria" title="Cadastrar matérias"><img src="../icons/books.png" alt=""></a></li>
-           <li><a href="/admin/cadInstituição" title="Cadastrar e ou editar Contatos das Instituição"><img src="../icons/email.png" alt=""></a></li>
-			<li><a href="/admin/home" title="Voltar para home"><img src="./icons/sair.png" alt="Voltar para home"></a></li>
+           <li><a href="/admin/cadInstituicao" title="Cadastrar e ou editar Contatos das Instituição"><img src="../icons/email.png" alt=""></a></li>
+			<li><a href="/admin/home" title="Voltar para home"><img src="../icons/sair.png" alt="Voltar para home"></a></li>
 		</ul>
 	</nav>
 	<br>
-	<p><a href="/admin/home">Voltar para a Home</a></p>
+	
   <h3>Cursos</h3>
 	<table>
 	<tr>
@@ -34,7 +34,6 @@
 		<tr th:each="curso : ${lista}">
 				<td th:text="${curso.nome}"></td>
 				<td th:text="${curso.duracao}"></td>
-				<td>
 					<td>
 						<a th:href="|/admin/cadCurso?id=${curso.id}|">Editar</a>
 					</td>

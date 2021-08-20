@@ -91,7 +91,7 @@ a {
 			<th>Média geral do curso</th>
 		</tr>
 		<tr>
-			<td th:text="${Media}"></td>
+			<td th:text="${#numbers.formatDecimal(Media, 0, 'COMMA', 1, 'POINT')}"></td>
 		</tr>
 	</table>
 	<h4>Primeiro Periodo</h4>
@@ -116,7 +116,7 @@ a {
 			<th>Média geral do periodo</th>
 		</tr>
 		<tr>
-			<td th:text="${Media1}"></td>
+			<td th:text="${#numbers.formatDecimal(Media1, 0, 'COMMA', 1, 'POINT')}"></td>
 		</tr>
 	</table>
 	<h4>Segundo Periodo</h4>
@@ -142,7 +142,7 @@ a {
 			<th>Média geral do periodo</th>
 		</tr>
 		<tr>
-			<td th:text="${Media2}"></td>
+			<td th:text="${#numbers.formatDecimal(Media2, 0, 'COMMA', 1, 'POINT')}"></td>
 		</tr>
 	</table>
 	<h4>Terceiro Periodo</h4>
@@ -165,7 +165,7 @@ a {
 			<th>Média geral do periodo</th>
 		</tr>
 		<tr>
-			<td th:text="${Media3}"></td>
+			<td th:text="${#numbers.formatDecimal(Media3, 0, 'COMMA', 1, 'POINT')}"></td>
 		</tr>
 	</table>
 

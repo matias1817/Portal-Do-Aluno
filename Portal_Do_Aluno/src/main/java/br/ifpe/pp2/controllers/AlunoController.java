@@ -68,6 +68,8 @@ public class AlunoController {
 		if (adminDAO.findAll().isEmpty()) {
 			adminDAO.save(admin);
 		}
+		
+		
 
 		return "Portal";
 	}

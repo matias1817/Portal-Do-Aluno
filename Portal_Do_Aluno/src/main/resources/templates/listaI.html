@@ -23,8 +23,8 @@
 			<li><a href="/professor/home" title="Voltar para home"><img src="./icons/sair.png" alt="Voltar para home"></a></li>
 		</ul>
 
-	<br>
 
+</nav>
    <h3>Contatos</h3>
 	
 	<table>
@@ -37,12 +37,9 @@
 				<td th:text="${insti.numero}"></td>
 				<td th:text="${insti.endereco}"></td>
 				<td><a th:href = "${insti.site}" target="_blank">site</a></td>
-				<td><a th:href="|/admin/cadInstituicao?id=${insti.id}|" th:if= "${session.adminLogado}!=null">Editar</a></td>
-				<td><a th:href="|/admin/excluirInstituicao?id=${insti.id}|" th:if= "${session.adminLogado}!=null">Excluir</a></td>
 	</tr>
 	</table>
 	<div id= "hideMe" th:text = '${menssagemE}' th:unless="${menssagemE} == null" ></div> 
 	<div id= "hideMe2" th:text = '${menssagemS}' th:unless="${menssagemS} == null"  ></div> 
-	<p><a href="/admin/cadInstituicao">Cadastrar um novo contato</a></p>
 </body>
 </html>
